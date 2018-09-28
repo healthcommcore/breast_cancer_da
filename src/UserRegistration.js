@@ -13,7 +13,25 @@ class UserRegistration extends Component {
     };
   }
 
-  loadRows = () => {
+  componentDidMount = () => {
+    axios({
+      method: 'get',
+      url: 'http://api.bcda.dr809.local'
+    })
+      .then( (result) => {
+        this.setState({
+          rows: result.data
+        });
+        console.log(result.data);
+      })
+      .catch( (error) => {
+        console.log(error);
+      });
+  }
+
+
+
+  loadRows = (rows) => {
   }
 
   hasRows = () => {
@@ -39,7 +57,7 @@ class UserRegistration extends Component {
     return (
       <div>
         <UserList 
-          rows={ this.loadRows } 
+          rows={ this.state.rows } 
           className={ this.hasRows ? "d-block" : "d-none" } 
         />
         <NewUserForm 

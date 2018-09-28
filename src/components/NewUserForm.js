@@ -99,7 +99,7 @@ class NewUserForm extends Component {
                 No
               </label>
             </div>
-            <button type="submit" className="btn btn-primary">Submit</button>
+            <button type="submit" className="btn btn-primary btn-lg">Submit</button>
           </div>
         </form>
       </div>
