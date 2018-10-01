@@ -8,25 +8,13 @@
   require_once('includes/SiteUsers.php');
 
   $req = strtolower($_SERVER['REQUEST_METHOD']);
-  $db = DB::getInstance();
 
   if ($req == 'get') {
-    //echo "GET request received";
-    try {
-      $query = $db->query("SELECT first_name, last_name, username, lump FROM USERS ORDER BY last_name ASC", PDO::FETCH_ASSOC);
-      $rows = $query->fetchAll();
-      echo json_encode($rows);
-      //echo "Transaction successful, data entered";
-    }
-    catch (Exception $e) {
-      $db->rollBack();
-      echo $e->getMessage();
-    }
+    $userList = SiteUsers::getUserList();
+    echo $userList;
   }
   else if($req == 'post') {
     date_default_timezone_set('America/New_York');
-
-
   // Encrypt password and format submitted form data properly for 
   // inserting into MySQL
     $data = json_decode( file_get_contents("php://input"), true );

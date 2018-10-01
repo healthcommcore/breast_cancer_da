@@ -7,6 +7,21 @@ class SiteUsers {
   private function __construct() {
   }
 
+  public static function getUserList() {
+    $db = DB::getInstance();
+    $resp = "";
+    try {
+      $query = $db->query("SELECT first_name, last_name, username, lump FROM USERS ORDER BY last_name ASC", PDO::FETCH_ASSOC);
+      $rows = $query->fetchAll();
+      $resp = json_encode($rows);
+      //echo "Transaction successful, data entered";
+    }
+    catch (Exception $e) {
+      $db->rollBack();
+      $resp =  $e->getMessage();
+    }
+    return $resp;
+  }
 
   public static function addUser($userData) {
     $db = DB::getInstance();
