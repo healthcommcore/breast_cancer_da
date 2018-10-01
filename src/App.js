@@ -1,14 +1,13 @@
-import React, { Component } from 'react';
+import React from 'react';
+import { Route } from 'react-router-dom';
 import UserRegistration from './UserRegistration.js';
 
-class App extends Component {
-  render() {
-    return (
-      <div className="container">
-        <UserRegistration />
-      </div>
-    );
-  }
+const App = () => {
+  return (
+    <div className="container">
+      <Route path="/admin" component={ UserRegistration } />
+    </div>
+  );
 }
 
 export default App;
