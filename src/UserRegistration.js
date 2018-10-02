@@ -16,7 +16,7 @@ class UserRegistration extends Component {
   componentDidMount = () => {
     axios({
       method: 'get',
-      url: 'http://api.bcda.dr809.local'
+      url: 'http://api.bcda.dr809.local?req=users'
     })
       .then( (result) => {
         this.setState({
@@ -41,7 +41,7 @@ class UserRegistration extends Component {
 
     axios({
       method: 'post',
-      url: 'http://api.bcda.dr809.local',
+      url: 'http://api.bcda.dr809.local?req=add_user',
       data: data
     })
       .then( (result) => {
@@ -55,12 +55,12 @@ class UserRegistration extends Component {
   render () {
     return (
       <div>
+        <NewUserForm 
+          storeData={ this.handleUserFormSubmit } 
+        />
         <UserList 
           rows={ this.state.rows } 
           className={ this.hasRows ? "d-block" : "d-none" } 
-        />
-        <NewUserForm 
-          storeData={ this.handleUserFormSubmit } 
         />
       </div>
     );

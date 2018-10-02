@@ -8,12 +8,18 @@
   require_once('includes/SiteUsers.php');
 
   $req = strtolower($_SERVER['REQUEST_METHOD']);
+  $path = strtolower($_GET['req']);
 
-  if ($req == 'get') {
+  if ($path == 'users' && $req == 'get') {
     $userList = SiteUsers::getUserList();
     echo $userList;
   }
-  else if($req == 'post') {
+  else if($path == 'authenticate' && $req == 'post') {
+    $data = json_decode( file_get_contents("php://input"), true );
+    $result = SiteUsers::authenticate($data);
+    echo $result;
+  }
+  else if($path == 'add_user' && $req == 'post') {
     date_default_timezone_set('America/New_York');
   // Encrypt password and format submitted form data properly for 
   // inserting into MySQL
@@ -23,7 +29,9 @@
     $mssg = SiteUsers::addUser($data);
     echo $mssg;
   }
-  else {}
+  else {
+    echo $path;
+  }
        
 /**
  * Encrypts user submitted password from registration form

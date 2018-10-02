@@ -7,6 +7,28 @@ class SiteUsers {
   private function __construct() {
   }
 
+  public static function authenticate($user) {
+    $db = DB::getInstance();
+    $resp = "";
+    try {
+      $query = $db->query("SELECT * FROM USERS WHERE username='" . $user['username'] . "'", PDO::FETCH_ASSOC);
+      $rows = $query->fetchAll();
+      $password = $rows[0]['password'];
+      $ver = self::verifyPassword($user['password'], $password);
+      $resp = json_encode($ver);
+
+    }
+    catch (Exception $e) {
+      $db->rollBack();
+      $resp =  $e->getMessage();
+    }
+    return $resp;
+  }
+
+  private static function verifyPassword($submittedPassword, $dbPassword) {
+    return password_verify($submittedPassword, $dbPassword);
+  }
+
   public static function getUserList() {
     $db = DB::getInstance();
     $resp = "";
