@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import store from 'store';
+import isLoggedIn from '../helpers/is_logged_in.js';
+import { Redirect } from 'react-router-dom';
 
 class UserLogin extends Component {
 
@@ -23,14 +26,29 @@ class UserLogin extends Component {
       url: 'http://api.bcda.dr809.local?req=authenticate'
     })
       .then( (result) => {
-        console.log(result);
+        this.evaluateLogin(result.data);
       })
       .catch( (error) => {
         console.log(error);
       });
   }
+
+  evaluateLogin = (result) => {
+    if (result) {
+      store.set('loggedIn', true);
+      store.set('user', {
+        username: result.username,
+        lump: result.lump === "1" ? true : false,
+        admin: result.admin === "1" ? true : false
+      });
+    }
+    // Add Login validation
+  }
       
   render() {
+    if (isLoggedIn) {
+      return <Redirect to="/home" />
+    }
     return (
       <form onSubmit={ this.onSubmit }>
         <div className="form-group">

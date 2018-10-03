@@ -15,8 +15,7 @@ class SiteUsers {
       $rows = $query->fetchAll();
       $password = $rows[0]['password'];
       $ver = self::verifyPassword($user['password'], $password);
-      $resp = json_encode($ver);
-
+      $resp = ( $ver == TRUE ? json_encode($rows[0]) : json_encode($ver) );
     }
     catch (Exception $e) {
       $db->rollBack();
