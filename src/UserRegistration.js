@@ -29,10 +29,6 @@ class UserRegistration extends Component {
   }
 
 
-
-  loadRows = (rows) => {
-  }
-
   hasRows = () => {
     return this.state.rows.length > 0;
   }

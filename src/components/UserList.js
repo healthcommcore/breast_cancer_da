@@ -21,7 +21,7 @@ class UserList extends Component {
           </tr>
         </thead>
         <tbody>
-        { this.props.rows.map((row, i) => {
+        { this.props.rows. length > 0 ? (this.props.rows.map((row, i) => {
           return (
             <tr key={ i }>
               <td>{ row.last_name }</td>
@@ -40,7 +40,9 @@ class UserList extends Component {
               </td>
             </tr>
           )
-        })}
+        })
+        ) : <tr></tr>
+        }
         </tbody>
       </table>
     )
