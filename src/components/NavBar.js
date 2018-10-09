@@ -6,6 +6,7 @@ const NavBar = () => {
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
       <div className="container">
+        <span></span>
         <button 
           className="navbar-toggler" type="button" data-toggle="collapse" 
           data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false"
@@ -14,7 +15,7 @@ const NavBar = () => {
         </button>
         <div className="collapse navbar-collapse" id="navbarToggle">
           <div className="navbar-nav">
-            <NavLink className="nav-item nav-link" to="/home">Home</NavLink>
+            <NavLink className="nav-item nav-link" to="/">Home</NavLink>
             <NavLink className="nav-item nav-link" to="/about">About</NavLink>
             <Logout />
           </div>

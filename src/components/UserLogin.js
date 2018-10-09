@@ -41,13 +41,14 @@ class UserLogin extends Component {
         lump: result.lump === "1" ? true : false,
         admin: result.admin === "1" ? true : false
       });
+      this.props.history.push("/");
     }
     // Add Login validation
   }
       
   render() {
-    if (isLoggedIn) {
-      return <Redirect to="/home" />
+    if (isLoggedIn()) {
+      return <Redirect to="/" />
     }
     return (
       <form onSubmit={ this.onSubmit }>
