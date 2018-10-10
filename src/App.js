@@ -3,8 +3,8 @@ import { Route } from 'react-router-dom';
 import Home from './components/Home.js';
 import NavBar from './components/NavBar.js';
 import PrivateRoute from './components/PrivateRoute.js';
-import UserLogin from './components/UserLogin.js';
-import UserRegistration from './UserRegistration.js';
+import Login from './components/Login.js';
+import UserRegistration from './components/UserRegistration.js';
 import isLoggedIn from './helpers/is_logged_in.js';
 
 class App extends Component {
@@ -21,7 +21,7 @@ class App extends Component {
         { isLoggedIn() ? <NavBar /> : "" }
         <section>
           <div className="container">
-            <Route path="/login" component={ UserLogin } />
+            <Route path="/login" component={ Login } />
             <PrivateRoute path="/admin" component={ UserRegistration } />
             <PrivateRoute exact path="/" component={ Home } />
           </div>

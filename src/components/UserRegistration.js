@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import NewUserForm from './components/NewUserForm';
-import UserList from './components/UserList';
+import NewUserForm from './NewUserForm';
+import UserList from './UserList';
 
 class UserRegistration extends Component {
 
@@ -26,11 +26,6 @@ class UserRegistration extends Component {
       .catch( (error) => {
         console.log(error);
       });
-  }
-
-
-
-  loadRows = (rows) => {
   }
 
   hasRows = () => {

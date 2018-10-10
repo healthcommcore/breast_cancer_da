@@ -4,7 +4,7 @@ import store from 'store';
 import isLoggedIn from '../helpers/is_logged_in.js';
 import { Redirect } from 'react-router-dom';
 
-class UserLogin extends Component {
+class Login extends Component {
 
   constructor(props) {
     super(props);
@@ -66,6 +66,4 @@ class UserLogin extends Component {
   }
 }
 
-export default UserLogin;
-    
-
+export default Login;
