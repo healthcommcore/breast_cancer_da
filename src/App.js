@@ -6,6 +6,7 @@ import PrivateRoute from './components/PrivateRoute.js';
 import Login from './components/Login.js';
 import UserRegistration from './components/UserRegistration.js';
 import TreatmentOptions from './components/TreatmentOptions.js';
+import ValuesComparison from './components/ValuesComparison.js';
 import isLoggedIn from './helpers/is_logged_in.js';
 
 class App extends Component {
@@ -25,6 +26,7 @@ class App extends Component {
             <Route path="/login" component={ Login } />
             <PrivateRoute path="/admin" component={ UserRegistration } />
             <PrivateRoute path="/treatment-options" component={ TreatmentOptions } />
+            <PrivateRoute path="/values-comparison" component={ ValuesComparison } />
             <PrivateRoute exact path="/" component={ Home } />
           </div>
         </section>

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Home = (props) => {
   return (
@@ -11,7 +12,7 @@ const Home = (props) => {
           <li>Think about what is important to you to help make your surgery decision</li>
       </ul>
 
-      <button type="button" onClick="" className="btn btn-primary btn-lg">Learn about your options</button>
+      <Link className="btn btn-primary btn-lg" to="/treatment-options">Learn about your options</Link>
 
       <p>You can stop at any point and come back later to review this information. Your information won’t be saved, but on the last screen, you’ll have an option to print the information and your responses.</p>
 
