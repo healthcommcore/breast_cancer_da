@@ -12,11 +12,15 @@ class SiteUsers {
     $resp = "";
     try {
       $query = $db->query("SELECT * FROM USERS WHERE username='" . $user['username'] . "'", PDO::FETCH_ASSOC);
-      $rows = $query->fetchAll();
-      if (!isset($rows[0])) { return false; }
-      $password = $rows[0]['password'];
-      $ver = self::verifyPassword($user['password'], $password);
-      $resp = ( $ver == TRUE ? json_encode($rows[0]) : json_encode($ver) );
+      if ($query) {
+        $rows = $query->fetchAll();
+        if (!isset($rows[0])) { return false; }
+        $password = $rows[0]['password'];
+        $ver = self::verifyPassword($user['password'], $password);
+        $resp = ( $ver == TRUE ? json_encode($rows[0]) : json_encode($ver) );
+      }
+      else {
+      }
     }
     catch (Exception $e) {
       $db->rollBack();
