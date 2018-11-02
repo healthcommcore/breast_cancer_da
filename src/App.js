@@ -10,7 +10,7 @@ import ValuesComparison from './components/ValuesComparison.js';
 import isLoggedIn from './helpers/is_logged_in.js';
 import getApi from './helpers/api_urls.js';
 
-const api = getApi('local');
+const api = getApi('dev');
 class App extends Component {
 
   constructor(props) {

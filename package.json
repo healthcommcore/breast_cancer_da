@@ -1,6 +1,7 @@
 {
   "name": "breast_cancer_da",
   "version": "0.1.0",
+  "homepage": "http://bcda.hccdev.org",
   "private": true,
   "dependencies": {
     "axios": "^0.18.0",
