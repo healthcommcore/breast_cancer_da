@@ -16,7 +16,7 @@ class UserRegistration extends Component {
   componentDidMount = () => {
     axios({
       method: 'get',
-      url: 'http://api.bcda.dr809.local?req=users'
+      url: this.props.api + '?req=users'
     })
       .then( (result) => {
         this.setState({
@@ -36,7 +36,7 @@ class UserRegistration extends Component {
 
     axios({
       method: 'post',
-      url: 'http://api.bcda.dr809.local?req=add_user',
+      url: this.props.api + '?req=add_user',
       data: data
     })
       .then( (result) => {

@@ -23,9 +23,10 @@ class Login extends Component {
     axios({
       method: 'post',
       data: this.state,
-      url: 'http://api.bcda.dr809.local?req=authenticate'
+      url: this.props.api + '?req=authenticate'
     })
       .then( (result) => {
+        console.log(result.data);
         this.evaluateLogin(result.data);
       })
       .catch( (error) => {
@@ -51,17 +52,20 @@ class Login extends Component {
       return <Redirect to="/" />
     }
     return (
-      <form onSubmit={ this.onSubmit }>
-        <div className="form-group">
-          <label htmlFor="username">Username</label>
-          <input type="text" className="form-control" name="username" onChange={ this.onChange } placeholder="Username" />
-        </div>
-        <div className="form-group">
-          <label htmlFor="password">Password</label>
-          <input type="password" className="form-control" name="password" onChange={ this.onChange } placeholder="Password" />
-        </div>
-        <button type="submit" className="btn btn-primary btn-lg">Log in</button>
-      </form>
+      <div>
+        <h1>Please log in</h1>
+        <form onSubmit={ this.onSubmit }>
+          <div className="form-group">
+            <label htmlFor="username">Username</label>
+            <input type="text" className="form-control" name="username" onChange={ this.onChange } placeholder="Username" />
+          </div>
+          <div className="form-group">
+            <label htmlFor="password">Password</label>
+            <input type="password" className="form-control" name="password" onChange={ this.onChange } placeholder="Password" />
+          </div>
+          <button type="submit" className="btn btn-primary btn-lg">Log in</button>
+        </form>
+      </div>
     );
   }
 }

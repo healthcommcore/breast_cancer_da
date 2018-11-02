@@ -8,7 +8,9 @@ import UserRegistration from './components/UserRegistration.js';
 import TreatmentOptions from './components/TreatmentOptions.js';
 import ValuesComparison from './components/ValuesComparison.js';
 import isLoggedIn from './helpers/is_logged_in.js';
+import getApi from './helpers/api_urls.js';
 
+const api = getApi('local');
 class App extends Component {
 
   constructor(props) {
@@ -23,8 +25,8 @@ class App extends Component {
         { isLoggedIn() ? <NavBar /> : "" }
         <section>
           <div className="container">
-            <Route path="/login" component={ Login } />
-            <PrivateRoute path="/admin" component={ UserRegistration } />
+            <Route path="/login" render={ (props)=> <Login api={ api } { ...props } /> } />
+            <PrivateRoute path="/admin" api={ api } component={ UserRegistration } />
             <PrivateRoute path="/treatment-options" component={ TreatmentOptions } />
             <PrivateRoute path="/values-comparison" component={ ValuesComparison } />
             <PrivateRoute exact path="/" component={ Home } />
