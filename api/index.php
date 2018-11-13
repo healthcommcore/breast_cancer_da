@@ -1,5 +1,5 @@
 <?php
-  header("Access-Control-Allow-Origin: http://bcda.hccdev.org");
+  header("Access-Control-Allow-Origin: http://api.bcda.hccdev.org");
   header("Access-Control-Allow-Credentials: true");
   header("Access-Control-Allow-Methods: GET, PUT, POST, DELETE");
   header("Access-Control-Max-Age: 1000");
