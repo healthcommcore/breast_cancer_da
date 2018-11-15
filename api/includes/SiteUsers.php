@@ -11,7 +11,7 @@ class SiteUsers {
     $db = DB::getInstance();
     $resp = "";
     try {
-      $query = $db->query("SELECT * FROM USERS WHERE username='" . $user['username'] . "'", PDO::FETCH_ASSOC);
+      $query = $db->query("SELECT * FROM `users` WHERE username='" . $user['username'] . "'", PDO::FETCH_ASSOC);
       $rows = $query->fetchAll();
       if (!isset($rows[0])) { return false; }
       $password = $rows[0]['password'];
@@ -33,7 +33,7 @@ class SiteUsers {
     $db = DB::getInstance();
     $resp = "";
     try {
-      $query = $db->query("SELECT first_name, last_name, username, lump FROM USERS ORDER BY last_name ASC", PDO::FETCH_ASSOC);
+      $query = $db->query("SELECT first_name, last_name, username, lump FROM `users` ORDER BY last_name ASC", PDO::FETCH_ASSOC);
       $rows = $query->fetchAll();
       $resp = json_encode($rows);
       //echo "Transaction successful, data entered";
