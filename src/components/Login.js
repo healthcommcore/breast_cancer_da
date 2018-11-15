@@ -44,6 +44,9 @@ class Login extends Component {
       });
       this.props.history.push("/");
     }
+    else {
+      console.log("There was a problem logging in: " + result);
+    }
     // Add Login validation
   }
       
