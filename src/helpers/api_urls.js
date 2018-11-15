@@ -1,6 +1,6 @@
 const url = "http://api.bcda.";
 const hosts = {
-  local: "dr809.local",
+  local: "dr809.test",
   dev: "hccdev.org",
   prod: "hccstaging.com"
 }
