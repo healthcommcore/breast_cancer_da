@@ -20,7 +20,7 @@ const TreatmentOptions = (props) => {
 			<p><strong>Mastectomy</strong> (with or without reconstruction) is a surgical procedure in which the entire breast is removed.</p> 
       <p>The surgery lasts about 2 hours but can be longer with reconstruction.</p>
       <MastectomyAccordion />
-      <NextButton dest="values-comparison" />
+      <NextButton dest="values-clarification" />
     </div>
   );
 }

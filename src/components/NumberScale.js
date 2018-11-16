@@ -10,7 +10,7 @@ class NumberScale extends Component {
   }
 
   handleClick(e) {
-    this.props.onScaleSelect(e.target.id);
+    this.props.onScaleSelect(this.props.value, e.target.id);
   }
 
   render() {
@@ -18,6 +18,7 @@ class NumberScale extends Component {
     const levels = Array.from({ length: limit }, (item, i) => i);
     return (
       <div className="number-scale">
+				<p>{ this.props.content }</p>
         <div className="clearfix">
           <p className="float-left scale-label">{ this.props.leftLabel }</p>
           <p className="float-right scale-label">{ this.props.rightLabel }</p>

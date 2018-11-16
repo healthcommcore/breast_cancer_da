@@ -1,4 +1,4 @@
-body {
+.number-scale {
   counter-reset: values-scale -1;
 }
 
