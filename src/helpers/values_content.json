@@ -1,0 +1,31 @@
+[
+  {
+    "value" : "addional_surgery",
+    "lumpOnly" : true,
+    "content" : "I want to avoid the possible need for additional cancer surgery (such as if the surgeon does not get an area around the tumor that is clear of cancer cells)."
+	},
+  {
+    "value" : "keep_breasts",
+    "content" : "I'd like to keep as much of my natural breast(s) as possible."
+	},
+  {
+    "value" : "recovery",
+    "content" : "I want to minimize recovery time from surgery and return to my daily activities as quickly as possible."
+	},
+  {
+    "value" : "breastfeed",
+    "content" : "I want the ability to breastfeed in the future."
+	},
+  {
+    "value" : "sensation",
+    "content" : "I want to maintain sensation in my breast."
+	},
+  {
+    "value" : "mammograms",
+    "content" : "I would like to minimize the need for follow-up breast imaging (mammograms)."
+	},
+  {
+    "value" : "similar",
+    "content" : "I'd like both breasts to look as similar as possible"
+	}
+]

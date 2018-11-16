@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import NextButton from './NextButton';
 import NumberScale from './NumberScale';
 import { lumpEligible } from '../helpers/user_stats.js';
+import data from '../helpers/values_content.json';
 
 class ValuesComparison extends Component {
   constructor(props) {
@@ -17,6 +18,7 @@ class ValuesComparison extends Component {
   }
 
   render() {
+		console.log(data[0].value);
     return (
       <div>
         <h1>What is important to you?</h1>
