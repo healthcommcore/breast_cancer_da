@@ -12,8 +12,6 @@ class SiteUsers {
     $resp = "";
     try {
       $query = $db->query("SELECT * FROM `users` WHERE username='" . $user['username'] . "'", PDO::FETCH_ASSOC);
-      $str = print_r($db, true);
-      error_log($str);
       if ($query) {
         $rows = $query->fetchAll();
         if (!isset($rows[0])) { return false; }
