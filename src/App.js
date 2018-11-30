@@ -12,7 +12,7 @@ import TreatmentComparison from './components/TreatmentComparison.js';
 import isLoggedIn from './helpers/is_logged_in.js';
 import getApi from './helpers/api_urls.js';
 
-const api = getApi('dev');
+const api = getApi('local');
 class App extends Component {
 
   constructor(props) {

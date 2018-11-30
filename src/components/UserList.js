@@ -12,28 +12,8 @@ const UserList = (props) => {
           <th scope="col">Tasks</th>
         </tr>
       </thead>
-      <tbody>
-      { props.rows.map((row, i) => {
-        return (
-          <tr key={ i }>
-            <td>{ row.last_name }</td>
-            <td>{ row.first_name }</td>
-            <td>{ row.username }</td>
-            <td>{ row.lump === "1" ? "Yes" : "No" }</td>
-            <td>
-              <button 
-                type="button" 
-                className="btn btn-warning"
-              >Update</button>
-              <button 
-                type="button" 
-                className="btn btn-danger"
-              >Delete</button>
-            </td>
-          </tr>
-        </thead>
         <tbody>
-        { this.props.rows. length > 0 ? (this.props.rows.map((row, i) => {
+        { this.props.rows.length > 0 ? (this.props.rows.map((row, i) => {
           return (
             <tr key={ i }>
               <td>{ row.last_name }</td>
@@ -59,6 +39,5 @@ const UserList = (props) => {
       </table>
     )
   }
-}
 
 export default UserList;
