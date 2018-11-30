@@ -11,11 +11,17 @@ class SiteUsers {
     $db = DB::getInstance();
     $resp = "";
     try {
-      $query = $db->query("SELECT * FROM USERS WHERE username='" . $user['username'] . "'", PDO::FETCH_ASSOC);
-      $rows = $query->fetchAll();
-      $password = $rows[0]['password'];
-      $ver = self::verifyPassword($user['password'], $password);
-      $resp = ( $ver == TRUE ? json_encode($rows[0]) : json_encode($ver) );
+      $query = $db->query("SELECT * FROM `users` WHERE username='" . $user['username'] . "'", PDO::FETCH_ASSOC);
+      if ($query) {
+        $rows = $query->fetchAll();
+        if (!isset($rows[0])) { return false; }
+        $password = $rows[0]['password'];
+        $ver = self::verifyPassword($user['password'], $password);
+        $resp = ( $ver == TRUE ? json_encode($rows[0]) : json_encode($ver) );
+      }
+      else {
+        //error_log("Problem with query");
+      }
     }
     catch (Exception $e) {
       $db->rollBack();
@@ -32,7 +38,7 @@ class SiteUsers {
     $db = DB::getInstance();
     $resp = "";
     try {
-      $query = $db->query("SELECT first_name, last_name, username, lump FROM USERS ORDER BY last_name ASC", PDO::FETCH_ASSOC);
+      $query = $db->query("SELECT first_name, last_name, username, lump FROM `users` ORDER BY last_name ASC", PDO::FETCH_ASSOC);
       $rows = $query->fetchAll();
       $resp = json_encode($rows);
       //echo "Transaction successful, data entered";

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import NewUserForm from './components/NewUserForm';
-import UserList from './components/UserList';
+import NewUserForm from './NewUserForm';
+import UserList from './UserList';
 
 class UserRegistration extends Component {
 
@@ -16,7 +16,7 @@ class UserRegistration extends Component {
   componentDidMount = () => {
     axios({
       method: 'get',
-      url: 'http://api.bcda.dr809.local?req=users'
+      url: this.props.api + '?req=users'
     })
       .then( (result) => {
         this.setState({
@@ -29,15 +29,11 @@ class UserRegistration extends Component {
   }
 
 
-  hasRows = () => {
-    return this.state.rows.length > 0;
-  }
-
   handleUserFormSubmit = (data) => {
 
     axios({
       method: 'post',
-      url: 'http://api.bcda.dr809.local?req=add_user',
+      url: this.props.api + '?req=add_user',
       data: data
     })
       .then( (result) => {

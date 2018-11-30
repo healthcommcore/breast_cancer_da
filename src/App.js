@@ -1,11 +1,18 @@
 import React, { Component } from 'react';
+import './App.css';
 import { Route } from 'react-router-dom';
-import PrivateRoute from './components/PrivateRoute.js';
 import Home from './components/Home.js';
 import NavBar from './components/NavBar.js';
-import UserLogin from './components/UserLogin.js';
-import UserRegistration from './UserRegistration.js';
+import PrivateRoute from './components/PrivateRoute.js';
+import Login from './components/Login.js';
+import UserRegistration from './components/UserRegistration.js';
+import TreatmentOptions from './components/TreatmentOptions.js';
+import ValuesClarification from './components/ValuesClarification.js';
+import TreatmentComparison from './components/TreatmentComparison.js';
+import isLoggedIn from './helpers/is_logged_in.js';
+import getApi from './helpers/api_urls.js';
 
+const api = getApi('dev');
 class App extends Component {
 
   constructor(props) {
@@ -17,12 +24,15 @@ class App extends Component {
     return (
       <div className="app">
         <div className="banner"></div>
-        <NavBar />
+        { isLoggedIn() ? <NavBar /> : "" }
         <section>
           <div className="container">
-            <Route path="/admin" component={ UserRegistration } />
-            <Route path="/login" component={ UserLogin } />
-            <PrivateRoute path="/home" component={ Home } />
+            <Route path="/login" render={ (props)=> <Login api={ api } { ...props } /> } />
+            <PrivateRoute path="/admin" api={ api } component={ UserRegistration } />
+            <PrivateRoute path="/treatment-options" component={ TreatmentOptions } />
+            <PrivateRoute path="/values-clarification" component={ ValuesClarification } />
+            <PrivateRoute path="/treatment-comparison" component={ TreatmentComparison } />
+            <PrivateRoute exact path="/" component={ Home } />
           </div>
         </section>
       </div>
