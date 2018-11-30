@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import getNumberArray from '../helpers/number_array.js';
 
 class NumberScale extends Component {
   constructor(props) {
@@ -14,11 +15,10 @@ class NumberScale extends Component {
   }
 
   render() {
-    const limit = parseInt(this.props.scale) + 1;
-    const levels = Array.from({ length: limit }, (item, i) => i);
+    const levels = getNumberArray(this.props.scale);
     return (
       <div className="number-scale">
-				<p>{ this.props.content }</p>
+				{ this.props.content !== "" ? (<p>{ this.props.content }</p>) : "" }
         <div className="clearfix">
           <p className="float-left scale-label">{ this.props.leftLabel }</p>
           <p className="float-right scale-label">{ this.props.rightLabel }</p>
