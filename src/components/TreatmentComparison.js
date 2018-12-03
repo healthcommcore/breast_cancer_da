@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import NextButton from './NextButton';
 
 class TreatmentComparison extends Component {
   constructor(props) {
@@ -124,6 +125,7 @@ class TreatmentComparison extends Component {
                   </tr>
               </tbody>
           </table>
+        <NextButton dest="worry-assessment" />
       </div>
     );
   }

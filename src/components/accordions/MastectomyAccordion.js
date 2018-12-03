@@ -26,7 +26,7 @@ const MastectomyAccordion = (props) => {
                   <h3>Short- and long-term effects</h3>
               </AccordionItemTitle>
               <AccordionItemBody>
-                  <p>There is a risk of surgical complications, such as infection and wound healing problems, which are increased with a more extensive surgery. Complication risks are increased with additional surgery, such as reconstruction.</p>
+                  <p>There is a risk of surgical complications, such as infection and wound healing problems, which are increased with a more extensive surgery, such as a mastectomy vs a lumpectomy.</p>
      <p>Some women may develop lymphedema (arm swelling) after lymph node surgery or radiation.</p>
      <p>Some women who have mastectomies report that their body image and self-image are negatively affected after a mastectomy, even after having breast reconstruction. Some women report that their sexual functioning  is impacted in the years after their mastectomy, including feeling less sexually attractive and less comfortable during sexual intimacy. </p>
      <p>Breastfeeding in the healthy breast will still be possible after a mastectomy.</p>
@@ -78,6 +78,7 @@ const MastectomyAccordion = (props) => {
 <p>For women with a BRCA2 mutation, after a mastectomy, the risk of the breast cancer developing in the healthy breast in the next 5 years is about 4 to 9%. This means that, on average, about 4 to 9 of every 100 women who choose this treatment for their breast cancer will develop cancer in their healthy breast
 </p>
                   </BrcaAccordion>
+									<p>The risk of cancer coming back in another part of the body is the same whether you have a lumpectomy or a mastectomy.</p>
                   
               </AccordionItemBody>
           </AccordionItem>

@@ -9,8 +9,8 @@ class WorryAssessment extends Component {
     this.state = {};
   }
 
-	handleScaleChange(feeling, scale) {
-		this.setState({[feeling]: scale });
+	handleScaleChange(type, value) {
+		this.setState({[type]: value });
 	}
 
   render() {
@@ -28,7 +28,7 @@ class WorryAssessment extends Component {
 					content=""
 				/>
         <p><strong>I would find it helpful if I received more assistance to cope with my:</strong></p> 
-        <WorryTable /> 
+        <WorryTable onScaleSelect={ this.handleScaleChange }/> 
 			</div>
 		);
   }

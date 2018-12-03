@@ -1,5 +1,16 @@
 [
-  "Worries about the surgery",
-  "Uncertainty about what will happen during surgery",
-  "Worry that something might go wrong during or after surgery"
+  { 
+    "type" : "general",
+    "content" : "Worries about the surgery"
+  },
+
+  { 
+    "type" : "during",
+    "content" : "Uncertainty about what will happen during surgery"
+  },
+
+  { 
+    "type" : "after",
+    "content" : "Worry that something might go wrong during or after surgery"
+  }
 ]

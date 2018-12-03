@@ -34,6 +34,7 @@ class ValuesClarification extends Component {
 						/>
 					);
 				})}
+        <NextButton dest="treatment-comparison" />
       </div>
     );
   }

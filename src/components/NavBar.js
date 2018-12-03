@@ -17,6 +17,7 @@ const NavBar = (props) => {
           <div className="navbar-nav">
             <NavLink className="nav-item nav-link" to="/">Home</NavLink>
             <NavLink className="nav-item nav-link" to="/about">About</NavLink>
+            <NavLink className="nav-item nav-link" to="/resources">Resources</NavLink>
             <Logout />
           </div>
         </div>

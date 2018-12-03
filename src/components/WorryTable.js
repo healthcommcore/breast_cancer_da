@@ -5,11 +5,16 @@ import worry_content from '../helpers/worry_content.json';
 class WorryTable extends Component {
   constructor(props) {
     super(props);
-    //this.handleClick = this.handleClick.bind(this);
+    this.handleChange = this.handleChange.bind(this);
     this.state = {
       activeButton: "" 
     }
   }
+
+  handleChange(e) {
+    this.props.onScaleSelect(e.target.name, e.target.id);
+  }
+
 
   render() {
     const nums = getNumberArray("5").slice(1);
@@ -29,7 +34,7 @@ class WorryTable extends Component {
           { worry_content.map( (worry, i) => {
             return (
               <tr key={i}>
-                <td>{ worry }</td>
+                <td>{ worry.content }</td>
                 { nums.map( (num, j) => {
                   return (
                     <td>
@@ -37,9 +42,10 @@ class WorryTable extends Component {
                         <input 
                           className="form-check-input"
                           type="radio"
-                          name={i}
+                          name={ worry.type }
                           key={j}
                           id={num}
+                          onChange={ this.handleChange }
                         />
                         <label className="form-check-label">{num}</label>
                       </div>
