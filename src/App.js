@@ -10,6 +10,7 @@ import TreatmentOptions from './components/TreatmentOptions.js';
 import ValuesClarification from './components/ValuesClarification.js';
 import TreatmentComparison from './components/TreatmentComparison.js';
 import WorryAssessment from './components/WorryAssessment.js';
+import HighAnxiety from './components/HighAnxiety.js';
 import isLoggedIn from './helpers/is_logged_in.js';
 import getApi from './helpers/api_urls.js';
 
@@ -34,6 +35,7 @@ class App extends Component {
             <PrivateRoute path="/values-clarification" component={ ValuesClarification } />
             <PrivateRoute path="/treatment-comparison" component={ TreatmentComparison } />
             <PrivateRoute path="/worry-assessment" component={ WorryAssessment } />
+            <PrivateRoute path="/high-anxiety" api={ api } component={ HighAnxiety } />
             <PrivateRoute exact path="/" component={ Home } />
           </div>
         </section>

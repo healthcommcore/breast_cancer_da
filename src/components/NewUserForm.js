@@ -4,6 +4,8 @@ class NewUserForm extends Component {
 
   constructor(props) {
     super(props);
+    this.onChange = this.onChange.bind(this);
+    this.onSubmit = this.onSubmit.bind(this);
     this.state = {
       firstName: '',
       lastName: '',
