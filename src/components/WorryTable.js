@@ -37,7 +37,7 @@ class WorryTable extends Component {
                 <td>{ worry.content }</td>
                 { nums.map( (num, j) => {
                   return (
-                    <td>
+                    <td key={j}>
                       <div className="form-check">
                         <input 
                           className="form-check-input"

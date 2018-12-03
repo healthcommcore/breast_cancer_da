@@ -39,10 +39,10 @@ class HighAnxiety extends Component {
         <div className="clearfix">
           <div className="row">
             <div className="col-2">
-              <a target="_blank" className="btn btn-primary" href="https://survivorship.cancer.gov/springboard/video-stories-playlist/relaxation-exercises">Relaxation exercises</a>
+              <a target="_blank" rel="noopener noreferrer" className="btn btn-primary" href="https://survivorship.cancer.gov/springboard/video-stories-playlist/relaxation-exercises">Relaxation exercises</a>
             </div>
             <div className="col-2">
-              <a target="_blank" className="btn btn-primary" href="https://survivorship.cancer.gov/springboard/stress-mood/practice-mindfulness">Mindfulness strategies</a>
+              <a target="_blank" rel="noopener noreferrer" className="btn btn-primary" href="https://survivorship.cancer.gov/springboard/stress-mood/practice-mindfulness">Mindfulness strategies</a>
             </div>
           </div>
         </div>
