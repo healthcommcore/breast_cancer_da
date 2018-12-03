@@ -20,8 +20,9 @@
     echo $result;
   }
   else if($path == 'anxiety_email' && $req == 'post') {
-    $data = json_decode( file_get_contents("php://input"), true );
+    $data = file_get_contents("php://input");
     $result = SiteUsers::sendAnxietyEmail($data);
+    echo $result;
   }
   else if($path == 'add_user' && $req == 'post') {
     date_default_timezone_set('America/New_York');

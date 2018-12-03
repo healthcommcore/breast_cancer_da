@@ -3,7 +3,6 @@
 require_once('db.php');
 
 class SiteUsers {
-
   private function __construct() {
   }
 
@@ -28,6 +27,17 @@ class SiteUsers {
       $resp =  $e->getMessage();
     }
     return $resp;
+  }
+
+  public static function sendAnxietyEmail($email) {
+    $to = 'dave_rothfarb@dfci.harvard.edu';
+    $subject = "Decision aid user requested contact";
+    $mssg = "A breast cancer decision aid user has requested that someone ";
+    $mssg .= "contact her about support options. Her email address is:\r\n\r\n";
+    $mssg .= $email;
+    $header = "From: user@bcda.com";
+    mail($to, $subject, $mssg, $header);
+    return "Email has been sent";
   }
 
   private static function verifyPassword($submittedPassword, $dbPassword) {

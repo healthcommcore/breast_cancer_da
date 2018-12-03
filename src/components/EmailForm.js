@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import axios from 'axios';
 
 class EmailForm extends Component {
   constructor(props) {
@@ -22,9 +21,9 @@ class EmailForm extends Component {
 
   render() {
     return (
-      <form className="form-inline" onSubmit={ this.handleSubmit }  enctype="text/plain">
+      <form className="form-inline" onSubmit={ this.handleSubmit }  encType="text/plain">
         <label className="sr-only">Enter your email</label>
-        <input type="email" name="email" placeholder="Enter your email" className="form-control" />
+        <input type="email" name="email" placeholder="Enter your email" onChange={ this.onChange } className="form-control" />
         <button type="submit" className="btn btn-primary">Submit</button>
       </form>
     );

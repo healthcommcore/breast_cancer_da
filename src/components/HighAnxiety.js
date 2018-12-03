@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import EmailForm from './EmailForm';
+import axios from 'axios';
 
 class HighAnxiety extends Component {
   constructor(props) {
@@ -7,7 +8,20 @@ class HighAnxiety extends Component {
     this.sendEmail = this.sendEmail.bind(this);
   }
 
+  /*
+  */
   sendEmail = (data) => {
+    axios({
+      method: 'post',
+      url: this.props.api + '?req=anxiety_email',
+      data: data.email
+    })
+      .then( (result) => {
+        console.log(result);
+      })
+      .catch( (error) => {
+        console.log(error);
+      });
   }
 
   render() {
