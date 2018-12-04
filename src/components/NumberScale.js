@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import getNumberArray from '../helpers/number_array.js';
+import { numArray } from '../helpers/utilities.js';
 
 class NumberScale extends Component {
   constructor(props) {
@@ -15,7 +15,7 @@ class NumberScale extends Component {
   }
 
   render() {
-    const levels = getNumberArray(this.props.scale);
+    const levels = numArray(this.props.scale);
     return (
       <div className="number-scale">
 				{ this.props.content !== "" ? (<p>{ this.props.content }</p>) : "" }

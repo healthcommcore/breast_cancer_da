@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import getNumberArray from '../helpers/number_array.js';
+import { numArray } from '../helpers/utilities.js';
 import worry_content from '../helpers/worry_content.json';
 
 class WorryTable extends Component {
@@ -17,7 +17,7 @@ class WorryTable extends Component {
 
 
   render() {
-    const nums = getNumberArray("5").slice(1);
+    const nums = numArray("5").slice(1);
     return (
       <table className="table table-bordered table-responsive-sm">
         <thead className="thead-light">

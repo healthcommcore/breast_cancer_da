@@ -22,7 +22,7 @@ class WorryAssessment extends Component {
          this.hasAnyWorries([this.state.general, this.state.during, this.state.after]) ) {
       return "high-anxiety";
     }
-    return "summary";
+    return "next-steps";
   }
 
   hasHighDistress = (distress) => {
