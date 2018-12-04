@@ -1,0 +1,33 @@
+{
+	"primary" : [
+		{ 
+			"question" : "What treatment are you leaning toward?",
+			"choices" : [
+				"Lumpectomy",
+				"Mastectomy (with or without reconstruction)",
+				"I don't know"
+			]
+		},
+
+		{
+			"question" : "How ready are you feeling to make a decision?",
+			"choices" : [
+				"I am ready to make a decision",
+				"I am not ready to make a decision",
+				"I don’t know if I’m ready to make a decision"
+			]
+		}
+	],
+
+	"followup" : {
+		"question" : "What would help you to make a decision?",
+		"choices" : [
+			"Discussing my options with my loved ones",
+			"Discussing my options with my oncologist/surgeon, nurses, or other providers",
+			"Reading more about my options",
+			"Thinking more about my options",
+			"Hearing more about other women’s decisions",
+			"I don't know"
+		]
+	}
+}
