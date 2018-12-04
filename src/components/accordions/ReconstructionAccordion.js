@@ -16,13 +16,12 @@ const ReconstructionAccordion = (props) => {
                                           <h3>Two-stage or single-stage implant reconstruction</h3>
                                       </AccordionItemTitle>
                                       <AccordionItemBody>
-                                          <p>Both two-stage and single-stage implant reconstruction place a silicone or saline (salt water) implant in the breast area, either behind or in front of the muscle on the chest wall. Some women are candidates for an immediate implant (single stage), and some women are not and require an expansion process (two stage):
+                                          <p>Both two-stage and single-stage implant reconstruction place a silicone or saline (salt water) implant in the breast area, either behind or in front of the muscle on the chest wall. Some women are candidates for an immediate implant (single stage), and some women are not and require an expansion process (two stage):</p>
     <ul>
 <li>A temporary expander may be placed during your mastectomy to help stretch the muscle to allow for the implant to be placed behind the muscle</li> 
 <li>Every few weeks, saline will be injected into the expander to stretch this area</li>
 <li>Once the expander reaches the desired size, your plastic surgeon will replace it with permanent implants</li>
 </ul>
-</p>
                                       </AccordionItemBody>
                                   </AccordionItem>
                                   <AccordionItem>

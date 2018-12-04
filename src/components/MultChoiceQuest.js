@@ -11,12 +11,12 @@ const MultChoiceQuest = (props) => {
 							<input 
 								className="form-check-input" 
 								type="radio" 
-								name={ props.question } 
-								value="" 
+								name={ props.name } 
+								value={i}
 								id={i} 
 								onChange={ props.storeResult }
 							/>
-							<label className="form-check-label" for={i}>
+							<label className="form-check-label" htmlFor={i}>
 								{ choice }
 							</label>
 						</div>

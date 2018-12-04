@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import EmailForm from './EmailForm';
+import NextButton from './NextButton';
 import axios from 'axios';
 
 class HighAnxiety extends Component {
@@ -46,6 +47,7 @@ class HighAnxiety extends Component {
             </div>
           </div>
         </div>
+        <NextButton dest="next-steps" />
       </div>
     );
   }

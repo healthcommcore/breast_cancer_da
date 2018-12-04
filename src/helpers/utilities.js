@@ -11,4 +11,8 @@ const numArray = (scale) => {
   return Array.from({ length: limit }, (item, i) => i);
 }
 
-export { toInt, exists, numArray };
+const propify = (words) => {
+  return words.toLowerCase().split(" ").slice(0, 2).join("_");
+}
+
+export { toInt, exists, numArray, propify };
