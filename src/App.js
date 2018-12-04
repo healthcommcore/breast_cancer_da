@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import './App.css';
 import { Route } from 'react-router-dom';
 import Home from './components/Home.js';
+import About from './components/About.js';
+import Resources from './components/Resources.js';
 import NavBar from './components/NavBar.js';
 import PrivateRoute from './components/PrivateRoute.js';
 import Login from './components/Login.js';
@@ -38,6 +40,8 @@ class App extends Component {
         <section>
           <div className="container">
             <Route path="/login" render={ (props)=> <Login api={ api } { ...props } /> } />
+            <PrivateRoute path="/about" component={ About } />
+            <PrivateRoute path="/resources" component={ Resources } />
             <PrivateRoute path="/admin" api={ api } component={ UserRegistration } />
             <PrivateRoute path="/treatment-options" component={ TreatmentOptions } />
             <PrivateRoute 
