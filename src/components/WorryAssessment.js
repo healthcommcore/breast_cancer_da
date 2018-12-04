@@ -17,6 +17,10 @@ class WorryAssessment extends Component {
 		this.setState({[type]: value });
 	}
 
+  componentWillUnmount = () => {
+    this.props.onSaveProgress({ worry: this.state });
+  }
+
   getNextDestination = () => {
     if ( this.hasHighDistress(this.state.distress) || 
          this.hasAnyWorries([this.state.general, this.state.during, this.state.after]) ) {

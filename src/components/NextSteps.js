@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import MultChoiceQuest from './MultChoiceQuest';
+import NextButton from './NextButton';
 import questions from '../helpers/next_steps_content.json';
 import { toInt, exists, propify } from '../helpers/utilities';
 
@@ -14,7 +15,10 @@ class NextSteps extends Component {
 
   storeResult = (e) => {
     this.setState({[e.target.name] : e.target.id});
-    //console.log(e.target.id);
+  }
+
+  componentWillUnmount = () => {
+    this.props.onSaveProgress({ next: this.state });
   }
 
   isNotReady = (how_ready) => {
@@ -51,6 +55,7 @@ class NextSteps extends Component {
           );
         })}
         { this.isNotReady(this.state.how_ready) ? this.whatWouldHelp() : "" }
+        <NextButton dest="summary" />
       </div>
     );
   }

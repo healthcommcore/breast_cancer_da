@@ -11,8 +11,12 @@ class ValuesClarification extends Component {
     this.state = {}
   }
 
-  handleScaleChange(value, scale) {
+  handleScaleChange = (value, scale) => {
     this.setState({[value]: scale });
+  }
+
+  componentWillUnmount = () => {
+    this.props.onSaveProgress({ values: this.state });
   }
 
   render() {

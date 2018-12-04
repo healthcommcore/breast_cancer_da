@@ -12,15 +12,22 @@ import TreatmentComparison from './components/TreatmentComparison.js';
 import WorryAssessment from './components/WorryAssessment.js';
 import HighAnxiety from './components/HighAnxiety.js';
 import NextSteps from './components/NextSteps.js';
+import Summary from './components/Summary.js';
 import isLoggedIn from './helpers/is_logged_in.js';
 import getApi from './helpers/api_urls.js';
 
-const api = getApi('dev');
+const api = getApi('local');
 class App extends Component {
 
   constructor(props) {
     super(props);
+    this.saveProgress = this.saveProgress.bind(this);
     this.state = {}
+  }
+
+  saveProgress = (data) => {
+    const key = Object.keys(data).shift();
+    this.setState({[key] : data[key]});
   }
 
   render() {
@@ -33,11 +40,32 @@ class App extends Component {
             <Route path="/login" render={ (props)=> <Login api={ api } { ...props } /> } />
             <PrivateRoute path="/admin" api={ api } component={ UserRegistration } />
             <PrivateRoute path="/treatment-options" component={ TreatmentOptions } />
-            <PrivateRoute path="/values-clarification" component={ ValuesClarification } />
+            <PrivateRoute 
+              path="/values-clarification" 
+              component={ ValuesClarification } 
+              onSaveProgress={ this.saveProgress }
+            />
             <PrivateRoute path="/treatment-comparison" component={ TreatmentComparison } />
-            <PrivateRoute path="/worry-assessment" component={ WorryAssessment } />
-            <PrivateRoute path="/high-anxiety" api={ api } component={ HighAnxiety } />
-            <PrivateRoute path="/next-steps" component={ NextSteps } />
+            <PrivateRoute 
+              path="/worry-assessment" 
+              onSaveProgress={ this.saveProgress }
+              component={ WorryAssessment }
+            />
+            <PrivateRoute 
+              path="/high-anxiety" 
+              api={ api } 
+              component={ HighAnxiety } 
+            />
+            <PrivateRoute 
+              path="/next-steps" 
+              onSaveProgress={ this.saveProgress }
+              component={ NextSteps } 
+            />
+            <PrivateRoute 
+              path="/summary" 
+              data={ this.state }
+              component={ Summary } 
+            />
             <PrivateRoute exact path="/" component={ Home } />
           </div>
         </section>
