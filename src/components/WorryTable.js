@@ -18,20 +18,21 @@ class WorryTable extends Component {
 
   render() {
     const nums = numArray("5").slice(1);
+		const labels = worry_content.labels;
+		const worries = worry_content.body;
     return (
       <table className="table table-bordered table-responsive-sm">
         <thead className="thead-light">
           <tr>
-            <th scope="col"></th>
-            <th scope="col">Strongly disagree</th>
-            <th scope="col">Disagree</th>
-            <th scope="col">In between</th>
-            <th scope="col">Agree</th>
-            <th scope="col">Strongly agree</th>
+						{ labels.map( (label, i) => {
+							return (
+								<th key={i} scope="col">{ label }</th>
+							);
+						})}
           </tr>
         </thead>
         <tbody>
-          { worry_content.map( (worry, i) => {
+          { worries.map( (worry, i) => {
             return (
               <tr key={i}>
                 <td>{ worry.content }</td>

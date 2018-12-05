@@ -1,16 +1,23 @@
-[
-  { 
-    "type" : "general",
-    "content" : "Worries about the surgery"
-  },
+{
+  "labels" : [
+    "", "Strongly disagree",
+    "Disagree", "In between",
+    "Agree", "Strongly agree"
+  ],
+  "body" : [
+    { 
+      "type" : "general",
+      "content" : "Worries about the surgery"
+    },
 
-  { 
-    "type" : "during",
-    "content" : "Uncertainty about what will happen during surgery"
-  },
+    { 
+      "type" : "during",
+      "content" : "Uncertainty about what will happen during surgery"
+    },
 
-  { 
-    "type" : "after",
-    "content" : "Worry that something might go wrong during or after surgery"
-  }
-]
+    { 
+      "type" : "after",
+      "content" : "Worry that something might go wrong during or after surgery"
+    }
+  ]
+}
