@@ -2,11 +2,14 @@ import React, { Component } from 'react';
 import TreatmentComparison from './TreatmentComparison';
 import values_content from '../helpers/values_content.json';
 import worry_content from '../helpers/worry_content.json';
+import next_steps_content from '../helpers/next_steps_content.json';
+import { toInt } from '../helpers/utilities';
 
 class Summary extends Component {
   constructor(props) {
     super(props);
     this.state = {}
+    {/*
     props.data.values = {
       additional_surgery : 5,
       keep_breasts : 4,
@@ -17,7 +20,9 @@ class Summary extends Component {
       similar : 4,
     }
     props.data.next = {
-      what_treatment: "Lumpectomy",
+      what_treatment: 2,
+      how_ready: 1,
+      what_would: 0,
     }
     props.data.worry = {
       distress: 7,
@@ -25,26 +30,27 @@ class Summary extends Component {
       during: 5,
       after: 5,
     }
-    {/*
     */}
   }
 
   render() {
-    const worry_resp = this.props.data.worry
+    const values_resp = this.props.data.values || "";
+    const worry_resp = this.props.data.worry || "";
+    const next_resp = this.props.data.next || "";
     return (
       <div>
         <h1>Your summary</h1>
         <h2>What is important to you?</h2>
         <p><em>Your responses on a scale of 0 (Not important) to 5 (Very important)</em></p>
         <ol>
-          { this.props.data.values !== undefined ? values_content.map( (entry, i) => {
+          { values_content.map( (entry, i) => {
             return (
               <li key={i}>
                 <p>{ entry.content }<br />
-                You chose: <strong> { this.props.data.values[entry.value] + " out of 5" } </strong></p>
+                You chose: <strong> { values_resp[entry.value] + " out of 5" } </strong></p>
               </li>
             );
-          }) : "" }
+          })}
         </ol>
         <h2>Treatment comparison</h2>
         <TreatmentComparison />
@@ -71,10 +77,16 @@ class Summary extends Component {
           })}
         </ol>
         <h2>Next steps</h2>
-        <p>The treatment you are leaning toward:</p>
-        <p>How ready you are to make a decision:</p>
-        <p><em>If relevant</em><br />
-        What would help you to make a decision</p>
+        <p>The treatment you are leaning toward:<br />
+        <strong>{ next_steps_content.primary[0].choices[toInt(next_resp.what_treatment)] }</strong></p>
+        <p>How ready you are to make a decision:<br />
+        <strong>{ next_steps_content.primary[1].choices[toInt(next_resp.how_ready)] }</strong></p>
+        { next_resp.what_would !==undefined ? 
+          <p>What would help you to make a decision<br />
+          <strong>{ next_steps_content.followup.choices[toInt(next_resp.what_would)] }</strong></p> : ""
+        }
+        {/*
+        */}
       </div>
     )
   }
