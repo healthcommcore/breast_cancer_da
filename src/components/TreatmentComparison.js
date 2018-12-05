@@ -10,7 +10,7 @@ class TreatmentComparison extends Component {
   render() {
     return (
       <div>
-        <h1>Treatment comparison</h1>
+        { this.props.title !== undefined ? <h1>{ this.props.title }</h1> : "" }
         <div className="table-responsive-sm">
             <table className="table table-striped table-bordered">
                 <thead>
@@ -127,7 +127,7 @@ class TreatmentComparison extends Component {
                     </tr>
                 </tbody>
             </table>
-          <NextButton dest="worry-assessment" />
+            { this.props.nextButton !== undefined ? <NextButton dest="worry-assessment" /> : "" }
         </div>
       </div>
     );

@@ -49,7 +49,12 @@ class App extends Component {
               component={ ValuesClarification } 
               onSaveProgress={ this.saveProgress }
             />
-            <PrivateRoute path="/treatment-comparison" component={ TreatmentComparison } />
+            <PrivateRoute 
+              path="/treatment-comparison" 
+              title="Treatment comparison"
+              nextButton
+              component={ TreatmentComparison } 
+            />
             <PrivateRoute 
               path="/worry-assessment" 
               onSaveProgress={ this.saveProgress }
