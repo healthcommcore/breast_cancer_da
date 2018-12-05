@@ -1,10 +1,20 @@
 import React, { Component } from 'react';
 import NextButton from './NextButton';
+import { exists } from '../helpers/utilities';
 
 class TreatmentComparison extends Component {
   constructor(props) {
     super(props);
-    this.state = "";
+    this.toggleBilateral = this.toggleBilateral.bind(this);
+    this.state = {
+      show_bilateral: exists(this.props.showBilateral)
+    }
+  }
+
+  toggleBilateral = (e) => {
+    e.preventDefault();
+    const toggle = !this.state.show_bilateral;
+    this.setState({ show_bilateral : toggle })
   }
 
   render() {
@@ -18,15 +28,15 @@ class TreatmentComparison extends Component {
                         <th className=""></th>
                         <th>Lumpectomy</th>
                         <th>Mastectomy</th>
-                        <th className="">Bilateral (double) mastectomy</th>
+                        <th className={ this.state.show_bilateral ? "d-block" : "d-none" } >Bilateral (double) mastectomy</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
                         <th>Procedure</th>
                         <td className="">Removal of the tumor, keeping as much of the breast as possible</td>
-                        <td>Removal of the breast with the tumor (with or without reconstruction). Bilateral mastectomy is the removal of both breasts.</td>
-                        <td className="">Removal of the breast with the tumor and the healthy breast (with or without reconstruction)</td>
+                        <td>Removal of the breast with the tumor (with or without reconstruction). <a href="#" onClick={ this.toggleBilateral }>Bilateral mastectomy</a> is the removal of both breasts.</td>
+                        <td className={ this.state.show_bilateral ? "d-block" : "d-none" }>Removal of the breast with the tumor and the healthy breast (with or without reconstruction)</td>
                     </tr>
                     <tr>
                         <th>Breast cancer risk over next 5 years</th>
@@ -46,7 +56,7 @@ class TreatmentComparison extends Component {
                                 BRCA2: 4-9% risk)</p>
                             <p>The risk of cancer returning in another part of the body is the same no matter which procedure is chosen</p>
                         </td>
-                        <td className="">
+                        <td className={ this.state.show_bilateral ? "d-block" : "d-none" }>
                             <p>2-4% risk of cancer returning in treated breast/chest wall (BRCA1/2: 2-4%) risk</p>
                             <p>2-3% risk of cancer developing in healthy breast<br />
                                 (BRCA1: 14-15% risk<br />
@@ -58,7 +68,7 @@ class TreatmentComparison extends Component {
                         <th>Breastfeeding</th>
                         <td className="">Possible (both breasts)</td>
                         <td>Possible (healthy breast)</td>
-                        <td className="">Not possible</td>
+                        <td className={ this.state.show_bilateral ? "d-block" : "d-none" }>Not possible</td>
                     </tr>
                     <tr>
                         <th>Appearance and sensation</th>
@@ -73,7 +83,7 @@ class TreatmentComparison extends Component {
                             <p>Without reconstruction, breasts are not symmetrical</p>
                             <p>Permanent numbness in treated breast area</p>
                         </td>
-                        <td className="">
+                        <td className={ this.state.show_bilateral ? "d-block" : "d-none" }>
                             <p>Reconstruction or prostheses are an option</p>
                             <p>Breast area is symmetrical</p>
                             <p>Permanent numbness in entire breast and chest wall area</p>
@@ -92,7 +102,7 @@ class TreatmentComparison extends Component {
                             <p>Lymphedema risk</p>
                             <p>No need for additional cancer surgery but may need multiple procedures if choosing reconstruction</p>
                         </td>
-                        <td className="">
+                        <td className={ this.state.show_bilateral ? "d-block" : "d-none" }>
                             <p>Increased chance of complications than unilateral mastectomy, especially when choosing reconstruction</p>
                             <p>Lymphedema risk</p>
                             <p>No need for additional cancer surgery but may need multiple procedures if choosing reconstruction</p>
@@ -112,7 +122,7 @@ class TreatmentComparison extends Component {
                             <p>Drains for 1-2 weeks</p>
                             <p>May not need radiation after surgery </p>
                         </td>
-                        <td className="">
+                        <td className={ this.state.show_bilateral ? "d-block" : "d-none" }>
                             <p>Back home: Day after surgery</p>
                             <p>Back to regular activities: 4-6 weeks (without reconstruction)</p>
                             <p>Drains for 2-4 weeks</p>
@@ -123,7 +133,7 @@ class TreatmentComparison extends Component {
                         <th>Annual mammograms</th>
                         <td className="">Necessary (both breasts)</td>
                         <td>Necessary (healthy breast)</td>
-                        <td className="">Not necessary</td>
+                        <td className={ this.state.show_bilateral ? "d-block" : "d-none" }>Not necessary</td>
                     </tr>
                 </tbody>
             </table>
