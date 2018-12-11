@@ -16,9 +16,8 @@ const Home = (props) => {
 
       <p>You can stop at any point and come back later to review this information. Your information won’t be saved, but on the last screen, you’ll have an option to print the information and your responses.</p>
 
-      <p className="alert alert-warning">Not sure if these are supposed to be menu items or just links on this page</p>
-      <p>Learn more about this study</p>
-      <p>Contact the study team</p>
+      <p><Link to="/about">Learn more about this study</Link></p>
+      <p><a href="#">Contact the study team</a></p>
     </div>
   );
 }
