@@ -13,7 +13,7 @@ const UserList = (props) => {
         </tr>
       </thead>
         <tbody>
-        { this.props.rows.length > 0 ? (this.props.rows.map((row, i) => {
+        { props.rows.length > 0 ? ( props.rows.map( (row, i) => {
           return (
             <tr key={ i }>
               <td>{ row.last_name }</td>

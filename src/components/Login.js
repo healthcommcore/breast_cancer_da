@@ -26,7 +26,7 @@ class Login extends Component {
       url: this.props.api + '?req=authenticate'
     })
       .then( (result) => {
-        console.log(result.data);
+        //console.log(result.data);
         this.evaluateLogin(result.data);
       })
       .catch( (error) => {
@@ -43,6 +43,7 @@ class Login extends Component {
         admin: result.admin === "1" ? true : false
       });
       this.props.history.push("/");
+      console.log(store.get('user'));
     }
     else {
       console.log("There was a problem logging in: " + result);

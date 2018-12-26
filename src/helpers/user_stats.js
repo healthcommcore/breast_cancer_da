@@ -1,7 +1,14 @@
 import store from 'store';
 
-const user = store.get('user');
 
-export const isAdmin = () => user.admin; 
+const isAdmin = () => {
+  const user = store.get('user');
+  return user.admin;
+}
 
-export const lumpEligible = () => user.lump; 
+const lumpEligible = () => {
+  const user = store.get('user');
+  return user.lump;
+}
+
+export { isAdmin, lumpEligible }

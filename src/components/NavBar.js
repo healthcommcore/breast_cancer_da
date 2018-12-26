@@ -1,6 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import Logout from './Logout.js';
+import { isAdmin } from '../helpers/user_stats';
 
 const NavBar = (props) => {
   return (
@@ -18,6 +19,10 @@ const NavBar = (props) => {
             <NavLink className="nav-item nav-link" to="/">Home</NavLink>
             <NavLink className="nav-item nav-link" to="/about">About</NavLink>
             <NavLink className="nav-item nav-link" to="/resources">Resources</NavLink>
+            { isAdmin() ? 
+              <NavLink className="nav-item nav-link" to="/admin">Admin</NavLink>
+              : ""
+            }
             <Logout />
           </div>
         </div>

@@ -51,7 +51,7 @@ class UserRegistration extends Component {
           storeData={ this.handleUserFormSubmit } 
         />
         <UserList 
-          rows={ this.state.rows } 
+          rows={ this.state.rows || [] } 
           className={ this.hasRows ? "d-block" : "d-none" } 
         />
       </div>
