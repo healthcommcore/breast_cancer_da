@@ -7,7 +7,7 @@ import Resources from './components/Resources.js';
 import NavBar from './components/NavBar.js';
 import PrivateRoute from './components/PrivateRoute.js';
 import Login from './components/Login.js';
-import UserRegistration from './components/UserRegistration.js';
+import Admin from './components/Admin.js';
 import TreatmentOptions from './components/TreatmentOptions.js';
 import ValuesClarification from './components/ValuesClarification.js';
 import TreatmentComparison from './components/TreatmentComparison.js';
@@ -42,7 +42,7 @@ class App extends Component {
             <Route path="/login" render={ (props)=> <Login api={ api } { ...props } /> } />
             <PrivateRoute path="/about" component={ About } />
             <PrivateRoute path="/resources" component={ Resources } />
-            <PrivateRoute path="/admin" api={ api } component={ UserRegistration } />
+            <PrivateRoute path="/admin" api={ api } component={ Admin } />
             <PrivateRoute path="/treatment-options" component={ TreatmentOptions } />
             <PrivateRoute 
               path="/values-clarification" 

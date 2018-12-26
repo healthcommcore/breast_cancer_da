@@ -3,7 +3,7 @@ import axios from 'axios';
 import NewUserForm from './NewUserForm';
 import UserList from './UserList';
 
-class UserRegistration extends Component {
+class Admin extends Component {
 
   constructor(props) {
     super(props);
@@ -29,8 +29,15 @@ class UserRegistration extends Component {
   }
 
 
-  handleUserFormSubmit = (data) => {
 
+  handleUserFormSubmit = (data) => {
+    const newobj = Object.assign({}, data);
+    let existing_rows = this.state.rows;
+    const new_rows = existing_rows.push(newobj)
+    console.log(newobj);
+    this.setState({});
+    //console.log(this.state.rows);
+    {/*
     axios({
       method: 'post',
       url: this.props.api + '?req=add_user',
@@ -42,21 +49,26 @@ class UserRegistration extends Component {
       .catch( (error) => {
         console.log(error);
       });
+    */}
   }
 
   render () {
+    console.log(this.state.rows);
     return (
       <div>
+        <h1>Administration page</h1>
+        <h2>Add new users</h2>
         <NewUserForm 
           storeData={ this.handleUserFormSubmit } 
         />
+        <h2>List of current users</h2>
         <UserList 
           rows={ this.state.rows || [] } 
-          className={ this.hasRows ? "d-block" : "d-none" } 
+          className={ this.state.rows ? "d-block" : "d-none" } 
         />
       </div>
     );
   }
 }
 
-export default UserRegistration;
+export default Admin;
