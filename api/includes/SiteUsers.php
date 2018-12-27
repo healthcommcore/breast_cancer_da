@@ -48,7 +48,7 @@ class SiteUsers {
     $db = DB::getInstance();
     $resp = "";
     try {
-      $query = $db->query("SELECT first_name, last_name, username, lump FROM `users` ORDER BY last_name ASC", PDO::FETCH_ASSOC);
+      $query = $db->query("SELECT id, first_name, last_name, username, lump FROM `users` ORDER BY last_name ASC", PDO::FETCH_ASSOC);
       $rows = $query->fetchAll();
       $resp = json_encode($rows);
       //echo "Transaction successful, data entered";
@@ -61,6 +61,26 @@ class SiteUsers {
   }
 
   public static function addUser($userData) {
+    $db = DB::getInstance();
+    $vals = self::stringify($userData);
+    $columns = "first_name, last_name, username, password, lump, admin, date_created";
+    $mssg = "";
+
+  // Insert form data into database
+    try {
+      $db->beginTransaction();
+      $db->exec("INSERT INTO USERS ($columns) VALUES ($vals)");
+      $db->commit();
+      $mssg = "Transaction successful, data entered";
+    }
+    catch (Exception $e) {
+      $db->rollBack();
+      $mssg = $e->getMessage();
+    }
+    return $mssg;
+  }
+
+  public static function removeUser($userData) {
     $db = DB::getInstance();
     $vals = self::stringify($userData);
     $columns = "first_name, last_name, username, password, lump, admin, date_created";

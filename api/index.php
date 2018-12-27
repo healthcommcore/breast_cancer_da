@@ -34,6 +34,10 @@
     $mssg = SiteUsers::addUser($data);
     echo $mssg;
   }
+  else if($path == 'delete_user' && $req == 'delete') {
+    $id = file_get_contents("php://input");
+    $result = SiteUsers::removeUser($id);
+  }
   else {
     echo $path;
   }

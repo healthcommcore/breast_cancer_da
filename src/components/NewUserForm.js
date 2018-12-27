@@ -31,11 +31,11 @@ class NewUserForm extends Component {
         <form onSubmit={ this.onSubmit }>
           <div className="form-group">
             <label htmlFor="firstName">First name</label>
-            <input type="text" className="form-control" name="firstName" id="firstName" onChange={ this.onChange }/>
+            <input type="text" className="form-control" name="first_name" id="first_name" onChange={ this.onChange }/>
           </div>
           <div className="form-group">
             <label htmlFor="lastName">Last name</label>
-            <input type="text" className="form-control" name="lastName" id="lastName"  onChange={ this.onChange }/>
+            <input type="text" className="form-control" name="last_name" id="last_name"  onChange={ this.onChange }/>
           </div>
           <div className="form-group">
             <label htmlFor="username">Username</label>
