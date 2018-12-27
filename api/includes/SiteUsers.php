@@ -80,18 +80,16 @@ class SiteUsers {
     return $mssg;
   }
 
-  public static function removeUser($userData) {
+  public static function removeUser($id) {
     $db = DB::getInstance();
-    $vals = self::stringify($userData);
-    $columns = "first_name, last_name, username, password, lump, admin, date_created";
     $mssg = "";
 
   // Insert form data into database
     try {
       $db->beginTransaction();
-      $db->exec("INSERT INTO USERS ($columns) VALUES ($vals)");
+      $db->exec("DELETE FROM USERS WHERE ID=$id");
       $db->commit();
-      $mssg = "Transaction successful, data entered";
+      $mssg = "Transaction successful, user deleted";
     }
     catch (Exception $e) {
       $db->rollBack();
