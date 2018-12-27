@@ -5,7 +5,7 @@
 
 # Globals
 api/includes/globals.php
-
+package-lock.json
 # dependencies
 /node_modules
 
