@@ -36,7 +36,6 @@ class Admin extends Component {
     updated_rows.push(data);
     this.setState({ rows: updated_rows });
     //console.log(this.state.rows);
-    {/*
     axios({
       method: 'post',
       url: this.props.api + '?req=add_user',
@@ -48,6 +47,7 @@ class Admin extends Component {
       .catch( (error) => {
         console.log(error);
       });
+    {/*
     */}
   }
 
