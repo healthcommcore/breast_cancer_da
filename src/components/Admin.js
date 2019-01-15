@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import NewUserForm from './NewUserForm';
+import UserDataForm from './UserDataForm';
 import UserList from './UserList';
+import Modal from './Modal';
 
 class Admin extends Component {
 
@@ -35,7 +36,8 @@ class Admin extends Component {
     let updated_rows = this.state.rows;
     updated_rows.push(data);
     this.setState({ rows: updated_rows });
-    //console.log(this.state.rows);
+    console.log(this.state.rows);
+    {/*
     axios({
       method: 'post',
       url: this.props.api + '?req=add_user',
@@ -47,7 +49,6 @@ class Admin extends Component {
       .catch( (error) => {
         console.log(error);
       });
-    {/*
     */}
   }
 
@@ -68,9 +69,12 @@ class Admin extends Component {
   render () {
     return (
       <div>
+        <Modal>
+          <UserDataForm storeData={ this.handleUserUpdate } />
+        </Modal>
         <h1>Administration page</h1>
         <h2>Add new users</h2>
-        <NewUserForm 
+        <UserDataForm 
           storeData={ this.handleUserFormSubmit } 
         />
         <h2>List of current users</h2>
@@ -79,6 +83,7 @@ class Admin extends Component {
           rows={ this.state.rows || [] } 
           className={ this.state.rows ? "d-block" : "d-none" } 
         />
+        <button className="btn btn-primary" data-target="#bcdaModal" data-toggle="modal">Test modal</button>
       </div>
     );
   }

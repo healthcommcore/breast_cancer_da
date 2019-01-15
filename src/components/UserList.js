@@ -39,10 +39,7 @@ class UserList extends Component {
           { this.props.rows.length > 0 ? ( this.props.rows.map( (row, i) => {
             return (
               <tr key={ i } id={ row.id }>
-                <td><TextInput onChange={ this.onChange } value={ row.last_name } inputName={ "last_name" + i } inputLabel="Last name" /></td>
-              {/*
                 <td>{ row.last_name }</td>
-              */}
                 <td>{ row.first_name }</td>
                 <td>{ row.username }</td>
                 <td>{ row.lump === "1" ? "Yes" : "No" }</td>
