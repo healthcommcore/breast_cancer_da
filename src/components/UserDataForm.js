@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import UserDataFields from './UserDataFields';
+import jquery from 'jquery';
 
 class UserDataForm extends Component {
 
@@ -20,6 +21,9 @@ class UserDataForm extends Component {
   onSubmit = (e) => {
     e.preventDefault();
     this.props.storeData(this.state);
+    if (this.props.isModal) {
+      jquery("#bcdaModal").modal("hide");
+    }
   }
 
   render () {
@@ -31,7 +35,14 @@ class UserDataForm extends Component {
             lump={ this.state.lump }
             onChange={ this.onChange } 
           />
-          <button type="submit" className="btn btn-primary btn-lg">Submit</button>
+          { this.props.isModal ?
+            <div className="modal-footer">
+              <button type="button" className="btn btn-secondary btn-lg" data-dismiss="modal">Close</button>
+              <button type="submit" className="btn btn-primary btn-lg">Submit</button>
+            </div>
+            :
+            <button type="submit" className="btn btn-primary btn-lg">Submit</button>
+          }
         </form>
       </div>
     );

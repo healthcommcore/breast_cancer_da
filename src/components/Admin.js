@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import UserDataForm from './UserDataForm';
+import UserDataFields from './UserDataFields';
 import UserList from './UserList';
 import Modal from './Modal';
 
@@ -8,7 +9,8 @@ class Admin extends Component {
 
   constructor(props) {
     super(props);
-    this.handlUserFormSubmit = this.handleUserFormSubmit.bind(this);
+    this.handleUserFormSubmit = this.handleUserFormSubmit.bind(this);
+    this.handleUserUpdate = this.handleUserUpdate.bind(this);
     this.handleDelete = this.handleDelete.bind(this);
     this.state = {
       rows: []
@@ -66,11 +68,17 @@ class Admin extends Component {
       });
   }
 
+  handleUserUpdate = (data) => {
+    console.log(data);
+  }
+
+
+
   render () {
     return (
       <div>
         <Modal>
-          <UserDataForm storeData={ this.handleUserUpdate } />
+          <UserDataForm storeData={ this.handleUserUpdate } isModal />
         </Modal>
         <h1>Administration page</h1>
         <h2>Add new users</h2>
