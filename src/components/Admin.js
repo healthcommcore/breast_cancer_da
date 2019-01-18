@@ -11,7 +11,9 @@ class Admin extends Component {
     super(props);
     this.handleUserFormSubmit = this.handleUserFormSubmit.bind(this);
     this.handleUserUpdate = this.handleUserUpdate.bind(this);
+    this.handleUpdateClick = this.handleUpdateClick.bind(this);
     this.handleDelete = this.handleDelete.bind(this);
+    this.findRecord = this.findRecord.bind(this);
     this.state = {
       rows: []
     };
@@ -38,8 +40,6 @@ class Admin extends Component {
     let updated_rows = this.state.rows;
     updated_rows.push(data);
     this.setState({ rows: updated_rows });
-    console.log(this.state.rows);
-    {/*
     axios({
       method: 'post',
       url: this.props.api + '?req=add_user',
@@ -51,6 +51,7 @@ class Admin extends Component {
       .catch( (error) => {
         console.log(error);
       });
+    {/*
     */}
   }
 
@@ -72,7 +73,18 @@ class Admin extends Component {
     console.log(data);
   }
 
+  handleUpdateClick = (e) => {
+    const id = e.target.closest('tr').id;
+    const record = this.findRecord(id);
+    console.log(record);
+  }
 
+  findRecord = (id) => {
+    const rows = this.state.rows;
+    rows.find( (row) => {
+      return row.id === id;
+    });
+  }
 
   render () {
     return (
@@ -87,6 +99,7 @@ class Admin extends Component {
         />
         <h2>List of current users</h2>
         <UserList 
+          onUpdate={ this.handleUpdateClick }
           onDelete={ this.handleDelete }
           rows={ this.state.rows || [] } 
           className={ this.state.rows ? "d-block" : "d-none" } 

@@ -63,13 +63,13 @@ class SiteUsers {
   public static function addUser($userData) {
     $db = DB::getInstance();
     $vals = self::stringify($userData);
-    $columns = "first_name, last_name, username, password, lump, admin, date_created";
+    $columns = "lump, admin, first_name, last_name, username, password, date_created";
     $mssg = "";
 
   // Insert form data into database
     try {
       $db->beginTransaction();
-      $db->exec("INSERT INTO USERS ($columns) VALUES ($vals)");
+      $db->exec("INSERT INTO `users` ($columns) VALUES ($vals)") or die(print_r($db->errorInfo(), true));
       $db->commit();
       $mssg = "Transaction successful, data entered";
     }

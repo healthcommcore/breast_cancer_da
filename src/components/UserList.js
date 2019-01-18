@@ -5,7 +5,6 @@ class UserList extends Component {
   constructor(props) {
     super(props);
     this.onDelete = this.onDelete.bind(this);
-    this.onUpdate = this.onUpdate.bind(this);
     this.onChange = this.onChange.bind(this);
   }
 
@@ -17,10 +16,6 @@ class UserList extends Component {
     const row = e.target.closest("tr");
     row.closest("tr").remove();
     this.props.onDelete(row.id);
-  }
-
-  onUpdate = (e) => {
-    e.preventDefault();
   }
 
   render() {
@@ -45,6 +40,7 @@ class UserList extends Component {
                 <td>{ row.lump === "1" ? "Yes" : "No" }</td>
                 <td>
                   <button 
+                    onClick={ this.props.onUpdate }
                     type="button" 
                     className="btn btn-warning"
                   >Update</button>
