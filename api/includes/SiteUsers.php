@@ -48,7 +48,7 @@ class SiteUsers {
     $db = DB::getInstance();
     $resp = "";
     try {
-      $query = $db->query("SELECT id, first_name, last_name, username, lump FROM `users` ORDER BY last_name ASC", PDO::FETCH_ASSOC);
+      $query = $db->query("SELECT id, first_name, last_name, username, lump, admin FROM `users` ORDER BY last_name ASC", PDO::FETCH_ASSOC);
       $rows = $query->fetchAll();
       $resp = json_encode($rows);
       //echo "Transaction successful, data entered";

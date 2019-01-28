@@ -39,8 +39,8 @@ class UserDataForm extends Component {
           />
           { this.props.isModal ?
             <div className="modal-footer">
-              <button type="button" className="btn btn-secondary btn-lg" data-dismiss="modal">Close</button>
-              <button type="submit" className="btn btn-primary btn-lg">Submit</button>
+              <button type="button" className="btn btn-secondary btn-lg" data-dismiss="modal">Cancel</button>
+              <button type="submit" className="btn btn-primary btn-lg">Update</button>
             </div>
             :
             <button type="submit" className="btn btn-primary btn-lg">Submit</button>

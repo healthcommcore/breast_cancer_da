@@ -105,7 +105,6 @@ class Admin extends Component {
           rows={ this.state.rows || [] } 
           className={ this.state.rows ? "d-block" : "d-none" } 
         />
-        <button className="btn btn-primary" data-target="#bcdaModal" data-toggle="modal">Test modal</button>
       </div>
     );
   }
