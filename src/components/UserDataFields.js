@@ -5,7 +5,7 @@ const UserDataFields = (props) => {
     <div>
       <div className="form-group">
         <label htmlFor="firstName">First name</label>
-        <input type="text" className="form-control" name="first_name" onChange={ props.onChange }/>
+        <input type="text" className="form-control" value={ props.userUpdate.first_name || "" } name="first_name" onChange={ props.onChange }/>
       </div>
       <div className="form-group">
         <label htmlFor="lastName">Last name</label>

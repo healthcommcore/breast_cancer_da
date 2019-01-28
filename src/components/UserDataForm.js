@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import UserDataFields from './UserDataFields';
+import { exists } from '../helpers/utilities';
 import jquery from 'jquery';
 
 class UserDataForm extends Component {
@@ -31,8 +32,9 @@ class UserDataForm extends Component {
       <div>
         <form onSubmit={ this.onSubmit }>
           <UserDataFields 
-            admin={ this.state.admin }
-            lump={ this.state.lump }
+            userUpdate={ exists(this.props.userUpdate) ? this.props.userUpdate : "" }
+            admin={ exists(this.props.userUpdate) ? this.props.userUpdate.admin : this.state.admin }
+            lump={ exists(this.props.userUpdate) ? this.props.userUpdate.lump : this.state.lump }
             onChange={ this.onChange } 
           />
           { this.props.isModal ?

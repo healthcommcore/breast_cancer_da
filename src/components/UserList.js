@@ -6,6 +6,7 @@ class UserList extends Component {
     super(props);
     this.onDelete = this.onDelete.bind(this);
     this.onChange = this.onChange.bind(this);
+    this.onEdit = this.onEdit.bind(this);
   }
 
   onChange = (data) => {
@@ -16,6 +17,12 @@ class UserList extends Component {
     const row = e.target.closest("tr");
     row.closest("tr").remove();
     this.props.onDelete(row.id);
+  }
+
+  onEdit = (e) => {
+    const id = e.target.closest('tr').id;
+    this.props.editUser(id);
+    e.preventDefault();
   }
 
   render() {
@@ -40,10 +47,12 @@ class UserList extends Component {
                 <td>{ row.lump === "1" ? "Yes" : "No" }</td>
                 <td>
                   <button 
-                    onClick={ this.props.onUpdate }
+                    onClick={ this.onEdit }
                     type="button" 
                     className="btn btn-warning"
-                  >Update</button>
+                    data-target="#bcdaModal" 
+                    data-toggle="modal"
+                  >Edit</button>
                   <button 
                     onClick={ this.onDelete }
                     type="button" 

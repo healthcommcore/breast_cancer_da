@@ -11,11 +11,12 @@ class Admin extends Component {
     super(props);
     this.handleUserFormSubmit = this.handleUserFormSubmit.bind(this);
     this.handleUserUpdate = this.handleUserUpdate.bind(this);
-    this.handleUpdateClick = this.handleUpdateClick.bind(this);
+    this.handleEditUser = this.handleEditUser.bind(this);
     this.handleDelete = this.handleDelete.bind(this);
     this.findRecord = this.findRecord.bind(this);
     this.state = {
-      rows: []
+      rows: [],
+      userUpdate: {}
     };
   }
 
@@ -73,24 +74,24 @@ class Admin extends Component {
     console.log(data);
   }
 
-  handleUpdateClick = (e) => {
-    const id = e.target.closest('tr').id;
-    const record = this.findRecord(id);
-    console.log(record);
+  handleEditUser = (id) => {
+    const user = this.findRecord(id);
+    this.setState({ userUpdate: user });
   }
 
   findRecord = (id) => {
     const rows = this.state.rows;
-    rows.find( (row) => {
+    const user = rows.find( (row) => {
       return row.id === id;
     });
+    return user;
   }
 
   render () {
     return (
       <div>
         <Modal>
-          <UserDataForm storeData={ this.handleUserUpdate } isModal />
+          <UserDataForm userUpdate={ this.state.userUpdate } storeData={ this.handleUserUpdate } isModal />
         </Modal>
         <h1>Administration page</h1>
         <h2>Add new users</h2>
@@ -99,7 +100,7 @@ class Admin extends Component {
         />
         <h2>List of current users</h2>
         <UserList 
-          onUpdate={ this.handleUpdateClick }
+          editUser={ this.handleEditUser }
           onDelete={ this.handleDelete }
           rows={ this.state.rows || [] } 
           className={ this.state.rows ? "d-block" : "d-none" } 
