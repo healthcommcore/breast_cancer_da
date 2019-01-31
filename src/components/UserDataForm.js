@@ -10,22 +10,34 @@ class UserDataForm extends Component {
     this.onChange = this.onChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
     this.handleModalClose = this.handleModalClose.bind(this);
+    this.updateState = this.updateState.bind(this);
     this.state = {
       lump: '0',
       admin: '0'
     };
   }
 
+  componentDidMount = () => {
+    if (this.props.isModal) {
+      const userUpdate = this.props.userUpdate;
+      for (const prop in userUpdate) {
+        this.updateState(prop, userUpdate[prop]);
+      }
+    }
+  }
+
+  updateState = (key, val) => {
+    this.setState({ [key] : val });
+  }
+
+
   onChange = (e) => {
-    this.setState({ [e.target.name] : e.target.value });
+    this.updateState(e.target.name, e.target.value);
   }
 
   onSubmit = (e) => {
     e.preventDefault();
     this.props.storeData(this.state);
-    if (this.props.isModal) {
-      //jquery("#bcdaModal").modal("hide");
-    }
   }
 
   handleModalClose = () => {

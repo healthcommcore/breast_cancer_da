@@ -5,15 +5,15 @@ const UserDataFields = (props) => {
     <div>
       <div className="form-group">
         <label htmlFor="firstName">First name</label>
-        <input type="text" className="form-control" value={ props.userUpdate.first_name || "" } name="first_name" onChange={ props.onChange }/>
+        <input type="text" className="form-control" defaultValue={ props.userUpdate.first_name } name="first_name" onChange={ props.onChange }/>
       </div>
       <div className="form-group">
         <label htmlFor="lastName">Last name</label>
-        <input type="text" className="form-control" value={ props.userUpdate.last_name || "" }  name="last_name" onChange={ props.onChange }/>
+        <input type="text" className="form-control" defaultValue={ props.userUpdate.last_name || "" }  name="last_name" onChange={ props.onChange }/>
       </div>
       <div className="form-group">
         <label htmlFor="username">Username</label>
-        <input type="text" className="form-control" value={ props.userUpdate.username || "" } name="username" onChange={ props.onChange }/>
+        <input type="text" className="form-control" defaultValue={ props.userUpdate.username || "" } name="username" onChange={ props.onChange }/>
       </div>
       <div className="form-group">
         <label htmlFor="password">Password</label>
