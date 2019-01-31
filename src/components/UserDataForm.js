@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import UserDataFields from './UserDataFields';
+import Modal from 'react-bootstrap/Modal';
 import { exists } from '../helpers/utilities';
-import jquery from 'jquery';
 
 class UserDataForm extends Component {
 
@@ -9,6 +9,7 @@ class UserDataForm extends Component {
     super(props);
     this.onChange = this.onChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
+    this.handleModalClose = this.handleModalClose.bind(this);
     this.state = {
       lump: '0',
       admin: '0'
@@ -23,8 +24,12 @@ class UserDataForm extends Component {
     e.preventDefault();
     this.props.storeData(this.state);
     if (this.props.isModal) {
-      jquery("#bcdaModal").modal("hide");
+      //jquery("#bcdaModal").modal("hide");
     }
+  }
+
+  handleModalClose = () => {
+    this.props.handleModalClose();
   }
 
   render () {
@@ -38,10 +43,10 @@ class UserDataForm extends Component {
             onChange={ this.onChange } 
           />
           { this.props.isModal ?
-            <div className="modal-footer">
-              <button type="button" className="btn btn-secondary btn-lg" data-dismiss="modal">Cancel</button>
+           <Modal.Footer> 
+              <button type="button" className="btn btn-secondary btn-lg" onClick={ this.handleModalClose }>Cancel</button>
               <button type="submit" className="btn btn-primary btn-lg">Update</button>
-            </div>
+          </Modal.Footer>
             :
             <button type="submit" className="btn btn-primary btn-lg">Submit</button>
           }

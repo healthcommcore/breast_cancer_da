@@ -50,8 +50,6 @@ class UserList extends Component {
                     onClick={ this.onEdit }
                     type="button" 
                     className="btn btn-warning"
-                    data-target="#bcdaModal" 
-                    data-toggle="modal"
                   >Edit</button>
                   <button 
                     onClick={ this.onDelete }

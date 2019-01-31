@@ -3,7 +3,7 @@ import axios from 'axios';
 import UserDataForm from './UserDataForm';
 import UserDataFields from './UserDataFields';
 import UserList from './UserList';
-import Modal from './Modal';
+import Modal from 'react-bootstrap/Modal';
 
 class Admin extends Component {
 
@@ -13,10 +13,14 @@ class Admin extends Component {
     this.handleUserUpdate = this.handleUserUpdate.bind(this);
     this.handleEditUser = this.handleEditUser.bind(this);
     this.handleDelete = this.handleDelete.bind(this);
+    this.handleModalClose = this.handleModalClose.bind(this);
     this.findRecord = this.findRecord.bind(this);
     this.state = {
       rows: [],
-      userUpdate: {}
+      userUpdate: {},
+      modal: {
+        show: false
+      }
     };
   }
 
@@ -72,11 +76,23 @@ class Admin extends Component {
 
   handleUserUpdate = (data) => {
     console.log(data);
+    this.handleModalClose();
+  }
+
+  handleModalClose = () => {
+    this.setState({ 
+      modal: {
+        show: false
+      }
+    });
   }
 
   handleEditUser = (id) => {
     const user = this.findRecord(id);
-    this.setState({ userUpdate: user });
+    this.setState({ 
+      userUpdate: user,
+      modal: { show: true }
+    });
   }
 
   findRecord = (id) => {
@@ -90,8 +106,18 @@ class Admin extends Component {
   render () {
     return (
       <div>
-        <Modal>
-          <UserDataForm userUpdate={ this.state.userUpdate } storeData={ this.handleUserUpdate } isModal />
+        <Modal show={ this.state.modal.show} onHide={ this.handleModalClose }>
+          <Modal.Header closeButton>
+            <Modal.Title>User update</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+            <UserDataForm 
+              userUpdate={ this.state.userUpdate } 
+              storeData={ this.handleUserUpdate } 
+              handleModalClose={ this.handleModalClose }
+              isModal 
+            />
+          </Modal.Body>
         </Modal>
         <h1>Administration page</h1>
         <h2>Add new users</h2>
