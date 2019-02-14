@@ -34,6 +34,14 @@
     $mssg = SiteUsers::addUser($data);
     echo $mssg;
   }
+  else if($path == 'update_user' && $req == 'put') {
+  // Encrypt password and format submitted form data properly for 
+  // inserting into MySQL
+    $data = json_decode( file_get_contents("php://input"), true );
+    $data['password'] = password_encrypt($data['password']);
+    //$mssg = SiteUsers::addUser($data);
+    echo $mssg;
+  }
   else if($path == 'delete_user' && $req == 'delete') {
     $id = file_get_contents("php://input");
     //error_log("User id: " . $id);

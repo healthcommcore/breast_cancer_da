@@ -14,6 +14,8 @@ class Admin extends Component {
     this.handleEditUser = this.handleEditUser.bind(this);
     this.handleDelete = this.handleDelete.bind(this);
     this.handleModalClose = this.handleModalClose.bind(this);
+    this.filterFields = this.filterFields.bind(this);
+    this.initializePasswordField = this.initializePasswordField.bind(this);
     this.findRecord = this.findRecord.bind(this);
     this.state = {
       rows: [],
@@ -75,9 +77,44 @@ class Admin extends Component {
   }
 
   handleUserUpdate = (data) => {
-    console.log(data);
+    const fieldsToUpdate = this.filterFields(data);
+    //console.log(fieldsToUpdate);
+    {/*
+    */}
+    axios({
+      method: 'put',
+      url: this.props.api + '?req=update_user',
+      data: data
+    })
+      .then( (result) => {
+        console.log(result);
+      })
+      .catch( (error) => {
+        console.log(error);
+      });
+
     this.handleModalClose();
   }
+
+  filterFields = (submittedFields) => {
+    const updatedUser = this.initializePasswordField(submittedFields);
+    const originalUser = this.state.userUpdate;
+    const keys = Object.keys(originalUser);
+    keys.map( (key) => {
+      if( submittedFields[key] !== originalUser[key]) {
+        updatedUser[key] = submittedFields[key];
+      }
+    });
+    return updatedUser;
+  }
+
+  initializePasswordField = (submittedFields) => {
+    if(submittedFields.hasOwnProperty("password")) {
+      return { password: submittedFields.password }
+    }
+    return {}
+  }
+
 
   handleModalClose = () => {
     this.setState({ 
