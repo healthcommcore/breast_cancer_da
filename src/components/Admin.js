@@ -64,7 +64,7 @@ class Admin extends Component {
 
   handleDelete = (id) => {
     axios({
-      method: 'delete',
+      method: 'post',
       url: this.props.api + '?req=delete_user',
       data: id
     })
@@ -78,13 +78,10 @@ class Admin extends Component {
 
   handleUserUpdate = (data) => {
     const fieldsToUpdate = this.filterFields(data);
-    //console.log(fieldsToUpdate);
-    {/*
-    */}
     axios({
-      method: 'put',
+      method: 'post',
       url: this.props.api + '?req=update_user',
-      data: data
+      data: fieldsToUpdate
     })
       .then( (result) => {
         console.log(result);
@@ -92,6 +89,8 @@ class Admin extends Component {
       .catch( (error) => {
         console.log(error);
       });
+    {/*
+    */}
 
     this.handleModalClose();
   }
@@ -99,6 +98,7 @@ class Admin extends Component {
   filterFields = (submittedFields) => {
     const updatedUser = this.initializePasswordField(submittedFields);
     const originalUser = this.state.userUpdate;
+    updatedUser.id = submittedFields.id;
     const keys = Object.keys(originalUser);
     keys.map( (key) => {
       if( submittedFields[key] !== originalUser[key]) {

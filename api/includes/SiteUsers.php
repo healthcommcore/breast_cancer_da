@@ -62,7 +62,7 @@ class SiteUsers {
 
   public static function addUser($userData) {
     $db = DB::getInstance();
-    $vals = self::stringify($userData);
+    $vals = self::prepareInsert($userData);
     $columns = "lump, admin, first_name, last_name, username, password, date_created";
     $mssg = "";
 
@@ -79,6 +79,30 @@ class SiteUsers {
     }
     return $mssg;
   }
+
+  public static function updateUser($userData) {
+    $db = DB::getInstance();
+    $id = $userData['id'];
+    unset($userData['id']);
+    $updates = self::prepareUpdate($userData);
+    $mssg = "";
+
+  // Insert form data into database
+    try {
+      $db->beginTransaction();
+      $db->exec("UPDATE `users` SET $updates WHERE id=$id") or die(print_r($db->errorInfo(), true));
+      $db->commit();
+      $mssg = "Transaction successful, user updated";
+    }
+    catch (Exception $e) {
+      $db->rollBack();
+      $mssg = $e->getMessage();
+    }
+    return $mssg;
+    /*
+     */
+  }
+
 
   public static function removeUser($id) {
     $db = DB::getInstance();
@@ -107,7 +131,7 @@ class SiteUsers {
  *
  * @return string Formatted string for MySQL insertion
  */
-  private static function stringify($data) {
+  private static function prepareInsert($data) {
     $keys = array_keys($data);
     $vals = array_values($data);
     $str = "";
@@ -121,6 +145,18 @@ class SiteUsers {
       }
     }
     return $str;
+  }
+  private static function prepareUpdate($updates) {
+    $updateStr = "";
+    $iter = 0;
+    foreach($updates as $key => $val) {
+      $updateStr .= $key . "='" . $val . "'";
+      if($iter < count($updates) -1) {
+        $updateStr .= ",";
+      }
+      $iter++;
+    }
+    return $updateStr;
   }
 }
 
