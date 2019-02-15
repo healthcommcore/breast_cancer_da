@@ -87,7 +87,6 @@ class SiteUsers {
     $updates = self::prepareUpdate($userData);
     $mssg = "";
 
-  // Insert form data into database
     try {
       $db->beginTransaction();
       $db->exec("UPDATE `users` SET $updates WHERE id=$id") or die(print_r($db->errorInfo(), true));

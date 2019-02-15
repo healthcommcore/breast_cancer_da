@@ -15,6 +15,7 @@ class Admin extends Component {
     this.handleDelete = this.handleDelete.bind(this);
     this.handleModalClose = this.handleModalClose.bind(this);
     this.filterFields = this.filterFields.bind(this);
+    this.updateUserList = this.updateUserList.bind(this);
     this.initializePasswordField = this.initializePasswordField.bind(this);
     this.findRecord = this.findRecord.bind(this);
     this.state = {
@@ -78,6 +79,12 @@ class Admin extends Component {
 
   handleUserUpdate = (data) => {
     const fieldsToUpdate = this.filterFields(data);
+    if(Object.entries(fieldsToUpdate).length === 1) {
+      console.log("Nothing to update");
+      this.handleModalClose();
+      return;
+    }
+    this.updateUserList(fieldsToUpdate);
     axios({
       method: 'post',
       url: this.props.api + '?req=update_user',
@@ -130,6 +137,19 @@ class Admin extends Component {
       userUpdate: user,
       modal: { show: true }
     });
+  }
+
+  updateUserList = (user) => {
+    const keys = Object.keys(user);
+    let updatedRows = this.state.rows;
+    updatedRows.map( (row, i) => {
+      if(row.id === user.id) {
+        keys.map( (key) => {
+          row[key] = user[key];    
+        });
+      }
+    });
+    this.setState({ rows: updatedRows });
   }
 
   findRecord = (id) => {
