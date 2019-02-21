@@ -11,6 +11,7 @@ class NumberScale extends Component {
   }
 
   handleClick(e) {
+    console.log(e.target.id);
     this.props.onScaleSelect(this.props.value, e.target.id);
   }
 
