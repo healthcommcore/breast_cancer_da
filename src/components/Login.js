@@ -9,8 +9,8 @@ class Login extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      username: "",
-      password: ""
+      username: '',
+      password: ''
     };
   }
 
@@ -26,7 +26,8 @@ class Login extends Component {
       url: this.props.api + '?req=authenticate'
     })
       .then( (result) => {
-        console.log(result.data);
+        //console.log(result.data);
+        console.log('Login successful!');
         this.evaluateLogin(result.data);
       })
       .catch( (error) => {
@@ -38,36 +39,37 @@ class Login extends Component {
     if (result) {
       store.set('loggedIn', true);
       store.set('user', {
+        id: result.id,
         username: result.username,
-        lump: result.lump === "1" ? true : false,
-        admin: result.admin === "1" ? true : false
+        lump: result.lump === '1' ? true : false,
+        admin: result.admin === '1' ? true : false
       });
-      this.props.history.push("/");
-      console.log(store.get('user'));
+      this.props.history.push('/');
+      //console.log(store.get('user'));
     }
     else {
-      console.log("There was a problem logging in: " + result);
+      console.log('There was a problem logging in: ' + result);
     }
     // Add Login validation
   }
       
   render() {
     if (isLoggedIn()) {
-      return <Redirect to="/" />
+      return <Redirect to='/' />
     }
     return (
       <div>
         <h1>Please log in</h1>
         <form onSubmit={ this.onSubmit }>
-          <div className="form-group">
-            <label htmlFor="username">Username</label>
-            <input type="text" className="form-control" name="username" onChange={ this.onChange } placeholder="Username" />
+          <div className='form-group'>
+            <label htmlFor='username'>Username</label>
+            <input type='text' className='form-control' name='username' onChange={ this.onChange } placeholder='Username' />
           </div>
-          <div className="form-group">
-            <label htmlFor="password">Password</label>
-            <input type="password" className="form-control" name="password" onChange={ this.onChange } placeholder="Password" />
+          <div className='form-group'>
+            <label htmlFor='password'>Password</label>
+            <input type='password' className='form-control' name='password' onChange={ this.onChange } placeholder='Password' />
           </div>
-          <button type="submit" className="btn btn-primary btn-lg">Log in</button>
+          <button type='submit' className='btn btn-primary btn-lg'>Log in</button>
         </form>
       </div>
     );

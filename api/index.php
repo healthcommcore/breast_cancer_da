@@ -19,6 +19,8 @@
     $result = SiteUsers::authenticate($data);
     echo $result;
   }
+  else if($path == 'track_user' && $req == 'post') {
+  }
   else if($path == 'anxiety_email' && $req == 'post') {
     $data = file_get_contents("php://input");
     $result = SiteUsers::sendAnxietyEmail($data);
