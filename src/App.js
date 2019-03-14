@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import { Route } from 'react-router-dom';
+import { Route, Redirect, withRouter } from 'react-router-dom';
 import Home from './components/Home.js';
 import About from './components/About.js';
 import Resources from './components/Resources.js';
@@ -24,12 +24,19 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.saveProgress = this.saveProgress.bind(this);
+    this.beginSession = this.beginSession.bind(this);
     this.state = {}
   }
 
   saveProgress = (data) => {
     const key = Object.keys(data).shift();
     this.setState({[key] : data[key]});
+  }
+
+  beginSession = () => {
+    setTimeout( () => {
+      console.log("A user has logged in");
+    }, 5000);
   }
 
   render() {
@@ -39,7 +46,15 @@ class App extends Component {
         { isLoggedIn() ? <NavBar /> : "" }
         <section>
           <div className="container">
-            <Route path="/login" render={ (props)=> <Login api={ api } { ...props } /> } />
+            <Route path="/login" 
+                   render={ (props)=> 
+                      <Login 
+                             api={ api } 
+                             beginSession={ this.beginSession } 
+                             { ...props } 
+                      /> 
+                   } 
+            />
             <PrivateRoute path="/about" component={ About } />
             <PrivateRoute path="/resources" component={ Resources } />
             <PrivateRoute path="/admin" api={ api } component={ Admin } />

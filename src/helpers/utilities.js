@@ -15,4 +15,15 @@ const propify = (words) => {
   return words.toLowerCase().split(" ").slice(0, 2).join("_");
 }
 
-export { toInt, exists, numArray, propify };
+const makeSessionId = () => {
+  const length = 10;
+  const chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+  const sessionid = [];
+  for(let i = 0; i < length; i++) {
+    const index = Math.floor( Math.random() * Math.floor(chars.length));
+    sessionid.push(chars[index]);
+  }
+  return sessionid.join("");
+}
+
+export { toInt, exists, numArray, propify, makeSessionId };

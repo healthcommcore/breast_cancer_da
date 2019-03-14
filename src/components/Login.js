@@ -2,12 +2,17 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import store from 'store';
 import isLoggedIn from '../helpers/is_logged_in.js';
+import { makeSessionId } from '../helpers/utilities.js';
 import { Redirect } from 'react-router-dom';
 
 class Login extends Component {
 
   constructor(props) {
     super(props);
+    this.onChage = this.onChange.bind(this);
+    this.onSubmit = this.onSubmit.bind(this);
+    this.evaluateLogin = this.evaluateLogin.bind(this);
+    this.setCookie = this.setCookie.bind(this);
     this.state = {
       username: '',
       password: ''
@@ -44,6 +49,7 @@ class Login extends Component {
         lump: result.lump === '1' ? true : false,
         admin: result.admin === '1' ? true : false
       });
+      this.props.beginSession();
       this.props.history.push('/');
       //console.log(store.get('user'));
     }
@@ -76,4 +82,4 @@ class Login extends Component {
   }
 }
 
-export default Login;
+export default Login
