@@ -42,14 +42,16 @@ class Login extends Component {
 
   evaluateLogin = (result) => {
     if (result) {
+      const sessionid = makeSessionId();
       store.set('loggedIn', true);
       store.set('user', {
         id: result.id,
+        sessionid: sessionid,
         username: result.username,
         lump: result.lump === '1' ? true : false,
         admin: result.admin === '1' ? true : false
       });
-      this.props.beginSession();
+      this.props.startSessionTimer();
       this.props.history.push('/');
       //console.log(store.get('user'));
     }

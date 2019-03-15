@@ -23,7 +23,7 @@ const NavBar = (props) => {
               <NavLink className="nav-item nav-link" to="/admin">Admin</NavLink>
               : ""
             }
-            <Logout />
+            <Logout timeoutid={ props.timeoutid } />
           </div>
         </div>
       </div>

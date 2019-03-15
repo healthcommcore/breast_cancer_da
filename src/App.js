@@ -20,14 +20,16 @@ import getApi from './helpers/api_urls.js';
 import store from 'store';
 
 const api = getApi('local');
+const LIMIT = 1000 * 60 * 60;
 class App extends Component {
 
   constructor(props) {
     super(props);
     this.saveProgress = this.saveProgress.bind(this);
-    this.beginSession = this.beginSession.bind(this);
+    this.startSessionTimer = this.startSessionTimer.bind(this);
     this.state = {
-      sessionExpired: false
+      sessionExpired: false,
+      timeoutid: ""
     }
   }
 
@@ -36,15 +38,14 @@ class App extends Component {
     this.setState({[key] : data[key]});
   }
 
-  beginSession = () => {
+  startSessionTimer = () => {
     console.log("Begin session called");
-    setTimeout( () => {
+    const timeoutid = setTimeout( () => {
         store.remove('user');
         store.set('loggedIn', false);
         this.setState({ sessionExpired: true });
-    }, 5000);
-{/*
-*/}
+    }, LIMIT);
+    this.setState({ timeoutid: timeoutid });
   }
 
   render() {
@@ -57,14 +58,14 @@ class App extends Component {
     return (
       <div className="app">
         <div className="banner"></div>
-        { isLoggedIn() ? <NavBar /> : "" }
+        { isLoggedIn() ? <NavBar timeoutid={ this.state.timeoutid } /> : "" }
         <section>
           <div className="container">
             <Route path="/login" 
                    render={ (props)=> 
                       <Login 
                              api={ api } 
-                             beginSession={ this.beginSession } 
+                             startSessionTimer={ this.startSessionTimer } 
                              { ...props } 
                       /> 
                    } 

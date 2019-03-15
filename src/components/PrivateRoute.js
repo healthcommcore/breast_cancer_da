@@ -9,7 +9,7 @@ const PrivateRoute = ({ component: Component, path, ...rest }) => {
       {...rest}
       path={ path }
       render= { props =>
-        isLoggedIn() ? (<Component user={ store.get('user').id } path={ path } { ...rest }/>) : (
+        isLoggedIn() ? (<Component user={ store.get('user') } path={ path } { ...rest }/>) : (
           (props.location.pathname !=="/login") ? (
             <Redirect
               to="/login"
