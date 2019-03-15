@@ -12,7 +12,7 @@ class Login extends Component {
     this.onChage = this.onChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
     this.evaluateLogin = this.evaluateLogin.bind(this);
-    this.setCookie = this.setCookie.bind(this);
+    //this.setCookie = this.setCookie.bind(this);
     this.state = {
       username: '',
       password: ''

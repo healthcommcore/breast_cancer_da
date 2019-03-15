@@ -17,6 +17,7 @@ import NextSteps from './components/NextSteps.js';
 import Summary from './components/Summary.js';
 import isLoggedIn from './helpers/is_logged_in.js';
 import getApi from './helpers/api_urls.js';
+import store from 'store';
 
 const api = getApi('local');
 class App extends Component {
@@ -25,7 +26,9 @@ class App extends Component {
     super(props);
     this.saveProgress = this.saveProgress.bind(this);
     this.beginSession = this.beginSession.bind(this);
-    this.state = {}
+    this.state = {
+      sessionExpired: false
+    }
   }
 
   saveProgress = (data) => {
@@ -34,12 +37,23 @@ class App extends Component {
   }
 
   beginSession = () => {
+    console.log("Begin session called");
     setTimeout( () => {
-      console.log("A user has logged in");
+        store.remove('user');
+        store.set('loggedIn', false);
+        this.setState({ sessionExpired: true });
     }, 5000);
+{/*
+*/}
   }
 
   render() {
+    if( this.state.sessionExpired) {
+      withRouter( ({history}) => {
+        history.push("/login");
+        return <Redirect to="/login" />;
+      });
+    }
     return (
       <div className="app">
         <div className="banner"></div>
