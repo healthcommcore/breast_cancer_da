@@ -1,3 +1,22 @@
+.banner {
+	padding: 20px 0;
+	border-bottom: 1px solid #D6D6D6;
+}
+
+.navbar-light.bg-light {
+	background-color: #E1E1E8 !important;
+}
+.navbar-light {
+	border-bottom: 1px solid #707070;
+}
+
+h1 {
+	color: #F906BA;
+	font-family: "open-sans", sans-serif;
+	font-weight: 600;
+	border-bottom: 1px solid #F906BA;
+}
+
 .number-scale {
   counter-reset: values-scale -1;
 }
