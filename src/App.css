@@ -1,6 +1,25 @@
 .banner {
-	padding: 20px 0;
+	padding: 25px 0;
 	border-bottom: 1px solid #D6D6D6;
+	background-color: #fff;
+}
+
+/* Top nav */
+.navbar {
+	padding: 0;
+}
+
+.navbar-expand-lg .navbar-nav .nav-link {
+	padding: 0.92rem 1.5rem;
+	color: #474B6E;
+}
+
+.navbar-expand-lg .navbar-nav .nav-link:hover,
+.navbar-expand-lg .navbar-nav .nav-link:active,
+.navbar-expand-lg .navbar-nav .nav-link.active,
+.navbar-expand-lg .navbar-nav .nav-link:focus {
+	background-color: #979AAF;
+	color: #fff;
 }
 
 .navbar-light.bg-light {
@@ -10,13 +29,85 @@
 	border-bottom: 1px solid #707070;
 }
 
-h1 {
+/* Side nav */
+.side-nav {
+	border-top: 1px solid #1CA0F4;
+	border-left: 1px solid #1CA0F4;
+	border-right: 1px solid #1CA0F4;
+	margin-right: 20px;
+}
+.side-nav .nav-item {
+	border-bottom: 1px solid #1CA0F4;
+}
+
+.side-nav .nav-item .nav-link {
+	padding: 0.8rem 0 0.8rem 1.3rem;
+}
+
+.btn-lg {
+	padding: 0.7rem 1.5rem;
+	margin-bottom: 20px;
+}
+
+.btn-primary,
+.side-nav .nav-item .nav-link:hover,
+.side-nav .nav-item .nav-link:active,
+.side-nav .nav-item .nav-link.active,
+.side-nav .nav-item .nav-link:focus {
+	color: #fff !important;
+	background-color: #1CA0F4;
+}
+
+.btn-primary {
+	border: none;
+}
+
+.btn-secondary {
+	background-color: #E1E1E8;
+	border-color: #474B6E;
+	color: #474B6E;
+}
+
+.btn-secondary:hover,
+.btn-secondary:active,
+.btn-secondary:focus {
+	background: #474B6E;
+}
+
+.home-buttons .btn-secondary {
+	margin-right: 30px;
+}
+
+body {
+	font-size: 1.1em;
+	font-family: "open-sans", sans-serif;
+	font-weight: 400;
+	background-color: #979AAF;
+}
+
+.main {
+	padding-top: 60px;
+	padding-bottom: 60px;
+	background-color: #fff;
+}
+
+.main h1 {
 	color: #F906BA;
 	font-family: "open-sans", sans-serif;
 	font-weight: 600;
+	font-size: 2.3rem;
 	border-bottom: 1px solid #F906BA;
+	margin-top: 0;
 }
 
+.main h2 {
+	font-weight: 300;
+	color: #05679F;
+}
+
+a {
+	color: #1CA0F4;
+}
 .number-scale {
   counter-reset: values-scale -1;
 }
@@ -46,3 +137,22 @@ h2 {
 .accordion__title h4 {
 	font-size: 1.1em;
 }
+
+.footer .copyright-and-hcc {
+	font-size: 0.8rem;
+	text-align: center;
+}
+
+.footer {
+	padding: 30px 0 60px;
+}
+
+.footer .copyright-and-hcc,
+.footer .copyright-and-hcc a {
+	color: #fff;
+}
+
+.footer .copyright-and-hcc a {
+	text-decoration: underline;
+}
+

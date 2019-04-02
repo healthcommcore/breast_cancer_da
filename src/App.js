@@ -5,7 +5,9 @@ import Banner from "./components/Banner";
 import Home from "./components/Home";
 import About from "./components/About";
 import Resources from "./components/Resources";
-import NavBar from "./components/NavBar";
+import TopNav from "./components/TopNav";
+import SideNav from "./components/SideNav";
+import Footer from "./components/Footer";
 import PrivateRoute from "./components/PrivateRoute";
 import Login from "./components/Login";
 import Admin from "./components/Admin";
@@ -58,12 +60,13 @@ class App extends Component {
     }
     return (
       <div className="app">
-        { isLoggedIn() ? <NavBar timeoutid={ this.state.timeoutid } /> : "" }
+        { isLoggedIn() ? <TopNav timeoutid={ this.state.timeoutid } /> : "" }
         <Banner />
-        <section>
+        <section className="main">
           <div className="container">
             <div className="row">
               <div className="col-md-3">
+                <SideNav />
               </div>
               <div className="col-md-9">
                 <Route path="/login" 
@@ -115,6 +118,7 @@ class App extends Component {
             </div>
           </div>
         </section>
+        <Footer />
       </div>
     );
   }
