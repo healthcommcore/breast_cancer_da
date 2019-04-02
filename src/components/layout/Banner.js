@@ -1,7 +1,7 @@
 import React from "react";
-import logo from "../images/logo.png";
-import logo2x from "../images/logo@2x.png";
-import dfci from "../images/dfci.png";
+import logo from "../../images/logo.png";
+import logo2x from "../../images/logo@2x.png";
+import dfci from "../../images/dfci.png";
 
 const Banner = (props) => {
   return (

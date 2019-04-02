@@ -1,7 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import Logout from './Logout.js';
-import { isAdmin } from '../helpers/user_stats';
+import Logout from '../Logout';
+import { isAdmin } from '../../helpers/user_stats';
 
 const TopNav= (props) => {
   return (

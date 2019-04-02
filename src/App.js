@@ -1,23 +1,30 @@
+// React, React-router, CSS
 import React, { Component } from "react";
 import "./App.css";
 import { Route, Redirect, withRouter } from "react-router-dom";
-import Banner from "./components/Banner";
+
+// Layout
+import Banner from "./components/layout/Banner";
+import TopNav from "./components/layout/TopNav";
+import SideNav from "./components/layout/SideNav";
+import Footer from "./components/layout/Footer";
+
+// Screens
 import Home from "./components/Home";
+import Login from "./components/Login";
 import About from "./components/About";
 import Resources from "./components/Resources";
-import TopNav from "./components/TopNav";
-import SideNav from "./components/SideNav";
-import Footer from "./components/Footer";
-import PrivateRoute from "./components/PrivateRoute";
-import Login from "./components/Login";
 import Admin from "./components/Admin";
 import TreatmentOptions from "./components/TreatmentOptions";
-import ValuesClarification from "./components/ValuesClarification";
 import TreatmentComparison from "./components/TreatmentComparison";
+import ValuesClarification from "./components/ValuesClarification";
 import WorryAssessment from "./components/WorryAssessment";
 import HighAnxiety from "./components/HighAnxiety";
 import NextSteps from "./components/NextSteps";
 import Summary from "./components/Summary";
+
+// Utiltiies
+import PrivateRoute from "./components/PrivateRoute";
 import isLoggedIn from "./helpers/is_logged_in";
 import getApi from "./helpers/api_urls";
 import store from "store";
