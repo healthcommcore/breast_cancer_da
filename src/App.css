@@ -108,14 +108,7 @@ body {
 a {
 	color: #1CA0F4;
 }
-.number-scale {
-  counter-reset: values-scale -1;
-}
 
-.btn-scale::before {
-  counter-increment: values-scale;
-  content: counter(values-scale);
-}
 
 h1 {
 	margin: 20px 0 30px;
@@ -128,7 +121,6 @@ h2 {
 }
 
 /** Accordion **/
-
 .accordion {
 	margin: 20px 0;
 }
@@ -138,6 +130,51 @@ h2 {
 	font-size: 1.1em;
 }
 
+/** Values **/
+.number-scale {
+  counter-reset: values-scale -1;
+}
+
+.btn-scale::before {
+  counter-increment: values-scale;
+  content: counter(values-scale);
+}
+
+.number-scale {
+	margin: 40px 0 60px;
+}
+
+.number-scale .scale-label {
+	color: #05679F;
+	margin-bottom: 10px;
+}
+
+.number-scale .scale .btn {
+	font-weight: 600;
+	font-size: 2em;
+}
+
+.number-scale .scale .btn-light {
+	background: none;
+	border-color: #05679F;
+	color: #05679F;
+}
+.number-scale .scale .btn-scale {
+	border-radius: 0;
+	width: 75px;
+	height: 75px;
+	line-height: 1.6em;
+}
+
+.btn-light:not(:disabled):not(.disabled).active, .btn-light:not(:disabled):not(.disabled):active, .show>.btn-light.dropdown-toggle {
+	background-color: #05679F;
+	color: #fff;
+	border-top: #05679F 1px solid;
+	border-bottom: #05679F 1px solid;
+}
+
+
+/** Footer **/
 .footer .copyright-and-hcc {
 	font-size: 0.8rem;
 	text-align: center;

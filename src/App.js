@@ -93,6 +93,7 @@ class App extends Component {
                   path="/values-clarification" 
                   component={ ValuesClarification } 
                   onSaveProgress={ this.saveProgress }
+                  savedValues={ this.state.values }
                 />
                 <PrivateRoute 
                   path="/treatment-comparison" 

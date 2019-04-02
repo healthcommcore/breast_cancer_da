@@ -24,7 +24,7 @@ class NumberScale extends Component {
           <p className="float-left scale-label">{ this.props.leftLabel }</p>
           <p className="float-right scale-label">{ this.props.rightLabel }</p>
         </div>
-        <div className="btn-group btn-group-toggle" data-toggle="buttons">
+        <div className="scale btn-group btn-group-toggle" data-toggle="buttons">
           { levels.map( (level, i) => {
             return (
               <label 

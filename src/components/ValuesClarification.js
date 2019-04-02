@@ -28,7 +28,7 @@ class ValuesClarification extends Component {
 				{ content.map( (entry, idx) => {
 					return (
 						<NumberScale 
-							scale="5" 
+							scale="10" 
 							leftLabel="Not important"
 							rightLabel="Very important"
 							onScaleSelect={ this.handleScaleChange } 
