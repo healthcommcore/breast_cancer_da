@@ -19,14 +19,14 @@ const TreatmentOptions = (props) => {
         <li>Mastectomy (with or without reconstruction)</li>
       </ul>
 			{ user.lump ?  <TreatmentOptionsLumpText /> : "" }
-			{ user.lump ?  <div className="col-6"><LumpectomyAccordion /></div> : "" }
+			{ user.lump ?  <div className="col-md-10"><LumpectomyAccordion /></div> : "" }
 			<p><strong>Mastectomy</strong> (with or without reconstruction) is a surgical procedure in which the entire breast is removed.</p> 
       <p>The surgery lasts about 2 hours but can be longer with reconstruction.</p>
-      <div className="col-6">
+      <div className="col-md-10">
         <MastectomyAccordion />
       </div>
 			<p><strong>Reconstruction</strong> is a surgical procedure to restore the shape of the breast after a mastectomy. Reconstruction may be immediate (performed at the same time as your mastectomy) or delayed (a separate surgery done at a later time). Not everyone is a candidate for immediate reconstruction, so discuss your options with your surgeon. Your plastic surgeon will be able to help you decide which type of reconstruction is right for you:</p> 
-      <div className="col-6">
+      <div className="col-md-10">
         <ReconstructionAccordion />
       </div>
       <NextButton dest="values-clarification" />

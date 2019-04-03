@@ -120,14 +120,52 @@ h2 {
 	font-size: 1.4rem;
 }
 
-/** Accordion **/
+/** Treatment options accordion **/
 .accordion {
-	margin: 20px 0;
+	margin: 30px 0 60px;
+	border: 1px solid rgba(5, 103, 159, 1) !important;
+}
+
+.accordion .accordion__title {
+	background-color: #fff;
 }
 
 .accordion__title h3,
 .accordion__title h4 {
-	font-size: 1.1em;
+	font-size: 1.2em;
+	color: #05679F;
+}
+
+.accordion .accordion__title:hover,
+.accordion .accordion__title:active,
+.accordion .accordion__title:focus {
+	background-color: #05679F;
+}
+
+.accordion .accordion__title:hover h3,
+.accordion .accordion__title:active h3,
+.accordion .accordion__title:focus h3{
+	color: #fff;
+}
+
+.accordion__item + .accordion__item {
+	border-top: 1px solid rgba(5, 103, 159, 1) !important;
+}
+
+/** Treatment comparison table **/
+th {
+	color: #05679F;
+}
+
+.table-bordered,
+.table-bordered td,
+.table-bordered thead th,
+.table-bordered th {
+	border: 1px solid #05679F;
+}
+
+.table-striped tbody tr:nth-of-type(odd) {
+	background-color: rgba(236, 243, 247, 1);
 }
 
 /** Values **/
