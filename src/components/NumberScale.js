@@ -5,15 +5,41 @@ class NumberScale extends Component {
   constructor(props) {
     super(props);
     this.handleClick = this.handleClick.bind(this);
+    this.evalResponse = this.evalResponse.bind(this);
+    this.isResponseShown = this.isResponseShown.bind(this);
     this.state = {
-      activeButton: "" 
+      activeButton: "",
+      responseClass: "value-response"
     }
   }
 
-  handleClick(e) {
+  handleClick = (e) => {
     console.log(e.target.id);
     this.props.onScaleSelect(this.props.value, e.target.id);
+    this.evalResponse(e.target.id)
   }
+
+  evalResponse = (num) => {
+    let responseClass = this.state.responseClass.split(" ");
+    if (num >= 6 ) {
+      if (!this.isResponseShown(responseClass)) {
+        responseClass.push("show-response");
+      }
+    }
+    else {
+      if (this.isResponseShown(responseClass)) {
+        responseClass = responseClass.filter(rp => rp !== "show-response");
+      }
+    }
+    responseClass = responseClass.join(" ");
+    this.setState({ responseClass: responseClass });
+  }
+
+  isResponseShown = (responseClass) => {
+    return responseClass.includes("show-response");
+  }
+    
+
 
   render() {
     const levels = numArray(this.props.scale);
@@ -37,6 +63,9 @@ class NumberScale extends Component {
               </label>
             );
           })}
+        </div>
+        <div className={ this.state.responseClass }>
+          <p className="response">{ this.props.response }</p>
         </div>
       </div>
     );

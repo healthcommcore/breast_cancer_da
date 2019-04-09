@@ -153,6 +153,11 @@ h2 {
 }
 
 /** Treatment comparison table **/
+.table th, .table td,
+.table thead th {
+	border: none;
+}
+
 th {
 	color: #05679F;
 }
@@ -211,6 +216,21 @@ th {
 	border-bottom: #05679F 1px solid;
 }
 
+.value-response {
+	-webkit-transition: 0.3s;
+	-moz-transition: 0.3s;
+	-o-transition: 0.3s;
+	transition: 0.3s;
+	opacity: 0;
+	visibility: hidden;
+	position: absolute;
+}
+
+.value-response.show-response {
+	opacity: 1;
+	visibility: visible;
+	position: relative;
+}
 
 /** Footer **/
 .footer .copyright-and-hcc {

@@ -22,7 +22,7 @@ class TreatmentComparison extends Component {
       <div>
         { this.props.title !== undefined ? <h1>{ this.props.title }</h1> : "" }
         <div className="table-responsive-sm">
-            <table className="table table-striped table-bordered">
+            <table className="table table-striped">
                 <thead>
                     <tr>
                         <th className=""></th>

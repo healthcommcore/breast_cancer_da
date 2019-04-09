@@ -8,7 +8,6 @@ class ValuesClarification extends Component {
   constructor(props) {
     super(props);
     this.handleScaleChange = this.handleScaleChange.bind(this);
-    this.state = {}
   }
 
   handleScaleChange = (value, scale) => {
@@ -35,6 +34,7 @@ class ValuesClarification extends Component {
 							value={entry.value}
 							key={idx}
 							content={entry.content}
+              response={ entry.response }
 						/>
 					);
 				})}

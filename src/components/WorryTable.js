@@ -21,8 +21,8 @@ class WorryTable extends Component {
 		const labels = worry_content.labels;
 		const worries = worry_content.body;
     return (
-      <table className="table table-bordered table-responsive-sm">
-        <thead className="thead-light">
+      <table className="table table-striped table-responsive-sm">
+        <thead>
           <tr>
 						{ labels.map( (label, i) => {
 							return (
