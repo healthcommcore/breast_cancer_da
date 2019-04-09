@@ -232,6 +232,15 @@ th {
 	position: relative;
 }
 
+.value-response .response {
+	background-color: #FFF9EB;
+	border: #BA6526 1px solid;
+	color: #BA6526;
+	padding: 12px 20px 15px;
+	margin-top: 30px;
+	width: 80%;
+}
+
 /** Footer **/
 .footer .copyright-and-hcc {
 	font-size: 0.8rem;
