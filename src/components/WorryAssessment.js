@@ -42,9 +42,9 @@ class WorryAssessment extends Component {
   render() {
     return (
 			<div>
-				<h1>How are you feeling about your treatment decision?</h1>
-				<p>We would like to know how you have been feeling since being told about the surgical options for your breast cancer.</p>
-				<p>Please select the number (0-10) that best describes how much distress you have been experiencing <strong>related to your breast cancer surgical decision</strong> in the past week, including today:</p>
+				<h1>How are you feeling?</h1>
+				<p>We would like to know how you have been feeling since being diagnosed with breast cancer.</p>
+				<p>Please select the number (0-10) that best describes how much distress you have been experiencing in the past week, including today:</p>
 				<NumberScale
 					scale="10"
 					leftLabel="No distress"

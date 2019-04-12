@@ -31,7 +31,7 @@ const ReconstructionAccordion = (props) => {
                                       <AccordionItemBody>
                                           <p>Tissue reconstruction uses skin and fat taken from the abdomen, back, thigh, or buttocks. </p>
     <ul>
-<li>Tissue reconstruction usually requires a longer surgery and a longer recovery than implant reconstruction</li> 
+<li>Tissue reconstruction requires a longer surgery and a longer recovery than implant reconstruction</li> 
 <li>Because tissue reconstruction uses your own skin and tissue, the breast generally looks and feels more natural; however, the skin sensation is still not normal (remains numb)</li>
 </ul>
                                       </AccordionItemBody>
