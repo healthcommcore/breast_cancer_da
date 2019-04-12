@@ -28,13 +28,13 @@ class HighAnxiety extends Component {
   render() {
     return (
       <div>
-        <h1>How are you feeling?</h1>
-        <p>We’d like to offer you some additional support as you think about your surgical decision.</p> 
+        <h1>Supportive resources</h1>
+        <p>It’s normal to be feeling distress about your diagnosis and/or worried or uncertain about your treatment. We’d like to offer you some additional support as you think about your surgical decision. </p> 
 
-        <p>If you would like someone from the study team to contact you with information about support options for newly diagnosed young women with breast cancer, please provide your email, and we will be in touch. (email is generated to study team)</p>
+        <p>If you would like someone from the study team to contact you with information about support options for newly diagnosed young women with breast cancer, please provide your email, and we will be in touch.</p>
         <EmailForm storeData = { this.sendEmail } />
 
-        <p>See resources available to help you cope with some of the worries and concerns you may be having: LINK to Resources page</p>
+        <p>See resources[LINK to Resources page] available to help you cope with some of the worries and concerns you may be having.</p>
 
         <p>Learn strategies to help you cope with some of the worries and concerns you may be having:</p> 
         <div className="clearfix">

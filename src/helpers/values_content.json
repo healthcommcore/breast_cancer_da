@@ -2,7 +2,7 @@
   {
     "value" : "additional_surgery",
     "lumpOnly" : true,
-    "content" : "I want to avoid the possible need for additional cancer surgery (such as if the surgeon does not get an area around the tumor that is clear of cancer cells).", 
+    "content" : "I want to avoid the possible need for additional cancer surgery (such as if the surgeon does not get an area around the tumor that is clear of cancer cells, called a 'clear margin').",
 		"response" : "Your response indicates that avoiding the possible need for additional cancer surgery is important to you. If you choose lumpectomy, additional surgery may be needed if the surgeon does not get a clear margin. If you choose mastectomy, while there is no need for additional cancer surgery to get clear margins, you may need multiple procedures if you choose reconstruction."
 	},
   {
@@ -32,7 +32,11 @@
 	},
   {
     "value" : "similar",
+<<<<<<< HEAD
     "content" : "I'd like both breasts to look as similar as possible",
 		"response" : "Your response indicates that having your breasts look as similar as possible is important to you. Women who choose lumpectomy usually have a good cosmetic outcome, including having both breasts look similar (symmetrical). For women who have a unilateral mastectomy, without reconstruction, breasts will not look similar. Reconstruction can help achieve symmetry by restoring the shape of the breast. For women who choose bilateral mastectomy, the breast area will look similar."
+=======
+    "content" : "I'd like both breasts to look as similar as possible."
+>>>>>>> shana
 	}
 ]

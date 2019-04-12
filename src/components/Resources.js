@@ -15,6 +15,14 @@ const Resources = (props) => {
 
       <p><a target="_blank" rel="noopener noreferrer" href="https://www.youngsurvival.org/"><strong>Young Survival Coalition:</strong></a><em>Resources, connections and outreach for young women with breast cancer</em></p>
 
+      
+      <p><a target="_blank" rel="noopener noreferrer" href="https://ww5.komen.org/"><strong>Susan G. Komen:</strong></a><em>Up-to-date information on breast cancer risk factors, early detection, screening, diagnosis, treatment, and support</em></p>
+      
+      
+      <p><a target="_blank" rel="noopener noreferrer" href="https://www.cancer.org/"><strong>American Cancer Society:</strong></a><em>Resources for caregivers and families with children (see the Find Support and Treatment section of website), including a 24/7 Lifeline: 800-227-2345</em></p>
+      
+      
+      
       <p><strong>Springboard Beyond Cancer</strong></p>
       <ul>
           <li><a target="_blank" rel="noopener noreferrer" href="https://survivorship.cancer.gov/springboard/video-stories-playlist/relaxation-exercises">Relaxation exercises</a></li>
