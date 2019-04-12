@@ -75,7 +75,7 @@ const MastectomyAccordion = (props) => {
                  
 									<p>The risk of cancer coming back in another part of the body is the same whether you have a lumpectomy or a mastectomy.</p>
                   
-    <p><strong>Genetics and cancer risk</strong><br>
+    <p><strong>Genetics and cancer risk</strong><br />
 There are genetic changes (mutations) that may increase your risk of developing a second breast cancer in the future. If you test positive for one of these mutations, your lifetime risk of developing a new breast cancer can be much higher compared to someone who tests negative for a mutation. This risk will depend on the type of mutation you have. If you test positive for one of these mutations, your doctor or a genetic counselor will discuss these risks with you and help you decide what treatment is right for you.</p>
 
               </AccordionItemBody>
@@ -133,7 +133,7 @@ There are genetic changes (mutations) that may increase your risk of developing 
                           <AccordionItemBody>
                             <p><strong>The risk of cancer coming back in the treated breast and chest wall area or of a new cancer developing in the other breast and chest wall is the same whether you have a unilateral or bilateral mastectomy.</strong> </p>
                               
-                                <p><strong>Genetics and cancer risk</strong><br>
+                                <p><strong>Genetics and cancer risk</strong><br />
 There are genetic changes (mutations) that may increase your risk of developing a second breast cancer in the future. If you test positive for one of these mutations, your lifetime risk of developing a new breast cancer can be much higher compared to someone who tests negative for a mutation. This risk will depend on the type of mutation you have. If you test positive for one of these mutations, your doctor or a genetic counselor will discuss these risks with you and help you decide what treatment is right for you.</p>
 
                           </AccordionItemBody>

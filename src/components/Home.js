@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 const Home = (props) => {
   return (
     <div>
-      <h1>CONSYDER </br>
+      <h1>CONSYDER <br />
 Communicating Options about Surgery for Young women Diagnosed with Early stage breast canceR </h1>
       
       <h2>CONSYDER is a decision tool for young women recently diagnosed with early-stage breast cancer who are making decisions about breast cancer surgery.</h2>
