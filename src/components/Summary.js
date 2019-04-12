@@ -53,7 +53,7 @@ class Summary extends Component {
           })}
         </ol>
         <h2>Treatment comparison</h2>
-        <TreatmentComparison showBilateral/>
+        <TreatmentComparison />
         
         <h2>How are you feeling about your treatment decision</h2>
         <p><em>Your response on a scale of 0 (No distress) to 10 (Extreme distress) of how much distress you have been experiencing related to your breast cancer surgical decision in the past week:</em></p>
