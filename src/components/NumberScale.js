@@ -45,7 +45,7 @@ class NumberScale extends Component {
     const levels = numArray(this.props.scale);
     return (
       <div className="number-scale">
-				{ this.props.content !== "" ? (<p>{ this.props.content }</p>) : "" }
+				{ this.props.content !== "" ? (<h3>{ this.props.content }</h3>) : "" }
         <div className="clearfix">
           <p className="float-left scale-label">{ this.props.leftLabel }</p>
           <p className="float-right scale-label">{ this.props.rightLabel }</p>
