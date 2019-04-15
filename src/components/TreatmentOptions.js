@@ -4,7 +4,7 @@ import store from 'store';
 import LumpectomyAccordion from './accordions/LumpectomyAccordion';
 import TreatmentOptionsLumpText from './TreatmentOptionsLumpText';
 import MastectomyAccordion from './accordions/MastectomyAccordion';
-import ReconstructionAccordion from './accordions/ReconstructionAccordion';
+import OtherProceduresAccordion from './accordions/OtherProceduresAccordion';
 import NextButton from './NextButton';
 import 'react-accessible-accordion/dist/fancy-example.css';
 
@@ -25,11 +25,11 @@ const TreatmentOptions = (props) => {
       <div className="col-md-10">
         <MastectomyAccordion />
       </div>
-			<p><strong>Reconstruction</strong> is a surgical procedure to restore the shape of the breast after a mastectomy. Reconstruction may be immediate (performed at the same time as your mastectomy) or delayed (a separate surgery done at a later time). Not everyone is a candidate for immediate reconstruction, so discuss your options with your surgeon. Your plastic surgeon will be able to help you decide which type of reconstruction is right for you:</p> 
+			<p><strong>Other procedures</strong></p> 
       <div className="col-md-10">
-        <ReconstructionAccordion />
+        <OtherProceduresAccordion />
       </div>
-      <NextButton dest="values-clarification" />
+      <NextButton dest="treatment-comparison" />
     </div>
   );
 }
