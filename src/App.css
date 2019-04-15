@@ -124,6 +124,25 @@ strong {
 	font-weight: 600;
 }
 
+/** Home **/
+h1.home-title {
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+  line-height: 1.1em;
+}
+
+h1.home-title .larger {
+  font-size: 125%;
+}
+
+h1.home-title .lead {
+  text-transform: none;
+  letter-spacing: 0em;
+  line-height: 1.4em;
+  margin-bottom: 6px;
+  font-size: 1.5rem;
+}
+
 /** Treatment options accordion **/
 .accordion {
 	margin: 30px 0 60px;

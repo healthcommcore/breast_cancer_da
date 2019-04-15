@@ -4,10 +4,12 @@ import { Link } from 'react-router-dom';
 const Home = (props) => {
   return (
     <div>
-      <h1>CONSYDER <br />
-Communicating Options about Surgery for Young women Diagnosed with Early stage breast canceR </h1>
+    <h1 className="home-title">
+      Consid<span className="larger">y</span>r<br />
+      <p className="lead">Communicating Options about Surgery for Young women Diagnosed with Early stage breast canceR</p>
+    </h1>
       
-      <h2>CONSYDER is a decision tool for young women recently diagnosed with early-stage breast cancer who are making decisions about breast cancer surgery.</h2>
+      <p>CONSYDER is a decision tool for young women recently diagnosed with early-stage breast cancer who are making decisions about breast cancer surgery.</p>
       
       <p>We hope you find this is a useful tool to:</p>
       <ul>

@@ -134,7 +134,7 @@ class TreatmentComparison extends Component {
                     </tr>
                 </tbody>
             </table>
-            { this.props.nextButton !== undefined ? <NextButton dest="worry-assessment" /> : "" }
+            { this.props.nextButton !== undefined ? <NextButton dest="values-clarification" /> : "" }
         </div>
       </div>
     );

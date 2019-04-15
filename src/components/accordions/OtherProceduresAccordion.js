@@ -1,5 +1,4 @@
 import React from 'react';
-import BrcaAccordion from './BrcaAccordion';
 import ReconstructionAccordion from './ReconstructionAccordion';
 import {
 Accordion,
