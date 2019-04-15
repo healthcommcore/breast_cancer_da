@@ -22,7 +22,7 @@ const Home = (props) => {
        <Link className="btn btn-primary btn-lg" to="/treatment-options">Learn about your options</Link>
 
       
-      <p className="home-buttons">
+      <p className="inline-buttons">
         <Link className="btn btn-secondary" to="/about">Learn more about this study</Link>
         <a className="btn btn-secondary" href="#">Contact the study team</a>
       </p>

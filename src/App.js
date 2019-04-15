@@ -19,7 +19,7 @@ import TreatmentOptions from "./components/TreatmentOptions";
 import TreatmentComparison from "./components/TreatmentComparison";
 import ValuesClarification from "./components/ValuesClarification";
 import WorryAssessment from "./components/WorryAssessment";
-import HighAnxiety from "./components/HighAnxiety";
+import SupportiveResources from "./components/SupportiveResources";
 import NextSteps from "./components/NextSteps";
 import Summary from "./components/Summary";
 
@@ -107,9 +107,10 @@ class App extends Component {
                   component={ WorryAssessment }
                 />
                 <PrivateRoute 
-                  path="/high-anxiety" 
+                  path="/supportive-resources" 
+                  worries={ this.state.worry }
                   api={ api } 
-                  component={ HighAnxiety } 
+                  component={ SupportiveResources } 
                 />
                 <PrivateRoute 
                   path="/next-steps" 
