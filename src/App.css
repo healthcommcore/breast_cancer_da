@@ -74,9 +74,7 @@
 	background: #474B6E;
 }
 
-.home-buttons .btn-secondary {
-	margin-right: 30px;
-}
+/** Global **/
 
 body {
 	font-size: 1.1em;
@@ -122,6 +120,30 @@ h2 {
 
 strong {
 	font-weight: 600;
+}
+
+.inline-buttons .btn-secondary {
+	margin-right: 30px;
+}
+
+
+/** Home **/
+h1.home-title {
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+  line-height: 1.1em;
+}
+
+h1.home-title .larger {
+  font-size: 125%;
+}
+
+h1.home-title .lead {
+  text-transform: none;
+  letter-spacing: 0em;
+  line-height: 1.4em;
+  margin-bottom: 6px;
+  font-size: 1.5rem;
 }
 
 /** Treatment options accordion **/
@@ -251,6 +273,11 @@ th {
 	padding: 12px 20px 15px;
 	margin-top: 30px;
 	width: 80%;
+}
+
+/** Next steps **/
+.mult-choice-quest {
+  margin-bottom: 20px;
 }
 
 /** Footer **/
