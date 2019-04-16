@@ -49,7 +49,7 @@ class Summary extends Component {
             return (
               <li key={i}>
                 <p>{ entry.content }<br />
-               <em>On a scale of 0 (Not at all important) to 10 (Extremely important), you chose:</em> <strong> { values_resp[entry.value] + " out of 5" } </strong></p>
+               <em>On a scale of 0 (Not at all important) to 10 (Extremely important), you ranked this as</em> <strong> { values_resp[entry.value] }.</strong></p>
               </li>
             );
           })}
