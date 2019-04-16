@@ -29,7 +29,7 @@ import isLoggedIn from "./helpers/is_logged_in";
 import getApi from "./helpers/api_urls";
 import store from "store";
 
-const api = getApi("local");
+const api = getApi("hccupdate");
 const LIMIT = 1000 * 60 * 60;
 class App extends Component {
 
