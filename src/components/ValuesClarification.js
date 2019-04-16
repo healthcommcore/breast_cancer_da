@@ -41,7 +41,7 @@ class ValuesClarification extends Component {
 						/>
 					);
 				})}
-        <NextButton dest="treatment-comparison" />
+        <NextButton dest="worry-assessment" />
       </div>
     );
   }
