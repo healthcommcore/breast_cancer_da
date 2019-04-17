@@ -15,8 +15,9 @@ class NextSteps extends Component {
     this.state = {};
   }
 
-  storeResult = (e) => {
-    this.setState({[e.target.name] : e.target.id});
+  storeResult = (data) => {
+    this.setState({ ...data });
+    console.log("Store result fired");
   }
 
   componentWillUnmount = () => {
