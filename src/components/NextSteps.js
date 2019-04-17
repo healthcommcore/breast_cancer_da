@@ -1,20 +1,23 @@
-import React, { Component } from 'react';
-import MultChoiceQuest from './MultChoiceQuest';
-import NextButton from './NextButton';
-import questions from '../helpers/next_steps_content.json';
-import { toInt, exists, propify } from '../helpers/utilities';
+import React, { Component } from "react";
+import MultChoiceQuest from "./MultChoiceQuest";
+import NextButton from "./NextButton";
+import OtherTextField from  "./OtherTextField";
+import questions from "../helpers/next_steps_content.json";
+import { toInt, exists, propify } from "../helpers/utilities";
 
 class NextSteps extends Component {
   constructor(props) {
     super(props);
     this.storeResult = this.storeResult.bind(this);
     this.isNotReady = this.isNotReady.bind(this);
+    this.otherOptionSelected = this.otherOptionSelected.bind(this);
     this.whatWouldHelp = this.whatWouldHelp.bind(this);
     this.state = {};
   }
 
-  storeResult = (e) => {
-    this.setState({[e.target.name] : e.target.id});
+  storeResult = (data) => {
+    this.setState({ ...data });
+    console.log("Store result fired");
   }
 
   componentWillUnmount = () => {
@@ -25,6 +28,9 @@ class NextSteps extends Component {
     return ( 
         exists(how_ready) && toInt(how_ready) >= 1
     ); 
+  }
+
+  otherOptionSelected = () => {
   }
 
   whatWouldHelp = () => {
