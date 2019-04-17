@@ -43,7 +43,7 @@ class NextSteps extends Component {
     return (
       <div>
         <h1>Next steps</h1>
-        <p><em>The information you enter below is for you and is not being saved to this website. Having a printed copy might be helpful, and on the last screen, you’ll have an option to print the information and your responses.</em></p>
+        <p className="disclaimer">The information you enter below is for you and is not being saved to this website. Having a printed copy might be helpful, and on the last screen, you’ll have an option to print the information and your responses.</p>
         { questions.primary.map( (question, i) => {
           return (
             <MultChoiceQuest

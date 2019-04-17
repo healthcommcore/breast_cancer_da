@@ -30,9 +30,9 @@ const MastectomyAccordion = (props) => {
                   <p>Because your surgeon will be removing the breast tissue right up to the skin of the breast, the sensory nerves are affected, and most women have permanent numbness in the breast and chest wall and nipple area of the treated breast (from your collarbone to the top of your rib cage on the side with the tumor). </p>
      <p>The surgery will leave scars on the breast skin that will fade over time. </p>
      <p>Some women choose to have breast reconstruction to help restore the look and feel of the breast that was removed. Reconstruction may be done at the same time as the mastectomy (immediate) or later (delayed). Learn more about breast reconstruction.</p>
-     <p>Women who do not have breast reconstruction may choose to be fitted for a breast prosthesis (or breast form made of silicone gel, foam, or other materials) that can be placed in a bra and worn under clothes. <a href="https://www.dana-farber.org/for-patients-and-families/care-and-treatment/support-services-and-amenities/friends-place/services-and-programs/breast-prostheses-and-bras/" target="_blank"> Learn more about a prosthesis. </a></p>
+     <p>Women who do not have breast reconstruction may choose to be fitted for a breast prosthesis (or breast form made of silicone gel, foam, or other materials) that can be placed in a bra and worn under clothes. <a href="https://www.dana-farber.org/for-patients-and-families/care-and-treatment/support-services-and-amenities/friends-place/services-and-programs/breast-prostheses-and-bras/" rel="noopener noreferrer" target="_blank"> Learn more about a prosthesis. </a></p>
      <p>Some women don’t want additional surgery or to deal with special bras, magnets, or adhesive patches that hold a prosthesis in place. They choose no reconstruction and don’t wear a breast form. </p>
-     <p>The decision to reconstruct or not is very personal. There is no “right way” to approach mastectomy and reconstruction (or lack of it). There is only the way that is best for you, your preferences, and your healing. </p>
+     <p>The decision to reconstruct or not is very personal. There is no "right way" to approach mastectomy and reconstruction (or lack of it). There is only the way that is best for you, your preferences, and your healing. </p>
               </AccordionItemBody>
           </AccordionItem>
     <AccordionItem>
@@ -105,11 +105,11 @@ There are genetic changes (mutations) that may increase your risk of developing 
                           <AccordionItemBody>
                               <p>Because your surgeon will be removing the breast tissue right up to the skin of the breast, the sensory nerves are affected, and most women have permanent numbness in the entire breast and chest wall and nipple area (from your collarbone to the top of your rib cage on both sides). </p>
     <p>The surgery will leave scars on the breast skin that will fade over time. </p>
-    <p>With a bilateral mastectomy, the appearance of your breasts/breast area will be symmetrical (both sides will look the same). </p>
+    <p>With a mastectomy, the appearance of your breasts/breast area will be asymmetrical (both sides will not look the same). With a bilateral mastectomy, the appearance of your breasts/breast area will be symmetrical (both sides will look the same). </p>
     <p>Some women choose to have breast reconstruction to help restore the look and feel of their removed breasts. Reconstruction may be done at the same time as the mastectomy (immediate) or later (delayed). Learn more about breast reconstruction.</p>
     <p>Women who do not have breast reconstruction may choose to be fitted for breast prostheses (or breast forms made of silicone gel, foam, or other materials) that can be placed in a bra and worn under clothes. <a href="https://www.dana-farber.org/for-patients-and-families/care-and-treatment/support-services-and-amenities/friends-place/services-and-programs/breast-prostheses-and-bras/" target="_blank"> Learn more about prostheses. </a></p>
     <p>Some women don’t want additional surgery or to deal with special bras, magnets, or adhesive patches that hold prostheses in place. They choose no reconstruction and don’t wear breast forms. </p>
-    <p>The decision to reconstruct or not is very personal. There is no “right way” to approach mastectomy and reconstruction (or lack of it). There is only the way that is best for you, your preferences, and your healing. </p>
+    <p>The decision to reconstruct or not is very personal. There is no "right way" to approach mastectomy and reconstruction (or lack of it). There is only the way that is best for you, your preferences, and your healing. </p>
                           </AccordionItemBody>
                       </AccordionItem>
     <AccordionItem>
@@ -130,7 +130,7 @@ There are genetic changes (mutations) that may increase your risk of developing 
                               <h3>Cancer risk after bilateral mastectomy</h3>
                           </AccordionItemTitle>
                           <AccordionItemBody>
-                            <p><strong>The risk of cancer coming back in the treated breast and chest wall area or of a new cancer developing in the other breast and chest wall is the same whether you have a unilateral or bilateral mastectomy.</strong> </p>
+                            <p>The risk of cancer coming back in the treated breast and chest wall area or of a new cancer developing in the other breast and chest wall is the <strong>same</strong> whether you have a unilateral or bilateral mastectomy.</p>
                               
                                 <p><strong>Genetics and cancer risk</strong><br />
 There are genetic changes (mutations) that may increase your risk of developing a second breast cancer in the future. If you test positive for one of these mutations, your lifetime risk of developing a new breast cancer can be much higher compared to someone who tests negative for a mutation. This risk will depend on the type of mutation you have. If you test positive for one of these mutations, your doctor or a genetic counselor will discuss these risks with you and help you decide what treatment is right for you.</p>
