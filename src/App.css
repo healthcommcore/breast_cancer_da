@@ -41,7 +41,8 @@
 }
 
 .side-nav .nav-item .nav-link {
-	padding: 0.8rem 0 0.8rem 1.3rem;
+	padding: 0.9rem 1.2rem 0.9rem 1.2rem;
+  line-height: 1.3em;
 }
 
 .btn-lg {
