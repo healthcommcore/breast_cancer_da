@@ -12,7 +12,7 @@ const SideNav = (props) => {
           <NavLink className="nav-link" to="/treatment-comparison">Treatment comparison</NavLink>
         </li>
         <li className="nav-item">
-          <NavLink className="nav-link" to="/values-clarification">What is important to you</NavLink>
+          <NavLink className="nav-link" to="/values-clarification">What is important to you?</NavLink>
         </li>
         <li className="nav-item">
           <NavLink className="nav-link" to="/worry-assessment">How are you feeling?</NavLink>
