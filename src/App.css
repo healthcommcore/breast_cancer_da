@@ -122,6 +122,19 @@ strong {
 	font-weight: 600;
 }
 
+.disclaimer, em, i {
+  font-style: italic;
+}
+
+.disclaimer {
+  font-size: 0.9em;
+  line-height: 1.4em;
+  padding: 13px 18px;
+  color: #666;
+  border: #ccc 1px solid;
+  margin: 20px 0;
+}
+
 .inline-buttons .btn-secondary {
 	margin-right: 30px;
 }

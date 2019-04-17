@@ -23,7 +23,7 @@ class WorryAssessment extends Component {
 			<div>
 				<h1>How are you feeling?</h1>
 				<p>We would like to know how you have been feeling since being diagnosed with breast cancer.</p>
-				<p>Please select the number (0-10) that best describes how much distress you have been experiencing in the past week, including today:</p>
+				<p><strong>Please select the number (0-10) that best describes how much distress you have been experiencing in the past week, including today:</strong></p>
 				<NumberScale
 					scale="10"
 					leftLabel="No distress"

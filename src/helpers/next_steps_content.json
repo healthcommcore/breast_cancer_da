@@ -5,7 +5,8 @@
 			"choices" : [
 				"Lumpectomy",
 				"Mastectomy (with or without reconstruction)",
-				"I don't know"
+				"I don't know",
+        "Other"
 			]
 		},
 
@@ -27,7 +28,8 @@
 			"Reading more about my options",
 			"Thinking more about my options",
 			"Hearing more about other women’s decisions",
-			"I don't know"
+			"I don't know",
+			"Other"
 		]
 	}
 }

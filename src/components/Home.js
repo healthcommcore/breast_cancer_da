@@ -5,7 +5,7 @@ const Home = (props) => {
   return (
     <div>
     <h1 className="home-title">
-      Consid<span className="larger">y</span>r<br />
+      Cons<span className="larger">y</span>der<br />
       <p className="lead">Communicating Options about Surgery for Young women Diagnosed with Early stage breast canceR</p>
     </h1>
       
@@ -17,7 +17,7 @@ const Home = (props) => {
           <li>Think about what is important to you to help make your surgery decision</li>
       </ul>
 
-     <p><i>You can stop at any point and come back later to review this information. The information on this website, including any responses that you enter, is for you and is not being saved to this website. Having a printed copy might be helpful, and on the last screen, you’ll have an option to print the information and your responses.</i></p>
+     <p className="disclaimer">You can stop at any point and come back later to review this information. The information on this website, including any responses that you enter, is for you and is not being saved to this website. Having a printed copy might be helpful, and on the last screen, you’ll have an option to print the information and your responses.</p>
 
        <Link className="btn btn-primary btn-lg" to="/treatment-options">Learn about your options</Link>
 
