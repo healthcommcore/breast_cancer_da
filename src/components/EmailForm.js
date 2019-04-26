@@ -21,7 +21,7 @@ class EmailForm extends Component {
 
   render() {
     return (
-      <form className="form-inline" onSubmit={ this.handleSubmit }  encType="text/plain">
+      <form className="form-inline email-input" onSubmit={ this.handleSubmit }  encType="text/plain">
         <label className="sr-only">Enter your email</label>
         <input type="email" name="email" placeholder="Enter your email" onChange={ this.onChange } className="form-control" />
         <button type="submit" className="btn btn-primary">Submit</button>

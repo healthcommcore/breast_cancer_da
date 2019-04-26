@@ -1,8 +1,10 @@
-import React, { Component } from 'react';
-import EmailForm from './EmailForm';
-import NextButton from './NextButton';
-import axios from 'axios';
-import { toInt, exists } from '../helpers/utilities';
+import React, { Component } from "react";
+import EmailForm from "./EmailForm";
+import NextButton from "./NextButton";
+import Alert from "react-bootstrap/Alert";
+import { Link } from "react-router-dom";
+import axios from "axios";
+import { toInt, exists } from "../helpers/utilities";
 
 class SupportiveResources extends Component {
   constructor(props) {
@@ -10,6 +12,8 @@ class SupportiveResources extends Component {
     this.hasHighDistress = this.hasHighDistress.bind(this);
     this.hasAnyWorries = this.hasAnyWorries.bind(this);
     this.sendEmail = this.sendEmail.bind(this);
+    this.onClose = this.onClose.bind(this);
+    this.state = { show: false };
   }
 
   hasHighDistress = (distress) => {
@@ -20,6 +24,10 @@ class SupportiveResources extends Component {
     return worries.some( (worry) => {
       return exists(worry) && (toInt(worry) >= 4);
     });
+  }
+
+  onClose = () => {
+    this.setState({ show: false });
   }
 
   getOpeningContent = () => {
@@ -38,12 +46,12 @@ class SupportiveResources extends Component {
 
   sendEmail = (data) => {
     axios({
-      method: 'post',
-      url: this.props.api + '?req=anxiety_email',
+      method: "post",
+      url: this.props.api + "?req=anxiety_email",
       data: data.email
     })
       .then( (result) => {
-        console.log(result);
+        this.setState({ show: true });
       })
       .catch( (error) => {
         console.log(error);
@@ -56,9 +64,17 @@ class SupportiveResources extends Component {
         <h1>Supportive resources</h1>
         { this.getOpeningContent() }
         <p>If you would like someone from the study team to contact you with information about support options for newly diagnosed young women with breast cancer, please provide your email, and we will be in touch.</p>
+        <Alert 
+         variant="success" 
+         dismissible 
+         show={ this.state.show }
+         onClose={ this.onClose }
+        >
+          <p>Your email was sent successfully</p>
+        </Alert>
         <EmailForm storeData = { this.sendEmail } />
 
-        <p>See resources[LINK to Resources page] available to help you cope with some of the worries and concerns you may be having.</p>
+        <p><Link to="/resources">See resources</Link> available to help you cope with some of the worries and concerns you may be having.</p>
 
         <p>Learn strategies to help you cope with some of the worries and concerns you may be having:</p> 
         <div className="clearfix">

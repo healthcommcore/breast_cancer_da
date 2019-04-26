@@ -1,5 +1,5 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React from "react";
+import { Link } from "react-router-dom";
 
 const Home = (props) => {
   return (
@@ -24,7 +24,7 @@ const Home = (props) => {
       
       <p className="inline-buttons">
         <Link className="btn btn-secondary" to="/about">Learn more about this study</Link>
-        <a className="btn btn-secondary" href="#">Contact the study team</a>
+        <a className="btn btn-secondary" href="mailto:consyder@partners.org">Contact the study team</a>
       </p>
     </div>
   );
