@@ -64,9 +64,11 @@ class NumberScale extends Component {
             );
           })}
         </div>
+        { this.props.response ?
         <div className={ this.state.responseClass }>
           <p className="response">{ this.props.response }</p>
         </div>
+        : "" }
       </div>
     );
   }
