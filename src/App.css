@@ -307,6 +307,11 @@ th {
   margin-bottom: 20px;
 }
 
+/** Summary **/
+.summary-spacer {
+	margin: 50px 0;
+}
+
 /** Footer **/
 .footer .copyright-and-hcc {
 	font-size: 0.8rem;
