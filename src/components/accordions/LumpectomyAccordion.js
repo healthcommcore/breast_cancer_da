@@ -47,22 +47,6 @@ const LumpectomyAccordion = (props) => {
             </AccordionItem>
             <AccordionItem>
                 <AccordionItemTitle>
-                    <h3>Radiation</h3>
-                </AccordionItemTitle>
-                <AccordionItemBody>
-                    <p>In most cases, women who have a lumpectomy also have a course of radiation treatment to decrease the risk of cancer returning in the breast and chest wall area.</p>
-                    <p>The radiation treatment usually involves 5 clinical visits each week for 3 to 6 weeks. Each treatment itself is about 10 to 20 minutes. You will not feel anything when you are getting radiation treatment. After the treatment session is over, you can continue your regular activities. It is safe to be around other people after this treatment, including children.</p>
-                    <p>Most women tolerate radiation treatment well and experience few side effects, but side effects are possible.</p>
-                    <ul>
-                        <li>Common side effects include sunburn to the breast, irritation or itchiness of the breast skin from the radiation, and fatigue.</li>
-                        <li>Most side effects from radiation treatment are short term.</li>
-                        <li>For women who have a shorter course of radiation (called "hypofractionation"), these side effects are often lessened.</li>
-                        <li>Radiation therapy after a lumpectomy sometimes affects the look or size of the treated breast. The breast may become larger due to fluid buildup or smaller due to the development of scar tissue. Any such change usually begins within a year of completing therapy, although it may last longer than that.</li>
-                    </ul>
-                </AccordionItemBody>
-            </AccordionItem>
-            <AccordionItem>
-                <AccordionItemTitle>
                     <h3>Cancer risk after lumpectomy and radiation</h3>
                 </AccordionItemTitle>
                 <AccordionItemBody>
@@ -77,6 +61,23 @@ There are genetic changes (mutations) that may increase your risk of developing 
 
                 </AccordionItemBody>
             </AccordionItem>
+            <AccordionItem>
+                <AccordionItemTitle>
+                    <h3>Radiation</h3>
+                </AccordionItemTitle>
+                <AccordionItemBody>
+                    <p>In most cases, women who have a lumpectomy also have a course of radiation treatment to decrease the risk of cancer returning in the breast and chest wall area.</p>
+                    <p>The radiation treatment usually involves 5 clinical visits each week for 3 to 6 weeks. Each treatment itself is about 10 to 20 minutes. You will not feel anything when you are getting radiation treatment. After the treatment session is over, you can continue your regular activities. It is safe to be around other people after this treatment, including children.</p>
+                    <p>Most women tolerate radiation treatment well and experience few side effects, but side effects are possible.</p>
+                    <ul>
+                        <li>Common side effects include sunburn to the breast, irritation or itchiness of the breast skin from the radiation, and fatigue.</li>
+                        <li>Most side effects from radiation treatment are short term.</li>
+                        <li>For women who have a shorter course of radiation (called "hypofractionation"), these side effects are often lessened.</li>
+                        <li>Radiation therapy after a lumpectomy sometimes affects the look or size of the treated breast. The breast may become larger due to fluid buildup or smaller due to the development of scar tissue. Any such change usually begins within a year of completing therapy, although it may last longer than that.</li>
+                    </ul>
+                </AccordionItemBody>
+            </AccordionItem>
+
             
         </Accordion>
     );
