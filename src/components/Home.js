@@ -19,12 +19,12 @@ const Home = (props) => {
 
      <p className="disclaimer">You can stop at any point and come back later to review this information. The information on this website, including any responses that you enter, is for you and is not being saved to this website. Having a printed copy might be helpful, and on the last screen, you’ll have an option to print the information and your responses.</p>
 
-       <Link className="btn btn-primary btn-lg" to="/treatment-options">Learn about your options</Link>
+       <Link className="btn btn-primary btn-lg home-btn-spacing" to="/treatment-options">Learn about your options</Link>
 
       
       <p className="inline-buttons">
-        <Link className="btn btn-secondary" to="/about">Learn more about this study</Link>
-        <a className="btn btn-secondary" href="mailto:consyder@partners.org">Contact the study team</a>
+        <Link className="btn btn-secondary btn-sm" to="/about">Learn more about this study</Link>
+        <a className="btn btn-secondary btn-sm" href="mailto:consyder@partners.org">Contact the study team</a>
       </p>
     </div>
   );
