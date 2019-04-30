@@ -129,7 +129,7 @@ class TreatmentComparison extends Component {
                     <tr>
                         <th>Annual mammograms</th>
                         <td className="">Necessary (both breasts)</td>
-                        <td>Necessary (other breast)</td>
+                        <td>Necessary (<strong>other</strong> breast)</td>
                         <td className={ this.state.show_bilateral ? "d-block" : "d-none" }>Not necessary</td>
                     </tr>
                 </tbody>
