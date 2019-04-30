@@ -1,9 +1,10 @@
-import React, { Component } from 'react';
-import TreatmentComparison from './TreatmentComparison';
-import values_content from '../helpers/values_content.json';
-import worry_content from '../helpers/worry_content.json';
-import next_steps_content from '../helpers/next_steps_content.json';
-import { toInt } from '../helpers/utilities';
+import React, { Component } from "react";
+import TreatmentComparison from "./TreatmentComparison";
+import ValuesResponse from "./ValuesResponse";
+import values_content from "../helpers/values_content.json";
+import worry_content from "../helpers/worry_content.json";
+import next_steps_content from "../helpers/next_steps_content.json";
+import { toInt } from "../helpers/utilities";
 
 class Summary extends Component {
   constructor(props) {
@@ -52,6 +53,9 @@ class Summary extends Component {
                 <li key={i}>
                   <p>{ entry.content }<br />
                  <em>On a scale of 0 (Not at all important) to 10 (Extremely important), you ranked this as</em> <strong> { values_resp[entry.value] }.</strong></p>
+                 <ValuesResponse responseClass={ values_resp[entry.value] >= 6 ? "value-response show-response" : "value-response" }>
+                  { entry.response }
+                </ValuesResponse>
                 </li>
               );
             })}
