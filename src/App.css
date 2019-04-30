@@ -289,6 +289,15 @@ th {
 	width: 80%;
 }
 
+/** Supportive resources **/
+.email-input {
+  margin: 20px 0;
+}
+
+.email-input input {
+  margin-right: 8px;
+}
+
 /** Next steps **/
 .mult-choice-quest {
   margin-bottom: 20px;
