@@ -29,7 +29,8 @@ const MastectomyAccordion = (props) => {
               <AccordionItemBody>
                   <p>Because your surgeon will be removing the breast tissue right up to the skin of the breast, the sensory nerves are affected, and most women have permanent numbness in the breast and chest wall and nipple area of the treated breast (from your collarbone to the top of your rib cage on the side with the tumor). </p>
      <p>The surgery will leave scars on the breast skin that will fade over time. </p>
-     <p>Some women choose to have breast reconstruction to help restore the look and feel of the breast that was removed. Reconstruction may be done at the same time as the mastectomy (immediate) or later (delayed). Learn more about breast reconstruction.</p>
+     <p>With a mastectomy, the appearance of your breasts/breast area will be asymmetrical (both sides will not look the same). With a bilateral mastectomy, the appearance of your breasts/breast area will be symmetrical (both sides will look the same). </p>
+     <p>Some women choose to have breast reconstruction to help restore the look and feel of the breast that was removed. Reconstruction may be done at the same time as the mastectomy (immediate) or later (delayed). Learn more about breast reconstruction in the section below (under "Other procedures").</p>
      <p>Women who do not have breast reconstruction may choose to be fitted for a breast prosthesis (or breast form made of silicone gel, foam, or other materials) that can be placed in a bra and worn under clothes. <a href="https://www.dana-farber.org/for-patients-and-families/care-and-treatment/support-services-and-amenities/friends-place/services-and-programs/breast-prostheses-and-bras/" rel="noopener noreferrer" target="_blank"> Learn more about a prosthesis. </a></p>
      <p>Some women don’t want additional surgery or to deal with special bras, magnets, or adhesive patches that hold a prosthesis in place. They choose no reconstruction and don’t wear a breast form. </p>
      <p>The decision to reconstruct or not is very personal. There is no "right way" to approach mastectomy and reconstruction (or lack of it). There is only the way that is best for you, your preferences, and your healing. </p>
@@ -47,19 +48,6 @@ const MastectomyAccordion = (props) => {
 <li>Can usually get back to their regular activities in about 2 to 3 weeks, unless choosing to have reconstruction at the time of the mastectomy, which can prolong the recovery time. Some activities, like exercise, may take longer to get back to.</li>
 </ul>
 
-              </AccordionItemBody>
-          </AccordionItem>
-          <AccordionItem>
-              <AccordionItemTitle>
-                  <h3>Radiation</h3>
-              </AccordionItemTitle>
-              <AccordionItemBody>
-                  <p>Mastectomy does not eliminate the risk of cancer recurring in the remaining tissues of the chest wall or lymph nodes. In some cases, women who have a mastectomy also have a course of radiation treatment to decrease the risk of cancer returning in the treated breast and chest wall area. Radiation treatment is given to the treated breast area and sometimes to the lymph node regions nearby.</p>
-     <p>The radiation treatment usually involves 5 clinical visits each week for 3 to 6 weeks. Each treatment itself is about 10 to 20 minutes. You will not feel anything when you are getting radiation treatment. After the treatment session is over, you can continue your regular activities. It is safe to be around other people after this treatment, including children.</p>
-     <p>Most women tolerate radiation treatment well and experience few side effects, but side effects are possible.
-<li>Common side effects include sunburn to the chest, irritation or itchiness of the chest skin from the radiation, and fatigue.</li>
-<li>Most side effects from radiation treatment are short term.</li>
-</p>
               </AccordionItemBody>
           </AccordionItem>
           <AccordionItem>
@@ -105,7 +93,6 @@ There are genetic changes (mutations) that may increase your risk of developing 
                           <AccordionItemBody>
                               <p>Because your surgeon will be removing the breast tissue right up to the skin of the breast, the sensory nerves are affected, and most women have permanent numbness in the entire breast and chest wall and nipple area (from your collarbone to the top of your rib cage on both sides). </p>
     <p>The surgery will leave scars on the breast skin that will fade over time. </p>
-    <p>With a mastectomy, the appearance of your breasts/breast area will be asymmetrical (both sides will not look the same). With a bilateral mastectomy, the appearance of your breasts/breast area will be symmetrical (both sides will look the same). </p>
     <p>Some women choose to have breast reconstruction to help restore the look and feel of their removed breasts. Reconstruction may be done at the same time as the mastectomy (immediate) or later (delayed). Learn more about breast reconstruction in the section below (under "Other procedures").</p>
     <p>Women who do not have breast reconstruction may choose to be fitted for breast prostheses (or breast forms made of silicone gel, foam, or other materials) that can be placed in a bra and worn under clothes. <a href="https://www.dana-farber.org/for-patients-and-families/care-and-treatment/support-services-and-amenities/friends-place/services-and-programs/breast-prostheses-and-bras/" target="_blank"> Learn more about prostheses. </a></p>
     <p>Some women don’t want additional surgery or to deal with special bras, magnets, or adhesive patches that hold prostheses in place. They choose no reconstruction and don’t wear breast forms. </p>
@@ -141,6 +128,22 @@ There are genetic changes (mutations) that may increase your risk of developing 
                   </Accordion>
               </AccordionItemBody>
           </AccordionItem>
+          <AccordionItem>
+              <AccordionItemTitle>
+                  <h3>Radiation</h3>
+              </AccordionItemTitle>
+              <AccordionItemBody>
+                  <p>Mastectomy does not eliminate the risk of cancer recurring in the remaining tissues of the chest wall or lymph nodes. In some cases, women who have a mastectomy also have a course of radiation treatment to decrease the risk of cancer returning in the treated breast and chest wall area. Radiation treatment is given to the treated breast area and sometimes to the lymph node regions nearby.</p>
+     <p>The radiation treatment usually involves 5 clinical visits each week for 3 to 6 weeks. Each treatment itself is about 10 to 20 minutes. You will not feel anything when you are getting radiation treatment. After the treatment session is over, you can continue your regular activities. It is safe to be around other people after this treatment, including children.</p>
+     <p>Most women tolerate radiation treatment well and experience few side effects, but side effects are possible.
+		 <ul>
+			<li>Common side effects include sunburn to the chest, irritation or itchiness of the chest skin from the radiation, and fatigue.</li>
+			<li>Most side effects from radiation treatment are short term.</li>
+		</ul>
+</p>
+              </AccordionItemBody>
+          </AccordionItem>
+
       </Accordion>
     );
 }
