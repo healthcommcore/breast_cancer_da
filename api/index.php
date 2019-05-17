@@ -1,5 +1,5 @@
 <?php
-  header("Access-Control-Allow-Origin: http://localhost:3000");
+  header("Access-Control-Allow-Origin: http://bcda.dr809.test");
   header("Access-Control-Allow-Credentials: true");
   header("Access-Control-Allow-Methods: GET, PUT, POST, DELETE");
   header("Access-Control-Max-Age: 1000");
