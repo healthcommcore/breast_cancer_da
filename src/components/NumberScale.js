@@ -1,5 +1,6 @@
-import React, { Component } from 'react';
-import { numArray } from '../helpers/utilities.js';
+import React, { Component } from "react";
+import ValuesResponse from "./ValuesResponse";
+import { numArray } from "../helpers/utilities.js";
 
 class NumberScale extends Component {
   constructor(props) {
@@ -65,9 +66,9 @@ class NumberScale extends Component {
           })}
         </div>
         { this.props.response ?
-        <div className={ this.state.responseClass }>
-          <p className="response">{ this.props.response }</p>
-        </div>
+          <ValuesResponse responseClass={ this.state.responseClass }>
+            { this.props.response }
+          </ValuesResponse>
         : "" }
       </div>
     );
