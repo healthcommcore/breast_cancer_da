@@ -1,7 +1,9 @@
 // React, React-router, CSS
 import React, { Component } from "react";
 import "./App.css";
-import { Route, Redirect, withRouter } from "react-router-dom";
+import { Router, Route, Redirect, withRouter } from "react-router-dom";
+import createHistory from "history/createBrowserHistory";
+import ReactGA from "react-ga";
 
 // Layout
 import Banner from "./components/layout/Banner";
@@ -31,6 +33,13 @@ import store from "store";
 
 const api = getApi("hccupdate");
 const LIMIT = 1000 * 60 * 60;
+const history = createHistory();
+
+history.listen( location => {
+  ReactGA.set({ page: location.pathname });
+  ReactGA.pageview(location.pathname);
+});
+
 class App extends Component {
 
   constructor(props) {
@@ -76,6 +85,7 @@ class App extends Component {
                 <SideNav />
               </div>
               <div className="col-md-9">
+              <Router history={ history }>
                 <Route path="/login" 
                        render={ (props)=> 
                           <Login 
@@ -123,6 +133,7 @@ class App extends Component {
                   component={ Summary } 
                 />
                 <PrivateRoute exact path="/" component={ Home } />
+              </Router>
               </div>
             </div>
           </div>
