@@ -52,6 +52,10 @@ class App extends Component {
     }
   }
 
+  componentDidUpdate() {
+    ReactGA.pageview(window.location.pathname);
+  }
+
   saveProgress = (data) => {
     const key = Object.keys(data).shift();
     this.setState({[key] : data[key]});
@@ -85,7 +89,6 @@ class App extends Component {
                 <SideNav />
               </div>
               <div className="col-md-9">
-              <Router history={ history }>
                 <Route path="/login" 
                        render={ (props)=> 
                           <Login 
@@ -133,7 +136,6 @@ class App extends Component {
                   component={ Summary } 
                 />
                 <PrivateRoute exact path="/" component={ Home } />
-              </Router>
               </div>
             </div>
           </div>
