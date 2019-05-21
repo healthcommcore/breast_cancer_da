@@ -31,7 +31,7 @@ import isLoggedIn from "./helpers/is_logged_in";
 import getApi from "./helpers/api_urls";
 import store from "store";
 
-const api = getApi("hccupdate");
+const api = getApi("local");
 const LIMIT = 1000 * 60 * 60;
 const history = createHistory();
 
