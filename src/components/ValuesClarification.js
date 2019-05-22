@@ -8,14 +8,26 @@ class ValuesClarification extends Component {
   constructor(props) {
     super(props);
     this.handleScaleChange = this.handleScaleChange.bind(this);
+		this.state = {};
   }
 
   handleScaleChange = (value, scale) => {
     this.setState({[value]: scale });
   }
 
+	componentDidMount = () => {
+		const saved = this.props.savedValues || {};
+		if (Object.values(saved).length > 0) {
+			Object.keys(saved).map( (key) => {
+				this.setState({ [key]: saved[key] });
+			});
+		}
+	}
+
   componentWillUnmount = () => {
-    this.props.onSaveProgress({ values: this.state });
+		if (this.state) {
+			this.props.onSaveProgress({ values: this.state });
+		}
   }
 
   render() {
@@ -35,6 +47,7 @@ class ValuesClarification extends Component {
 							rightLabel="Extremely important"
 							onScaleSelect={ this.handleScaleChange } 
 							value={entry.value}
+							hasSavedValue={ this.state.hasOwnProperty(entry.value) }
 							key={idx}
 							content={entry.content}
               response={ entry.response }
