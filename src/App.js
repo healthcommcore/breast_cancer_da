@@ -32,7 +32,8 @@ import getApi from "./helpers/api_urls";
 import store from "store";
 
 const api = getApi("local");
-const LIMIT = 1000 * 60 * 60;
+//const LIMIT = 1000 * 60 * 60;
+const LIMIT = 1000 * 60;
 const history = createHistory();
 
 history.listen( location => {
@@ -54,6 +55,10 @@ class App extends Component {
 
   componentDidUpdate() {
     ReactGA.pageview(window.location.pathname);
+    const user = store.get("user");
+    if (isLoggedIn && user) {
+      ReactGA.set({ userId: user.id });
+    }
   }
 
   saveProgress = (data) => {
