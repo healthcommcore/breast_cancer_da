@@ -51,11 +51,23 @@ class Summary extends Component {
             { values_content.map( (entry, i) => {
               return (
                 <li key={i}>
-                  <p>{ entry.content }<br />
-                 <em>On a scale of 0 (Not at all important) to 10 (Extremely important), you ranked this as</em> <strong> { values_resp[entry.value] }.</strong></p>
-                 <ValuesResponse responseClass={ values_resp[entry.value] >= 6 ? "value-response show-response" : "value-response" }>
-                  { entry.response }
-                </ValuesResponse>
+                  <p>{ entry.content }</p>
+{/* IIFE to display user's value response if there is one and if not, display a no answer given message */}
+                    { (() => {
+                      if(values_resp[entry.value]) {
+                        return (
+                          <div>
+                            <p><em>On a scale of 0 (Not at all important) to 10 (Extremely important), you ranked this as</em> <strong> { values_resp[entry.value] }.</strong></p>
+                            <ValuesResponse responseClass={ values_resp[entry.value] >= 6 ? "value-response show-response" : "value-response" }>
+                              { entry.response }
+                            </ValuesResponse>
+                          </div>
+                        );
+                      }
+                      else {
+                        return <p><em>This question was not answered</em></p>;
+                      }
+                    })()}
                 </li>
               );
             })}
@@ -74,6 +86,7 @@ class Summary extends Component {
           {/*
           */}
         </div>
+        <button className="btn btn-lg btn-primary" onClick={ window.print }>Print your summary</button>
       </div>
     )
   }

@@ -32,8 +32,7 @@ import getApi from "./helpers/api_urls";
 import store from "store";
 
 const api = getApi("local");
-//const LIMIT = 1000 * 60 * 60;
-const LIMIT = 1000 * 60;
+const LIMIT = 1000 * 60 * 60;
 const history = createHistory();
 
 history.listen( location => {
