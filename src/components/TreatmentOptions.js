@@ -1,15 +1,20 @@
-import React from 'react';
-//import { lumpEligible } from '../helpers/user_stats.js';
-import store from 'store';
-import LumpectomyAccordion from './accordions/LumpectomyAccordion';
-import TreatmentOptionsLumpText from './TreatmentOptionsLumpText';
-import MastectomyAccordion from './accordions/MastectomyAccordion';
-import OtherProceduresAccordion from './accordions/OtherProceduresAccordion';
-import NextButton from './NextButton';
-import 'react-accessible-accordion/dist/fancy-example.css';
+import React, { useEffect } from "react";
+import store from "store";
+import LumpectomyAccordion from "./accordions/LumpectomyAccordion";
+import TreatmentOptionsLumpText from "./TreatmentOptionsLumpText";
+import MastectomyAccordion from "./accordions/MastectomyAccordion";
+import OtherProceduresAccordion from "./accordions/OtherProceduresAccordion";
+import { animateScroll } from "react-scroll";
+import NextButton from "./NextButton";
+import "react-accessible-accordion/dist/fancy-example.css";
 
 const TreatmentOptions = (props) => {
-  const user = store.get('user');
+  const user = store.get("user");
+
+  useEffect(() => {
+    animateScroll.scrollToTop({ duration: 100 });
+  });
+
   return (
     <div>
       <h1>What are my treatment options?</h1>

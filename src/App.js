@@ -2,7 +2,7 @@
 import React, { Component } from "react";
 import "./App.css";
 import { Router, Route, Redirect, withRouter } from "react-router-dom";
-import createHistory from "history/createBrowserHistory";
+import { createBrowserHistory } from "history";
 import ReactGA from "react-ga";
 
 // Layout
@@ -33,7 +33,7 @@ import store from "store";
 
 const api = getApi("local");
 const LIMIT = 1000 * 60 * 60;
-const history = createHistory();
+const history = createBrowserHistory();
 
 history.listen( location => {
   ReactGA.set({ page: location.pathname });
