@@ -1,6 +1,6 @@
 <?php
-  header("Access-Control-Allow-Origin: http://bcda.hccupdate.org");
-  //header("Access-Control-Allow-Origin: http://hccupdate.org:3000");
+  //header("Access-Control-Allow-Origin: http://bcda.hccupdate.org");
+  header("Access-Control-Allow-Origin: http://hccupdate.org:3000");
   header("Access-Control-Allow-Credentials: true");
   header("Access-Control-Allow-Methods: GET, PUT, POST, DELETE");
   header("Access-Control-Max-Age: 1000");
