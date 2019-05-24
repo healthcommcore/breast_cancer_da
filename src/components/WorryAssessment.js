@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { animateScroll } from "react-scroll";
 import NumberScale from './NumberScale';
 import WorryTable from './WorryTable';
 import NextButton from './NextButton';
@@ -9,6 +10,10 @@ class WorryAssessment extends Component {
     this.handleScaleChange = this.handleScaleChange.bind(this);
     this.state = {};
   }
+
+	componentDidMount = () => {
+		animateScroll.scrollToTop({ duration: 100 });
+	}
 
 	handleScaleChange = (type, value) => {
 		this.setState({[type]: value });
