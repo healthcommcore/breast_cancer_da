@@ -135,12 +135,11 @@ There are genetic changes (mutations) that may increase your risk of developing 
               <AccordionItemBody>
                   <p>Mastectomy does not eliminate the risk of cancer recurring in the remaining tissues of the chest wall or lymph nodes. In some cases, women who have a mastectomy also have a course of radiation treatment to decrease the risk of cancer returning in the treated breast and chest wall area. Radiation treatment is given to the treated breast area and sometimes to the lymph node regions nearby.</p>
      <p>The radiation treatment usually involves 5 clinical visits each week for 3 to 6 weeks. Each treatment itself is about 10 to 20 minutes. You will not feel anything when you are getting radiation treatment. After the treatment session is over, you can continue your regular activities. It is safe to be around other people after this treatment, including children.</p>
-     <p>Most women tolerate radiation treatment well and experience few side effects, but side effects are possible.
+     <p>Most women tolerate radiation treatment well and experience few side effects, but side effects are possible.</p>
 		 <ul>
 			<li>Common side effects include sunburn to the chest, irritation or itchiness of the chest skin from the radiation, and fatigue.</li>
 			<li>Most side effects from radiation treatment are short term.</li>
 		</ul>
-</p>
               </AccordionItemBody>
           </AccordionItem>
 

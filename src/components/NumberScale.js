@@ -9,13 +9,12 @@ class NumberScale extends Component {
     this.evalResponse = this.evalResponse.bind(this);
     this.isResponseShown = this.isResponseShown.bind(this);
     this.state = {
-      activeButton: "",
+      labelClasses: ["btn", "btn-light", "btn-scale"],
       responseClass: "value-response"
     }
   }
 
   handleClick = (e) => {
-    console.log(e.target.id);
     this.props.onScaleSelect(this.props.value, e.target.id);
     this.evalResponse(e.target.id)
   }
@@ -57,7 +56,7 @@ class NumberScale extends Component {
               <label 
                 key={i} 
                 id={i}
-                className="btn btn-light btn-scale"
+                className={ this.state.labelClasses.join(" ") }
                 onClick={ this.handleClick }
               >
                 <input type="radio" />

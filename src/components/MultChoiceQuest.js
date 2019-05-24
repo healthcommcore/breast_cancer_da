@@ -6,7 +6,10 @@ class MultChoiceQuest extends Component {
   constructor(props) {
     super(props);
     this.storeResult = this.storeResult.bind(this);
-    this.state = { showOther: false }
+    this.state = { 
+      showOther: false,
+      what_would: []
+    }
   }
 
   storeResult = (e) => {
@@ -15,6 +18,19 @@ class MultChoiceQuest extends Component {
     }
     else if (e.target.type === "text") {
       this.props.storeResult({[e.target.name] : e.target.value });
+    }
+    else if (e.target.type === "checkbox") {
+      const val = e.target.value;
+      let what_would = this.state.what_would;
+      if (what_would.includes(val)) {
+        what_would = what_would.filter(i => i !== val);
+      }
+      else {
+        what_would.push(val);
+      }
+      this.setState({ what_would: what_would });
+      console.log(what_would);
+      this.props.storeResult({[e.target.name] : what_would });
     }
     else {
       this.setState({ showOther: false });
@@ -32,7 +48,7 @@ class MultChoiceQuest extends Component {
               <div key={i}>
                 <input 
                   className="form-check-input" 
-                  type="radio" 
+                  type={ this.props.type }
                   name={ this.props.name } 
                   id={ choice === "Other" ? this.props.name + "_other" : i }
                   value={ choice === "Other" ? "other_radio" : i} 

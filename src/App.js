@@ -2,7 +2,7 @@
 import React, { Component } from "react";
 import "./App.css";
 import { Router, Route, Redirect, withRouter } from "react-router-dom";
-import createHistory from "history/createBrowserHistory";
+import { createBrowserHistory } from "history";
 import ReactGA from "react-ga";
 
 // Layout
@@ -32,9 +32,8 @@ import getApi from "./helpers/api_urls";
 import store from "store";
 
 const api = getApi("hccupdate");
-//const LIMIT = 1000 * 60 * 60;
-const LIMIT = 1000 * 60;
-const history = createHistory();
+const LIMIT = 1000 * 60 * 60;
+const history = createBrowserHistory();
 
 history.listen( location => {
   ReactGA.set({ page: location.pathname });
