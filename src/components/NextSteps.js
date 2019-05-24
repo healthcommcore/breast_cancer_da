@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import MultChoiceQuest from "./MultChoiceQuest";
 import NextButton from "./NextButton";
 import OtherTextField from  "./OtherTextField";
+import { animateScroll } from "react-scroll";
 import questions from "../helpers/next_steps_content.json";
 import { toInt, exists, propify } from "../helpers/utilities";
 
@@ -18,6 +19,10 @@ class NextSteps extends Component {
   storeResult = (data) => {
     this.setState({ ...data });
     console.log("Store result fired");
+  }
+
+  componentDidMount = () => {
+    animateScroll.scrollToTop({ duration: 100 });
   }
 
   componentWillUnmount = () => {

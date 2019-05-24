@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import NextButton from './NextButton';
 import NumberScale from './NumberScale';
+import { animateScroll } from "react-scroll";
 import { lumpEligible } from '../helpers/user_stats.js';
 import content from '../helpers/values_content.json';
 
@@ -16,6 +17,7 @@ class ValuesClarification extends Component {
   }
 
 	componentDidMount = () => {
+    animateScroll.scrollToTop({ duration: 100 });
 		const saved = this.props.savedValues || {};
 		if (Object.values(saved).length > 0) {
 			Object.keys(saved).map( (key) => {
