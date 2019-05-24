@@ -46,6 +46,7 @@ class NextSteps extends Component {
         choices={ question.choices }
         name={ propify(question.question) }
         storeResult={ this.storeResult }
+        type="checkbox"
       />
     );
   }
@@ -63,6 +64,7 @@ class NextSteps extends Component {
               choices={ question.choices }
               storeResult={ this.storeResult }
               name={ propify(question.question) }
+              type="radio"
             />
           );
         })}

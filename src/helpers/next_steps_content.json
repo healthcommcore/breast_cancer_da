@@ -21,7 +21,7 @@
 	],
 
 	"followup" : {
-		"question" : "What would help you to make a decision?",
+		"question" : "What would help you to make a decision? (Check all that apply)",
 		"choices" : [
 			"Discussing my options with my loved ones",
 			"Discussing my options with my oncologist/surgeon, nurses, or other providers",
