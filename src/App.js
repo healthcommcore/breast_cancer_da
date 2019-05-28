@@ -122,6 +122,7 @@ class App extends Component {
                   path="/worry-assessment" 
                   onSaveProgress={ this.saveProgress }
                   component={ WorryAssessment }
+                  savedValues={ this.state.worry }
                 />
                 <PrivateRoute 
                   path="/supportive-resources" 
