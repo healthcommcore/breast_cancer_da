@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import ValuesResponse from "./ValuesResponse";
-import { numArray } from "../helpers/utilities.js";
+import { numArray, toInt } from "../helpers/utilities.js";
 
 class NumberScale extends Component {
   constructor(props) {
@@ -9,7 +9,6 @@ class NumberScale extends Component {
     this.evalResponse = this.evalResponse.bind(this);
     this.isResponseShown = this.isResponseShown.bind(this);
     this.state = {
-      labelClasses: ["btn", "btn-light", "btn-scale"],
       responseClass: "value-response"
     }
   }
@@ -52,11 +51,15 @@ class NumberScale extends Component {
         </div>
         <div className="scale btn-group btn-group-toggle" data-toggle="buttons">
           { levels.map( (level, i) => {
+            let classes = "btn btn-light btn-scale";
+            if (toInt(this.props.savedValue) === i) {
+              classes += " active";
+            }
             return (
               <label 
                 key={i} 
                 id={i}
-                className={ this.state.labelClasses.join(" ") }
+                className={ classes }
                 onClick={ this.handleClick }
               >
                 <input type="radio" />
