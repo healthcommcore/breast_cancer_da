@@ -3,6 +3,7 @@ import EmailForm from "./EmailForm";
 import NextButton from "./NextButton";
 import Alert from "react-bootstrap/Alert";
 import { Link } from "react-router-dom";
+import { animateScroll } from "react-scroll";
 import axios from "axios";
 import { toInt, exists } from "../helpers/utilities";
 
@@ -15,6 +16,10 @@ class SupportiveResources extends Component {
     this.onClose = this.onClose.bind(this);
     this.state = { show: false };
   }
+
+	componentDidMount = () => {
+    animateScroll.scrollToTop({ duration: 100 });
+	}
 
   hasHighDistress = (distress) => {
     return ( exists(distress) && toInt(distress) >= 5 );
