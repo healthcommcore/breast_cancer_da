@@ -90,7 +90,7 @@ class App extends Component {
           <div className="container">
             <div className="row">
               <div className="col-md-3">
-                <SideNav />
+              { isLoggedIn() ? <SideNav /> : "" }
               </div>
               <div className="col-md-9">
                 <Route path="/login" 

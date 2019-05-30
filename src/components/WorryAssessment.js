@@ -40,7 +40,10 @@ class WorryAssessment extends Component {
 					content=""
 				/>
         <p><strong>I would find it helpful if I received more assistance to cope with my:</strong></p> 
-        <WorryTable onScaleSelect={ this.handleScaleChange }/> 
+        <WorryTable 
+          onScaleSelect={ this.handleScaleChange }
+          savedValues={ this.state }
+        /> 
         <NextButton dest="supportive-resources" />
 			</div>
 		);

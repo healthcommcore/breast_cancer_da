@@ -11,7 +11,6 @@ class NextSteps extends Component {
     super(props);
     this.storeResult = this.storeResult.bind(this);
     this.isNotReady = this.isNotReady.bind(this);
-    this.otherOptionSelected = this.otherOptionSelected.bind(this);
     this.whatWouldHelp = this.whatWouldHelp.bind(this);
     this.state = {};
   }
@@ -33,9 +32,6 @@ class NextSteps extends Component {
     return ( 
         exists(how_ready) && toInt(how_ready) >= 1
     ); 
-  }
-
-  otherOptionSelected = () => {
   }
 
   whatWouldHelp = () => {

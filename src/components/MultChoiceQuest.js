@@ -29,7 +29,6 @@ class MultChoiceQuest extends Component {
         what_would.push(val);
       }
       this.setState({ what_would: what_would });
-      console.log(what_would);
       this.props.storeResult({[e.target.name] : what_would });
     }
     else {
