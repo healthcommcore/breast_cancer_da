@@ -13,11 +13,17 @@ class MultChoiceQuest extends Component {
   }
 
   storeResult = (e) => {
+    let toStore = { ...this.state };
     if (e.target.value === "other_radio") {
-      this.setState({ showOther: true });
+      toStore.showOther = true;
     }
     else if (e.target.type === "text") {
-      this.props.storeResult({[e.target.name] : e.target.value });
+      if (e.target.name === "what_treatment_other") {
+        toStore.what_treatment = e.target.value;
+      }
+      else {
+        toStore[e.target.name] = e.target.value;
+      }
     }
     else if (e.target.type === "checkbox") {
       const val = e.target.value;
@@ -28,13 +34,14 @@ class MultChoiceQuest extends Component {
       else {
         what_would.push(val);
       }
-      this.setState({ what_would: what_would });
-      this.props.storeResult({[e.target.name] : what_would });
+      toStore.what_would = what_would;
     }
     else {
-      this.setState({ showOther: false });
-      this.props.storeResult({[e.target.name] : e.target.id});
+      toStore.showOther = false;
+      toStore[e.target.name] = e.target.id;
     }
+    this.setState({ ...toStore });
+    this.props.storeResult(toStore);
   }
 
   render() {

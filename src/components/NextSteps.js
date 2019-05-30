@@ -17,7 +17,6 @@ class NextSteps extends Component {
 
   storeResult = (data) => {
     this.setState({ ...data });
-    console.log("Store result fired");
   }
 
   componentDidMount = () => {
