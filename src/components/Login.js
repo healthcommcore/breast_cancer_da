@@ -42,12 +42,13 @@ class Login extends Component {
   }
 
   showFieldEmptyError = (values) => {
+    const intro = "Please enter your ";
     let alert = [];
     if (values.username === "") {
-      alert.push("username");
+      alert.push(intro + "username");
     }
     if (values.password === "") {
-      alert.push("password");
+      alert.push(intro + "password");
     }
     this.setState({ alertContent: alert });
   }
@@ -66,7 +67,6 @@ class Login extends Component {
       url: this.props.api + "?req=authenticate"
     })
       .then( (result) => {
-        console.log("Login successful!");
         this.evaluateLogin(result.data);
       })
       .catch( (error) => {
@@ -94,6 +94,11 @@ class Login extends Component {
       //console.log(store.get("user"));
     }
     else {
+      const alert = ["Incorrect username and/or password. If you forgot your username/password, please contact us"]
+      this.setState({
+        show: true,
+        alertContent: alert
+      });
       console.log("There was a problem logging in: " + result);
     }
     // Add Login validation
@@ -112,7 +117,7 @@ class Login extends Component {
           onClose={ this.onClose }
         >
           { this.state.alertContent.map( (alert, i) => {
-            return <p key={i}>{ "Please enter your " + alert }</p>
+            return <p key={i}>{ alert }</p>
           })} 
         </Alert>
         <h1>Please log in</h1>
