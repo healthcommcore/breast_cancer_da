@@ -5,11 +5,12 @@ import { numArray, toInt } from "../helpers/utilities.js";
 class NumberScale extends Component {
   constructor(props) {
     super(props);
+    const savedClass = props.savedValue >= 6 ? " show-response" : "";
     this.handleClick = this.handleClick.bind(this);
     this.evalResponse = this.evalResponse.bind(this);
     this.isResponseShown = this.isResponseShown.bind(this);
     this.state = {
-      responseClass: "value-response"
+      responseClass: "value-response" + savedClass
     }
   }
 
