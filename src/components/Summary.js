@@ -54,12 +54,28 @@ const Summary = (props) => {
       <div className="summary-spacer">
         <h2>Next steps</h2>
         <p>The treatment you are leaning toward:<br />
-        <strong>{ next_steps_content.primary[0].choices[toInt(next_resp.what_treatment)] }</strong></p>
+        <strong>
+        { isNaN( toInt(next_resp.what_treatment) ) ? next_resp.what_treatment : 
+          next_steps_content.primary[0].choices[toInt(next_resp.what_treatment)]
+        }
+        </strong></p>
         <p>How ready you are to make a decision:<br />
         <strong>{ next_steps_content.primary[1].choices[toInt(next_resp.how_ready)] }</strong></p>
-        { next_resp.what_would !==undefined ? 
-          <p>What would help you to make a decision:<br />
-          <strong>{ next_steps_content.followup.choices[toInt(next_resp.what_would)] }</strong></p> : ""
+        { 
+          ( () => {
+            if (next_resp.what_would !==undefined) { 
+              return (
+                <div>
+                  <p>What would help you to make a decision:</p>
+                  <ul>
+                  { next_resp.what_would.map( (resp, i) => {
+                    return <li key={i}><strong>{ next_steps_content.followup.choices[toInt(resp)] }</strong></li>;
+                  })}
+                  </ul>
+                </div>
+              );
+            }
+          })()
         }
         {/*
         */}

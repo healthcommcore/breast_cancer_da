@@ -134,6 +134,7 @@ class App extends Component {
                   path="/next-steps" 
                   onSaveProgress={ this.saveProgress }
                   component={ NextSteps } 
+                  savedValues={ this.state.next }
                 />
                 <PrivateRoute 
                   path="/summary" 

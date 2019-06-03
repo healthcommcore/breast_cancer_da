@@ -9,10 +9,11 @@ import { toInt, exists, propify } from "../helpers/utilities";
 class NextSteps extends Component {
   constructor(props) {
     super(props);
+    const saved = props.savedValues;
     this.storeResult = this.storeResult.bind(this);
     this.isNotReady = this.isNotReady.bind(this);
     this.whatWouldHelp = this.whatWouldHelp.bind(this);
-    this.state = {};
+    this.state = { ...saved } || {};
   }
 
   storeResult = (data) => {
