@@ -71,6 +71,9 @@ const Summary = (props) => {
                   { next_resp.what_would.map( (resp, i) => {
                     return <li key={i}><strong>{ next_steps_content.followup.choices[toInt(resp)] }</strong></li>;
                   })}
+                  { 
+                    next_resp.what_would_other !== undefined ? <li><strong>{ next_resp.what_would_other } </strong></li> : "" 
+                  }
                   </ul>
                 </div>
               );
