@@ -15,7 +15,7 @@ class MultChoiceQuest extends Component {
   storeResult = (e) => {
     let toStore = { ...this.state };
     if (e.target.value === "other_radio") {
-      toStore.showOther = true;
+      toStore.showOther = !toStore.showOther;
     }
     else if (e.target.type === "text") {
       if (e.target.name === "what_treatment_other") {
