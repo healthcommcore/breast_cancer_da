@@ -91,7 +91,7 @@ class App extends Component {
           <div className="container">
             <div className="row">
               <div className="col-md-3">
-                <SideNav />
+              { isLoggedIn() ? <SideNav /> : "" }
               </div>
               <div className="col-md-9">
                 <Route path="/login" 
@@ -123,6 +123,7 @@ class App extends Component {
                   path="/worry-assessment" 
                   onSaveProgress={ this.saveProgress }
                   component={ WorryAssessment }
+                  savedValues={ this.state.worry }
                 />
                 <PrivateRoute 
                   path="/supportive-resources" 
@@ -134,6 +135,7 @@ class App extends Component {
                   path="/next-steps" 
                   onSaveProgress={ this.saveProgress }
                   component={ NextSteps } 
+                  savedValues={ this.state.next }
                 />
                 <PrivateRoute 
                   path="/summary" 

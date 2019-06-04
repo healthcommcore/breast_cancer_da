@@ -9,7 +9,8 @@ class ValuesClarification extends Component {
   constructor(props) {
     super(props);
     this.handleScaleChange = this.handleScaleChange.bind(this);
-		this.state = {};
+		const saved = this.props.savedValues || {};
+		this.state = saved;
   }
 
   handleScaleChange = (value, scale) => {
@@ -18,12 +19,6 @@ class ValuesClarification extends Component {
 
 	componentDidMount = () => {
     animateScroll.scrollToTop({ duration: 100 });
-		const saved = this.props.savedValues || {};
-		if (Object.values(saved).length > 0) {
-			Object.keys(saved).map( (key) => {
-				this.setState({ [key]: saved[key] });
-			});
-		}
 	}
 
   componentWillUnmount = () => {
@@ -49,7 +44,7 @@ class ValuesClarification extends Component {
 							rightLabel="Extremely important"
 							onScaleSelect={ this.handleScaleChange } 
 							value={entry.value}
-							hasSavedValue={ this.state.hasOwnProperty(entry.value) }
+							savedValue={ this.state[entry.value] }
 							key={idx}
 							content={entry.content}
               response={ entry.response }
