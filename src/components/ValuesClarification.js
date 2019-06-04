@@ -51,7 +51,7 @@ class ValuesClarification extends Component {
 							savedValue={ this.state[entry.value] }
 							key={idx}
 							content={entry.content}
-              response={ entry.response }
+              response={ user.lump ? entry.response.lump : entry.response.mast }
 						/>
 					);
 				})}
