@@ -3,6 +3,7 @@ import EmailForm from "./EmailForm";
 import NextButton from "./NextButton";
 import Alert from "react-bootstrap/Alert";
 import { Link } from "react-router-dom";
+import { animateScroll } from "react-scroll";
 import axios from "axios";
 import { toInt, exists } from "../helpers/utilities";
 
@@ -13,8 +14,16 @@ class SupportiveResources extends Component {
     this.hasAnyWorries = this.hasAnyWorries.bind(this);
     this.sendEmail = this.sendEmail.bind(this);
     this.onClose = this.onClose.bind(this);
-    this.state = { show: false };
+    this.state = { 
+      show: false,
+      alertVariant: "",
+      alertContent: ""
+    };
   }
+
+	componentDidMount = () => {
+    animateScroll.scrollToTop({ duration: 100 });
+	}
 
   hasHighDistress = (distress) => {
     return ( exists(distress) && toInt(distress) >= 5 );
@@ -44,14 +53,31 @@ class SupportiveResources extends Component {
     }
   }
 
+  fieldIsEmpty = (field) => {
+    return field === "";
+  }
+
   sendEmail = (data) => {
+    this.setState({ show: false });
+    if ( this.fieldIsEmpty(data.email) ) {
+      this.setState({ 
+        show: true, 
+        alertVariant: "danger",
+        alertContent: "Please enter an email address"
+      });
+      return false;
+    }
     axios({
       method: "post",
       url: this.props.api + "?req=anxiety_email",
       data: data.email
     })
       .then( (result) => {
-        this.setState({ show: true });
+        this.setState({ 
+          show: true, 
+          alertVariant: "success",
+          alertContent: "Your email was sent successfully"
+        });
       })
       .catch( (error) => {
         console.log(error);
@@ -65,12 +91,12 @@ class SupportiveResources extends Component {
         { this.getOpeningContent() }
         <p>If you would like someone from the study team to contact you with information about support options for newly diagnosed young women with breast cancer, please provide your email, and we will be in touch.</p>
         <Alert 
-         variant="success" 
+         variant={ this.state.alertVariant }
          dismissible 
          show={ this.state.show }
          onClose={ this.onClose }
         >
-          <p>Your email was sent successfully</p>
+          <p>{ this.state.alertContent }</p>
         </Alert>
         <EmailForm storeData = { this.sendEmail } />
 

@@ -1,14 +1,13 @@
 import React, { Component } from 'react';
-import { numArray } from '../helpers/utilities.js';
+import { numArray, toInt } from '../helpers/utilities.js';
 import worry_content from '../helpers/worry_content.json';
 
 class WorryTable extends Component {
   constructor(props) {
     super(props);
+		const saved = this.props.savedValues || {};
     this.handleChange = this.handleChange.bind(this);
-    this.state = {
-      activeButton: "" 
-    }
+		this.state = saved;
   }
 
   handleChange(e) {
@@ -43,6 +42,7 @@ class WorryTable extends Component {
                         <input 
                           className="form-check-input"
                           type="radio"
+													defaultChecked={ toInt(this.state[worry.type]) === num }
                           name={ worry.type }
                           key={j}
                           id={num}

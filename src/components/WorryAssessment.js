@@ -8,7 +8,8 @@ class WorryAssessment extends Component {
   constructor(props) {
     super(props);
     this.handleScaleChange = this.handleScaleChange.bind(this);
-    this.state = {};
+    const saved = this.props.savedValues || {};
+    this.state = saved;
   }
 
 	componentDidMount = () => {
@@ -34,11 +35,15 @@ class WorryAssessment extends Component {
 					leftLabel="No distress"
 					rightLabel="Extreme distress"
 					onScaleSelect={ this.handleScaleChange }
+          savedValue={ this.state.distress }
 					value="distress"
 					content=""
 				/>
         <p><strong>I would find it helpful if I received more assistance to cope with my:</strong></p> 
-        <WorryTable onScaleSelect={ this.handleScaleChange }/> 
+        <WorryTable 
+          onScaleSelect={ this.handleScaleChange }
+          savedValues={ this.state }
+        /> 
         <NextButton dest="supportive-resources" />
 			</div>
 		);

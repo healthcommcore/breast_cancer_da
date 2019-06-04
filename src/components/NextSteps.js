@@ -9,16 +9,15 @@ import { toInt, exists, propify } from "../helpers/utilities";
 class NextSteps extends Component {
   constructor(props) {
     super(props);
+    const saved = props.savedValues;
     this.storeResult = this.storeResult.bind(this);
     this.isNotReady = this.isNotReady.bind(this);
-    this.otherOptionSelected = this.otherOptionSelected.bind(this);
     this.whatWouldHelp = this.whatWouldHelp.bind(this);
-    this.state = {};
+    this.state = { ...saved } || {};
   }
 
   storeResult = (data) => {
     this.setState({ ...data });
-    console.log("Store result fired");
   }
 
   componentDidMount = () => {
@@ -33,9 +32,6 @@ class NextSteps extends Component {
     return ( 
         exists(how_ready) && toInt(how_ready) >= 1
     ); 
-  }
-
-  otherOptionSelected = () => {
   }
 
   whatWouldHelp = () => {
