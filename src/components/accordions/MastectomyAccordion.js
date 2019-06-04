@@ -1,12 +1,15 @@
-import React from 'react';
+import React, { useState } from "react";
+import store from "store";
 import {
   Accordion,
   AccordionItem,
   AccordionItemTitle,
   AccordionItemBody
-} from 'react-accessible-accordion';
+} from "react-accessible-accordion";
 
 const MastectomyAccordion = (props) => {
+	const user = store.get("user");
+	const [isVisible, setVisible] = useState(user.lump ? "visible" : "remove-from-view");
     return (
       <Accordion>
           
@@ -15,7 +18,7 @@ const MastectomyAccordion = (props) => {
                   <h3>Short- and long-term effects</h3>
               </AccordionItemTitle>
               <AccordionItemBody>
-                  <p>There is a risk of surgical complications, such as infection and wound healing problems, which is increased with a more extensive surgery, such as a mastectomy vs a lumpectomy. Complication risks are increased with additional surgery, such as reconstruction.</p>
+                  <p>There is a risk of surgical complications, such as infection and wound healing problems, which is increased with a more extensive surgery<span className={ isVisible }>, such as a mastectomy vs a lumpectomy</span>. Complication risks are increased with additional surgery, such as reconstruction.</p>
      <p>Some women who have mastectomies report that their body image and self-image are negatively affected after a mastectomy, even after having breast reconstruction. Some women report that their sexuality is impacted in the years after their mastectomy.  </p>
 
      <p>Breastfeeding in the other breast will still be possible after a mastectomy.</p>
@@ -58,9 +61,9 @@ const MastectomyAccordion = (props) => {
                   <p>After a mastectomy, the risk of the breast cancer returning in the <strong>treated</strong> breast and chest wall area over the next 5 years is about <strong>2 to 4%.</strong> This means that, on average, about <strong>2 to 4 of every 100 women</strong> who choose this treatment for their breast cancer will have their breast cancer come back in their treated breast and chest wall area. </p>
                  
     
-                  <p>After a mastectomy, the risk of breast cancer developing in the <strong>unaffected (other)</strong> breast in the next 5 years is about <strong>2 to 3%.</strong> This means that, on average, about <strong>2 to 3 of every 100 women</strong> who choose this treatment for their breast cancer will develop cancer in their other breast. <strong>This 2 to 3% risk of breast cancer developing in the other breast is the same whether a woman has a lumpectomy or mastectomy.</strong></p>
+                  <p>After a mastectomy, the risk of breast cancer developing in the <strong>unaffected (other)</strong> breast in the next 5 years is about <strong>2 to 3%.</strong> This means that, on average, about <strong>2 to 3 of every 100 women</strong> who choose this treatment for their breast cancer will develop cancer in their other breast. <span className={ isVisible }><strong>This 2 to 3% risk of breast cancer developing in the other breast is the same whether a woman has a lumpectomy or mastectomy.</strong></span></p>
                  
-									<p>The risk of cancer coming back in another part of the body is the same whether you have a lumpectomy or a mastectomy.</p>
+									<p className={ isVisible }>The risk of cancer coming back in another part of the body is the same whether you have a lumpectomy or a mastectomy.</p>
                   
     <p><strong>Genetics and cancer risk</strong><br />
 There are genetic changes (mutations) that may increase your risk of developing a second breast cancer in the future. If you test positive for one of these mutations, your lifetime risk of developing a new breast cancer can be much higher compared to someone who tests negative for a mutation. This risk will depend on the type of mutation you have. If you test positive for one of these mutations, your doctor or a genetic counselor will discuss these risks with you and help you decide what treatment is right for you.</p>

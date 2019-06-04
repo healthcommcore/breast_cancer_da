@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
+import store from "store";
 import NextButton from './NextButton';
 import NumberScale from './NumberScale';
 import { animateScroll } from "react-scroll";
-import { lumpEligible } from '../helpers/user_stats.js';
 import content from '../helpers/values_content.json';
 
 class ValuesClarification extends Component {
@@ -28,6 +28,7 @@ class ValuesClarification extends Component {
   }
 
   render() {
+		const user = store.get("user");
     return (
       <div>
         <h1>What is important to you?</h1>
@@ -37,6 +38,9 @@ class ValuesClarification extends Component {
         
         <p><strong>Please indicate on the scale below how important each statement is to you:</strong></p>
 				{ content.map( (entry, idx) => {
+					if (entry.value ==="additional_surgery" && !user.lump) {
+						return false;
+					}
 					return (
 						<NumberScale 
 							scale="10" 

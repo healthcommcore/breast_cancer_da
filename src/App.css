@@ -140,6 +140,11 @@ strong {
 	margin-right: 30px;
 }
 
+.remove-from-view {
+	position: absolute;
+	left: 1000000000px;
+}
+
 
 /** Home **/
 h1.home-title {

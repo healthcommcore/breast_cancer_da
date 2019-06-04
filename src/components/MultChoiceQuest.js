@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import store from "store";
 import OtherTextField from "./OtherTextField";
 import { exists, propify } from "../helpers/utilities";
 
@@ -10,6 +11,11 @@ class MultChoiceQuest extends Component {
       showOther: false,
       what_would: []
     }
+  }
+
+  filterOptions = () => {
+    const user = store.get("user");
+    return !this.props.name === "what_treatment" && !user.lump;
   }
 
   storeResult = (e) => {
@@ -45,13 +51,14 @@ class MultChoiceQuest extends Component {
   }
 
   render() {
+    const user = store.get("user");
     return (
       <div className="mult-choice-quest">
         <p>{ this.props.question }</p>
         <div className="form-check">
           { this.props.choices.map( (choice, i) => {
             return (
-              <div key={i}>
+              <div key={i} className={ (choice === "Lumpectomy" && !user.lump) ? "remove-from-view" : "visible"}>
                 <input 
                   className="form-check-input" 
                   type={ this.props.type }
