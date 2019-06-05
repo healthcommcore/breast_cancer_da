@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import store from "store";
 import OtherTextField from "./OtherTextField";
-import { exists, propify } from "../helpers/utilities";
+import { exists, propify, toInt } from "../helpers/utilities";
 
 class MultChoiceQuest extends Component {
   constructor(props) {
@@ -66,6 +66,7 @@ class MultChoiceQuest extends Component {
                   id={ choice === "Other" ? this.props.name + "_other" : i }
                   value={ choice === "Other" ? "other_radio" : i} 
                   onChange={ this.storeResult }
+                  defaultChecked={ toInt(this.props.storedResponse) === i }
                 />
                 <label className="form-check-label" htmlFor={i}>
                   { choice }
