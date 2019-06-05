@@ -6,19 +6,19 @@ import { exists, propify, toInt } from "../helpers/utilities";
 class MultChoiceQuest extends Component {
   constructor(props) {
     super(props);
+    let storedResponse = props.storedResponse;
     this.storeResult = this.storeResult.bind(this);
+    this.getDefaultRadio = this.getDefaultRadio.bind(this);
+    this.getDefaultText = this.getDefaultText.bind(this);
     this.state = { 
-      showOther: false,
+      showOther: isNaN(toInt(storedResponse)) && exists(storedResponse),
+      storedResponse: storedResponse,
       what_would: []
     }
   }
 
-  filterOptions = () => {
-    const user = store.get("user");
-    return !this.props.name === "what_treatment" && !user.lump;
-  }
-
   storeResult = (e) => {
+    console.log("OPTION CHANGE");
     let toStore = { ...this.state };
     if (e.target.value === "other_radio") {
       toStore.showOther = !toStore.showOther;
@@ -50,6 +50,19 @@ class MultChoiceQuest extends Component {
     this.props.storeResult(toStore);
   }
 
+  getDefaultRadio = (i) => {
+    if (exists(this.state.storedResponse)) {
+      const resp = toInt(this.state.storedResponse);
+      return resp === i || isNaN(resp);
+    }
+    return false;
+  }
+
+  getDefaultText = () => {
+    const resp = this.state.storedResponse;
+    return isNaN(resp) ? resp : "";
+  }
+
   render() {
     const user = store.get("user");
     return (
@@ -66,7 +79,7 @@ class MultChoiceQuest extends Component {
                   id={ choice === "Other" ? this.props.name + "_other" : i }
                   value={ choice === "Other" ? "other_radio" : i} 
                   onChange={ this.storeResult }
-                  defaultChecked={ toInt(this.props.storedResponse) === i }
+                  defaultChecked={ toInt(this.state.storedResponse) === i }
                 />
                 <label className="form-check-label" htmlFor={i}>
                   { choice }
@@ -80,6 +93,7 @@ class MultChoiceQuest extends Component {
          name={ this.props.name + "_other" }
          id={ this.props.name + "_other" }
          onChange={ this.storeResult }
+         storedValue={ this.getDefaultText() }
         />
       </div>
     );
