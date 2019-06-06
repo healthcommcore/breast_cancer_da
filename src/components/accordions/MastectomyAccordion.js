@@ -1,4 +1,8 @@
 import React, { useState } from "react";
+import mastTreated from "../../images/mastectomy-treated.png";
+import mastTreated2x from "../../images/mastectomy-treated@2x.png";
+import mastUnaffected from "../../images/mastectomy-unaffected.png";
+import mastUnaffected2x from "../../images/mastectomy-unaffected@2x.png";
 import store from "store";
 import {
   Accordion,
@@ -59,9 +63,12 @@ const MastectomyAccordion = (props) => {
               </AccordionItemTitle>
               <AccordionItemBody>
                   <p>After a mastectomy, the risk of the breast cancer returning in the <strong>treated</strong> breast and chest wall area over the next 5 years is about <strong>2 to 4%.</strong> This means that, on average, about <strong>2 to 4 of every 100 women</strong> who choose this treatment for their breast cancer will have their breast cancer come back in their treated breast and chest wall area. </p>
+									<p className="accordion-container"><img className="content-img" src={ mastTreated } srcSet={ mastTreated2x } /></p>
                  
     
-                  <p>After a mastectomy, the risk of breast cancer developing in the <strong>unaffected (other)</strong> breast in the next 5 years is about <strong>2 to 3%.</strong> This means that, on average, about <strong>2 to 3 of every 100 women</strong> who choose this treatment for their breast cancer will develop cancer in their other breast. <span className={ isVisible }><strong>This 2 to 3% risk of breast cancer developing in the other breast is the same whether a woman has a lumpectomy or mastectomy.</strong></span></p>
+                  <p>After a mastectomy, the risk of breast cancer developing in the <strong>unaffected (other)</strong> breast in the next 5 years is about <strong>2 to 3%.</strong> This means that, on average, about <strong>2 to 3 of every 100 women</strong> who choose this treatment for their breast cancer will develop cancer in their other breast.</p> 
+									<p className="accordion-container"><img className="content-img" src={ mastUnaffected } srcSet={ mastUnaffected2x } /></p>
+									<p className={ isVisible }><strong>This 2 to 3% risk of breast cancer developing in the other breast is the same whether a woman has a lumpectomy or mastectomy.</strong></p>
                  
 									<p className={ isVisible }>The risk of cancer coming back in another part of the body is the same whether you have a lumpectomy or a mastectomy.</p>
                   

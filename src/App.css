@@ -145,6 +145,14 @@ strong {
 	left: 1000000000px;
 }
 
+.content-img {
+	max-width: 100%;
+}
+
+.accordion-container {
+	margin: 0 -20px 20px;
+}
+
 
 /** Home **/
 h1.home-title {

@@ -20,17 +20,15 @@ class MultChoiceQuest extends Component {
   storeResult = (e) => {
     console.log("OPTION CHANGE");
     let toStore = { ...this.state };
-    if (e.target.value === "other_radio") {
+    if (e.target.id.split("_").pop() === "other") {
       toStore.showOther = !toStore.showOther;
+      toStore[e.target.name] = e.target.value;
     }
     else if (e.target.type === "text") {
-      if (e.target.name === "what_treatment_other") {
-        toStore.what_treatment = e.target.value;
-      }
-      else {
-        toStore[e.target.name] = e.target.value;
-      }
+      toStore[e.target.name] = e.target.value;
     }
+      /*
+      */
     else if (e.target.type === "checkbox") {
       const val = e.target.value;
       let what_would = this.state.what_would;
@@ -47,7 +45,7 @@ class MultChoiceQuest extends Component {
       toStore[e.target.name] = e.target.id;
     }
     this.setState({ ...toStore });
-    this.props.storeResult(toStore);
+    this.props.storeResult(toStore, this.props.choices.length);
   }
 
   getDefaultRadio = (i) => {
@@ -77,7 +75,7 @@ class MultChoiceQuest extends Component {
                   type={ this.props.type }
                   name={ this.props.name } 
                   id={ choice === "Other" ? this.props.name + "_other" : i }
-                  value={ choice === "Other" ? "other_radio" : i} 
+                  value={i} 
                   onChange={ this.storeResult }
                   defaultChecked={ toInt(this.state.storedResponse) === i }
                 />
@@ -90,8 +88,8 @@ class MultChoiceQuest extends Component {
         </div>
         <OtherTextField
          displayClass={ this.state.showOther ? "block" : "none" }
-         name={ this.props.name + "_other" }
-         id={ this.props.name + "_other" }
+         name={ this.props.name + "_other_text" }
+         id={ this.props.name + "_other_text" }
          onChange={ this.storeResult }
          storedValue={ this.getDefaultText() }
         />

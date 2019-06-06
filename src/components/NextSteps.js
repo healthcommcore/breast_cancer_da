@@ -16,7 +16,8 @@ class NextSteps extends Component {
     this.state = { ...saved } || {};
   }
 
-  storeResult = (data) => {
+  storeResult = (data, choicesLength) => {
+    delete data.storedResponse;
     this.setState({ ...data });
   }
 
