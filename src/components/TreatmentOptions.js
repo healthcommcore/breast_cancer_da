@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import store from "store";
 import LumpectomyAccordion from "./accordions/LumpectomyAccordion";
 import TreatmentOptionsLumpText from "./TreatmentOptionsLumpText";
@@ -10,6 +10,7 @@ import "react-accessible-accordion/dist/fancy-example.css";
 
 const TreatmentOptions = (props) => {
   const user = store.get("user");
+  const [isVisible, setVisible] = useState(user.lump ? "visible" : "remove-from-view");
 
   useEffect(() => {
     animateScroll.scrollToTop({ duration: 100 });
@@ -18,7 +19,7 @@ const TreatmentOptions = (props) => {
   return (
     <div>
       <h1>What are my treatment options?</h1>
-      <p>Your options for surgical treatment are:</p>
+      <p>Your option<span className={ isVisible }>s</span> for surgical treatment { user.lump ? "are:" : "is" }</p>
       <ul>
         { user.lump ?  <li>Lumpectomy</li> : "" }
         <li>Mastectomy (with or without reconstruction)</li>

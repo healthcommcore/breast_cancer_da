@@ -44,6 +44,7 @@ class NextSteps extends Component {
         name={ propify(question.question) }
         storeResult={ this.storeResult }
         type="checkbox"
+        storedResponse={ this.state[propify(question.question)] }
       />
     );
   }
