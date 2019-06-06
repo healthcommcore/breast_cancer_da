@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import store from "store";
 import TreatmentComparison from "./TreatmentComparison";
 import { animateScroll } from "react-scroll";
 import ValuesResponse from "./ValuesResponse";
@@ -11,6 +12,7 @@ const Summary = (props) => {
   const values_resp = props.data.values || "";
   const worry_resp = props.data.worry || "";
   const next_resp = props.data.next || "";
+  const user = store.get("user");
 
   useEffect( () => {
     animateScroll.scrollToTop({ duration: 100 });
@@ -37,7 +39,7 @@ const Summary = (props) => {
                         <div>
                           <p><em>On a scale of 0 (Not at all important) to 10 (Extremely important), you ranked this as</em> <strong> { values_resp[entry.value] }.</strong></p>
                           <ValuesResponse responseClass={ values_resp[entry.value] >= 6 ? "value-response show-response" : "value-response" }>
-                            { entry.response }
+                            { user.lump ? entry.response.lump : entry.response.mast }
                           </ValuesResponse>
                         </div>
                       );
@@ -63,7 +65,7 @@ const Summary = (props) => {
         <strong>{ next_steps_content.primary[1].choices[toInt(next_resp.how_ready)] }</strong></p>
         { 
           ( () => {
-            if (next_resp.what_would !==undefined) { 
+            if (next_resp.what_would !==undefined && next_resp.what_would.length > 0) { 
               return (
                 <div>
                   <p>What would help you to make a decision:</p>

@@ -3,36 +3,57 @@
     "value" : "additional_surgery",
     "lumpOnly" : true,
     "content" : "I want to avoid the possible need for additional cancer surgery (such as if the surgeon does not get an area around the tumor that is clear of cancer cells, called a \"clear margin\").",
-		"response" : "Your response indicates that avoiding the possible need for additional cancer surgery is important to you. If you choose lumpectomy, additional surgery may be needed if the surgeon does not get a clear margin. If you choose mastectomy, while there is no need for additional cancer surgery to get clear margins, you may need multiple procedures if you choose reconstruction."
+		"response" : {
+      "lump" : "Your response indicates that avoiding the possible need for additional cancer surgery is important to you. If you choose lumpectomy, additional surgery may be needed if the surgeon does not get a clear margin. If you choose mastectomy, while there is no need for additional cancer surgery to get clear margins, you may need multiple procedures if you choose reconstruction.",
+      "mast" : ""
+    }
 	},
   {
     "value" : "keep_breasts",
     "content" : "I'd like to keep as much of my natural breast(s) as possible.",
-		"response" : "Your response indicates that keeping as much of your natural breast as possible is important to you. Choosing lumpectomy will let you keep as much as your natural (treated) breast as possible vs. if you choose mastectomy. Choosing unilateral mastectomy (vs. bilateral mastectomy) will mean you keep your other (unaffected) natural breast."
+		"response" : {
+      "lump" : "Your response indicates that keeping as much of your natural breast as possible is important to you. Choosing lumpectomy will let you keep as much as your natural (treated) breast as possible vs. if you choose mastectomy. Choosing unilateral mastectomy (vs. bilateral mastectomy) will mean you keep your other (unaffected) natural breast.",
+      "mast" : "Your response indicates that keeping as much of your natural breast as possible is important to you. Choosing unilateral mastectomy will mean you keep your other (unaffected) natural breast."
+    }
 	},
   {
     "value" : "recovery",
     "content" : "I want to minimize recovery time from surgery and return to my daily activities as quickly as possible.",
-		"response" : "Your response indicates that minimizing recovery time and returning to your daily activities as quickly as possible is important to you. Because it is the least extensive surgery, lumpectomy has the shortest recovery time and will allow you to return to your activities as quickly as possible."
+		"response" : {
+      "lump" : "Your response indicates that minimizing recovery time and returning to your daily activities as quickly as possible is important to you. Because it is the least extensive surgery, lumpectomy has the shortest recovery time and will allow you to return to your activities as quickly as possible.",
+      "mast" : "Your response indicates that minimizing recovery time and returning to your daily activities as quickly as possible is important to you. Choosing unilateral mastectomy means less surgery and generally shorter recovery cs. bilateral mastectomy. Choosing reconstructive surgery will mean a longer recovery time and taking longer to get back to your regular activities."
+    }
 	},
   {
     "value" : "breastfeed",
     "content" : "I want the ability to breastfeed in the future.",
-		"response" : "Your response indicates that being able to breastfeed in the future is important to you. If you choose lumpectomy, breastfeeding is possible. If you choose unilateral mastectomy, you can breastfeed in the untreated breast; breastfeeding is not possible if you choose bilateral mastectomy."
+		"response" : {
+      "lump" : "Your response indicates that being able to breastfeed in the future is important to you. If you choose lumpectomy, breastfeeding is possible. If you choose unilateral mastectomy, you can breastfeed in the untreated breast; breastfeeding is not possible if you choose bilateral mastectomy.",
+      "mast" : "Your response indicates that being able to breastfeed in the future is important to you. If you choose unilateral mastectomy, you can breastfeed in the untreated breast; breastfeeding is not possible if you choose bilateral mastectomy."
+    }
 	},
   {
     "value" : "sensation",
     "content" : "I want to maintain sensation in my breast.",
-		"response" : "Your response indicates that maintaining sensation in your breast is important to you. By choosing lumpectomy, you will be able to maintain sensation in your treated breast. Choosing unilateral mastectomy will mean having permanent numbness in the treated breast and chest wall area. Choosing bilateral mastectomy will mean having permanent numbness in the entire breast and chest wall area."
+		"response" : {
+      "lump" : "Your response indicates that maintaining sensation in your breast is important to you. By choosing lumpectomy, you will be able to maintain sensation in your treated breast. Choosing unilateral mastectomy will mean having permanent numbness in the treated breast and chest wall area. Choosing bilateral mastectomy will mean having permanent numbness in the entire breast and chest wall area.",
+      "mast" : "Your response indicates that maintaining sensation in your breast is important to you. Choosing unilateral mastectomy will mean having permanent numbness in the treated breast and chest wall area. Choosing bilateral mastectomy will mean having permanent numbness in the entire breast and chest wall area."
+    }
 	},
   {
     "value" : "mammograms",
     "content" : "I would like to minimize the need for follow-up breast imaging (mammograms).",
-		"response" : "Your response indicates that minimizing the need for mammograms is important to you. Choosing lumpectomy or unilateral mastectomy will mean you still need mammograms. If you choose bilateral mastectomy, you will not need mammograms."
+		"response" : {
+      "lump" : "Your response indicates that minimizing the need for mammograms is important to you. Choosing lumpectomy or unilateral mastectomy will mean you still need mammograms. If you choose bilateral mastectomy, you will not need mammograms.",
+      "mast" : "Your response indicates that minimizing the need for mammograms is important to you. If you choose bilateral mastectomy, you will not need mammograms."
+    }
 	},
   {
     "value" : "similar",
     "content" : "I'd like both breasts to look as similar as possible",
-		"response" : "Your response indicates that having your breasts look as similar as possible is important to you. Women who choose lumpectomy usually have a good cosmetic outcome, including having both breasts look similar (symmetrical). For women who have a unilateral mastectomy, without reconstruction, breasts will not look similar. Reconstruction can help achieve symmetry by restoring the shape of the breast. For women who choose bilateral mastectomy, the breast area will look similar."
+		"response" : {
+      "lump" : "Your response indicates that having your breasts look as similar as possible is important to you. Women who choose lumpectomy usually have a good cosmetic outcome, including having both breasts look similar (symmetrical). For women who have a unilateral mastectomy, without reconstruction, breasts will not look similar. Reconstruction can help achieve symmetry by restoring the shape of the breast. For women who choose bilateral mastectomy, the breast area will look similar.",
+      "mast" : "Your response indicates that having your breasts look as similar as possible is important to you. For women who have a unilateral mastectomy, without reconstruction, breasts will not look similar. Reconstruction can help achieve symmetry by restoring the shape of the breast. For women who choose bilateral mastectomy, the breast area will look similar."
+    }
 	}
 ]
