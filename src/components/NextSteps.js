@@ -16,7 +16,8 @@ class NextSteps extends Component {
     this.state = { ...saved } || {};
   }
 
-  storeResult = (data) => {
+  storeResult = (data, choicesLength) => {
+    delete data.storedResponse;
     this.setState({ ...data });
   }
 
@@ -61,6 +62,7 @@ class NextSteps extends Component {
               storeResult={ this.storeResult }
               name={ propify(question.question) }
               type="radio"
+              storedResponse={ this.state[propify(question.question)] }
             />
           );
         })}
