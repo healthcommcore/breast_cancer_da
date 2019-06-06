@@ -9,6 +9,7 @@ class MultChoiceQuest extends Component {
     let storedResponse = props.storedResponse;
     this.storeResult = this.storeResult.bind(this);
     this.getDefaultRadio = this.getDefaultRadio.bind(this);
+    this.getDefaultChecked = this.getDefaultChecked.bind(this);
     this.getDefaultText = this.getDefaultText.bind(this);
     this.state = { 
       showOther: isNaN(toInt(storedResponse)) && exists(storedResponse),
@@ -77,6 +78,7 @@ class MultChoiceQuest extends Component {
                   id={ choice === "Other" ? this.props.name + "_other" : i }
                   value={i} 
                   onChange={ this.storeResult }
+                  //defaultChecked={ this.getDefaultChecked(i) }
                   defaultChecked={ toInt(this.state.storedResponse) === i }
                 />
                 <label className="form-check-label" htmlFor={i}>
