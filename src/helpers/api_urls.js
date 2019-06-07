@@ -1,9 +1,9 @@
-const url = "http://api.bcda.";
+const url = "http://api.";
 const hosts = {
-  local: "dr809.test",
-  dev: "hccdev.org",
-  hccupdate: "hccupdate.org",
-  prod: "hccstaging.com"
+  local: "bcda.dr809.test",
+  dev: "bcda.hccdev.org",
+  hccupdate: "bcda.hccupdate.org",
+  prod: "consyderdecisiontool.org"
 }
 
 export default (env) => {

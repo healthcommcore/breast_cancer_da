@@ -1,7 +1,7 @@
 {
   "name": "breast_cancer_da",
   "version": "0.1.0",
-  "homepage": "http://bcda.dr809.test",
+  "homepage": "http://consyderdecisiontool.org",
   "private": true,
   "dependencies": {
     "axios": "^0.18.0",
