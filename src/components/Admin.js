@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import Alert from "react-bootstrap/Alert";
 import UserDataForm from './UserDataForm';
 import UserDataFields from './UserDataFields';
 import UserList from './UserList';
@@ -13,6 +14,9 @@ class Admin extends Component {
     this.handleUserUpdate = this.handleUserUpdate.bind(this);
     this.handleEditUser = this.handleEditUser.bind(this);
     this.handleDelete = this.handleDelete.bind(this);
+    this.hasBlankOrMissingFields = this.hasBlankOrMissingFields.bind(this);
+    this.compileAlerts = this.compileAlerts.bind(this);
+    this.produceAlerts = this.produceAlerts.bind(this);
     this.handleModalClose = this.handleModalClose.bind(this);
     this.filterFields = this.filterFields.bind(this);
     this.updateUserList = this.updateUserList.bind(this);
@@ -21,9 +25,19 @@ class Admin extends Component {
     this.state = {
       rows: [],
       userUpdate: {},
+      checkFields: {
+        first_name: "First name",
+        last_name: "Last name",
+        username: "Username",
+        password: "Password"
+      },
       modal: {
         show: false
-      }
+      },
+      alert: {
+        show: false,
+        alertContent: []
+       }
     };
   }
 
@@ -42,9 +56,43 @@ class Admin extends Component {
       });
   }
 
+  hasBlankOrMissingFields = (data) => {
+    return Object.values(data).includes("") || Object.entries(data).length < 6;;
+  }
 
+  compileAlerts = (data) => {
+    const allKeys = Object.keys(this.state.checkFields);
+    const dataKeys = Object.keys(data);
+    let alerts = allKeys.filter( (key) => {
+      return !dataKeys.includes(key); 
+    });
+    return alerts;
+  }
+
+  produceAlerts = (data) => {
+    const alertObj = Object.assign({}, this.state.alert);
+    const alerts = this.compileAlerts(data);
+    let toArr = [];
+    alerts.map( (alert) => {
+      toArr.push(this.state.checkFields[alert]);
+    });
+    alertObj.alertContent = alerts;
+    this.setState({ alert: alertObj });
+  }
+
+  onClose = () => {
+    let alert = Object.assign({}, this.state.alert);
+    alert.show = false;
+    this.setState({ alert : alert });
+  }
 
   handleUserFormSubmit = (data) => {
+    if (this.hasBlankOrMissingFields(data)) {
+      this.state.alert.show = true;
+      this.produceAlerts(data);
+      return false;
+    }
+    {/*
     let updated_rows = this.state.rows;
     updated_rows.push(data);
     this.setState({ rows: updated_rows });
@@ -59,7 +107,6 @@ class Admin extends Component {
       .catch( (error) => {
         console.log(error);
       });
-    {/*
     */}
   }
 
@@ -163,6 +210,17 @@ class Admin extends Component {
   render () {
     return (
       <div>
+        <Alert
+          variant="danger"
+          dismissible
+          show={ this.state.alert.show }
+          onClose={ this.onClose }
+        >
+          { this.state.alert.alertContent.map( (alert, i) => {
+            return <p key={i}>Please enter the user's { alert }</p>
+          })} 
+        </Alert>
+
         <Modal show={ this.state.modal.show} onHide={ this.handleModalClose }>
           <Modal.Header closeButton>
             <Modal.Title>User update</Modal.Title>
