@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import { animateScroll } from "react-scroll";
 import Alert from "react-bootstrap/Alert";
 import UserDataForm from './UserDataForm';
 import UserDataFields from './UserDataFields';
@@ -35,6 +36,7 @@ class Admin extends Component {
         show: false
       },
       alert: {
+        variant: "",
         show: false,
         alertContent: []
        }
@@ -63,20 +65,28 @@ class Admin extends Component {
   compileAlerts = (data) => {
     const allKeys = Object.keys(this.state.checkFields);
     const dataKeys = Object.keys(data);
-    let alerts = allKeys.filter( (key) => {
+    let empties, blanks = [];
+    blanks = allKeys.filter( (key) => {
       return !dataKeys.includes(key); 
     });
-    return alerts;
+    empties = dataKeys.filter( (key) => {
+      return data[key] === "";
+    });
+    return blanks.concat(empties);
   }
 
   produceAlerts = (data) => {
-    const alertObj = Object.assign({}, this.state.alert);
+    let alertObj = {};
     const alerts = this.compileAlerts(data);
     let toArr = [];
     alerts.map( (alert) => {
       toArr.push(this.state.checkFields[alert]);
     });
-    alertObj.alertContent = alerts;
+    alertObj = {
+      alertContent: toArr,
+      show: true,
+      variant: "danger"
+    }
     this.setState({ alert: alertObj });
   }
 
@@ -87,12 +97,11 @@ class Admin extends Component {
   }
 
   handleUserFormSubmit = (data) => {
+    animateScroll.scrollToTop({ duration: 100 });
     if (this.hasBlankOrMissingFields(data)) {
-      this.state.alert.show = true;
       this.produceAlerts(data);
       return false;
     }
-    {/*
     let updated_rows = this.state.rows;
     updated_rows.push(data);
     this.setState({ rows: updated_rows });
@@ -107,6 +116,7 @@ class Admin extends Component {
       .catch( (error) => {
         console.log(error);
       });
+    {/*
     */}
   }
 
@@ -127,7 +137,6 @@ class Admin extends Component {
   handleUserUpdate = (data) => {
     const fieldsToUpdate = this.filterFields(data);
     if(Object.entries(fieldsToUpdate).length === 1) {
-      console.log("Nothing to update");
       this.handleModalClose();
       return;
     }
@@ -211,7 +220,7 @@ class Admin extends Component {
     return (
       <div>
         <Alert
-          variant="danger"
+          variant={ this.state.alert.variant }
           dismissible
           show={ this.state.alert.show }
           onClose={ this.onClose }
