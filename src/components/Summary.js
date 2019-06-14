@@ -66,9 +66,17 @@ const Summary = (props) => {
         { 
           ( () => {
             if ( exists(next_resp.what_would) && next_resp.what_would.length > 0) { 
-              console.log(next_resp.what_would);
               return (
                 <div>
+                  <p>What would help you to make a decision:</p>
+                  <ul>
+                  { next_resp.what_would.map( (resp, i) => {
+                    return <li key={i}><strong>{ next_steps_content.followup.choices[toInt(resp)] }</strong></li>;
+                  })}
+                  { 
+                    exists(next_resp.what_would_other) ? <li><strong>{ next_resp.what_would_other } </strong></li> : "" 
+                  }
+                  </ul>
                 </div>
               );
             }
