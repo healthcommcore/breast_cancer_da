@@ -13,7 +13,7 @@ class MultChoiceQuest extends Component {
     this.getDefaultChecked = this.getDefaultChecked.bind(this);
     this.getDefaultText = this.getDefaultText.bind(this);
     this.state = { 
-      showOther: isNaN(toInt(storedResponse)) && exists(storedResponse),
+      showOther: exists(storedResponse) && (storedResponse === "3" || storedResponse === "6"),
       storedResponse: storedResponse
     }
   }
@@ -42,7 +42,8 @@ class MultChoiceQuest extends Component {
     }
     else if (e.target.type === "checkbox") {
       const val = e.target.value;
-      let what_would = this.getStoredCheckboxOptions();
+      const stored = this.getStoredCheckboxOptions();
+      let what_would = typeof(stored) === "object" ? stored : [stored];
       if (what_would.includes(val)) {
         what_would = what_would.filter(i => i !== val);
       }
@@ -111,7 +112,7 @@ class MultChoiceQuest extends Component {
          name={ this.props.name + "_other_text" }
          id={ this.props.name + "_other_text" }
          onChange={ this.storeResult }
-         storedValue={ this.getDefaultText() }
+         storedValue={ this.props.storedOther }
         />
       </div>
     );

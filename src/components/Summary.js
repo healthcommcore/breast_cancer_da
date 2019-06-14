@@ -6,7 +6,7 @@ import ValuesResponse from "./ValuesResponse";
 import values_content from "../helpers/values_content.json";
 import worry_content from "../helpers/worry_content.json";
 import next_steps_content from "../helpers/next_steps_content.json";
-import { toInt } from "../helpers/utilities";
+import { exists, toInt } from "../helpers/utilities";
 
 const Summary = (props) => {
   const values_resp = props.data.values || "";
@@ -65,18 +65,10 @@ const Summary = (props) => {
         <strong>{ next_steps_content.primary[1].choices[toInt(next_resp.how_ready)] }</strong></p>
         { 
           ( () => {
-            if (next_resp.what_would !==undefined && next_resp.what_would.length > 0) { 
+            if ( exists(next_resp.what_would) && next_resp.what_would.length > 0) { 
+              console.log(next_resp.what_would);
               return (
                 <div>
-                  <p>What would help you to make a decision:</p>
-                  <ul>
-                  { next_resp.what_would.map( (resp, i) => {
-                    return <li key={i}><strong>{ next_steps_content.followup.choices[toInt(resp)] }</strong></li>;
-                  })}
-                  { 
-                    next_resp.what_would_other !== undefined ? <li><strong>{ next_resp.what_would_other } </strong></li> : "" 
-                  }
-                  </ul>
                 </div>
               );
             }

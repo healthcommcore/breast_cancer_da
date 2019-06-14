@@ -45,6 +45,7 @@ class NextSteps extends Component {
         storeResult={ this.storeResult }
         type="checkbox"
         storedResponse={ this.state[propify(question.question)] }
+        storedOther={ this.state.what_would_other_text }
       />
     );
   }
@@ -64,6 +65,7 @@ class NextSteps extends Component {
               name={ propify(question.question) }
               type="radio"
               storedResponse={ this.state[propify(question.question)] }
+              storedOther={ this.state.what_treatment_other_text }
             />
           );
         })}
