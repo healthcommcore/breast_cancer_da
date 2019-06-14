@@ -17,7 +17,7 @@ const UserDataFields = (props) => {
       </div>
       <div className="form-group">
         <label htmlFor="password">Password</label>
-        <input type="password" className="form-control" name="password" onChange={ props.onChange }/>
+        <input type="password" className="form-control" defaultValue={ props.userUpdate.password || "" } name="password" onChange={ props.onChange }/>
       </div>
       <div className="form-group">
         <p>Does this person qualify for a lumpectomy?</p>

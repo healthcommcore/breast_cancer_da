@@ -20,6 +20,7 @@ class Admin extends Component {
     this.produceAlerts = this.produceAlerts.bind(this);
     this.handleModalClose = this.handleModalClose.bind(this);
     this.filterFields = this.filterFields.bind(this);
+    this.clearFields = this.clearFields.bind(this);
     this.updateUserList = this.updateUserList.bind(this);
     this.initializePasswordField = this.initializePasswordField.bind(this);
     this.findRecord = this.findRecord.bind(this);
@@ -38,6 +39,7 @@ class Admin extends Component {
       alert: {
         variant: "",
         show: false,
+        text: "",
         alertContent: []
        }
     };
@@ -85,6 +87,7 @@ class Admin extends Component {
     alertObj = {
       alertContent: toArr,
       show: true,
+      text: "Please enter the user's ",
       variant: "danger"
     }
     this.setState({ alert: alertObj });
@@ -111,7 +114,14 @@ class Admin extends Component {
       data: data
     })
       .then( (result) => {
-        console.log(result);
+        let alertObj = {
+          variant: "success",
+          show: true,
+          text: "",
+          alertContent: ["User added successfully"]
+        }
+        this.setState({ alert: alertObj });
+        this.clearFields();
       })
       .catch( (error) => {
         console.log(error);
@@ -171,6 +181,14 @@ class Admin extends Component {
     return updatedUser;
   }
 
+  clearFields = () => {
+    let cleared = this.state.checkFields;
+    Object.keys(cleared).map( (key) => {
+      cleared[key] = "";
+    });
+    this.setState({ userUpdate: cleared });
+  }
+
   initializePasswordField = (submittedFields) => {
     if(submittedFields.hasOwnProperty("password")) {
       return { password: submittedFields.password }
@@ -226,7 +244,7 @@ class Admin extends Component {
           onClose={ this.onClose }
         >
           { this.state.alert.alertContent.map( (alert, i) => {
-            return <p key={i}>Please enter the user's { alert }</p>
+            return <p key={i}>{ this.state.alert.text + alert }</p>
           })} 
         </Alert>
 
