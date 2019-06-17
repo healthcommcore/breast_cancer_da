@@ -57,7 +57,7 @@ const Summary = (props) => {
         <h2>Next steps</h2>
         <p>The treatment you are leaning toward:<br />
         <strong>
-        { isNaN( toInt(next_resp.what_treatment) ) ? next_resp.what_treatment : 
+        { ( exists(next_resp.what_treatment_other_text) && next_resp.what_treatment_other_text !== "") ? next_resp.what_treatment_other_text : 
           next_steps_content.primary[0].choices[toInt(next_resp.what_treatment)]
         }
         </strong></p>

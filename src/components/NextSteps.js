@@ -13,12 +13,15 @@ class NextSteps extends Component {
     this.storeResult = this.storeResult.bind(this);
     this.isNotReady = this.isNotReady.bind(this);
     this.whatWouldHelp = this.whatWouldHelp.bind(this);
+    this.resetOther = this.resetOther.bind(this);
     this.state = { ...saved } || {};
   }
 
   storeResult = (data, choicesLength) => {
     delete data.storedResponse;
+    this.resetOther(data);
     this.setState({ ...data });
+
   }
 
   componentDidMount = () => {
@@ -28,6 +31,13 @@ class NextSteps extends Component {
   componentWillUnmount = () => {
     this.props.onSaveProgress({ next: this.state });
   }
+
+  resetOther = (data) => {
+    if ( toInt(data.what_treatment) < 3 && exists(data.what_treatment_other_text) ) {
+      data.what_treatment_other_text = "";
+    }
+  }
+
 
   isNotReady = (how_ready) => {
     return ( 
