@@ -6,7 +6,7 @@ const Home = (props) => {
     <div>
     <h1 className="home-title">
       Cons<span className="larger">y</span>der<br />
-      <p className="lead">Communicating Options about Surgery for <span className="larger"><strong>Y</strong></span>oung women Diagnosed with Early stage breast canceR</p>
+      <p className="lead"><span className="large bold">C</span>ommunicating <span className="large bold">O</span>ptio<span className="large bold">N</span>s about <span className="large bold">S</span>urgery for <span className="larger bold">Y</span>oung women <span className="large bold">D</span>iagnosed with <span className="large bold">E</span>arly stage breast cance<span className="large bold">R</span></p>
     </h1>
       
       <p>CONSYDER is a decision tool for young women recently diagnosed with early-stage breast cancer who are making decisions about breast cancer surgery.</p>

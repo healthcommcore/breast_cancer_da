@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import { animateScroll } from "react-scroll";
+import Alert from "react-bootstrap/Alert";
 import UserDataForm from './UserDataForm';
 import UserDataFields from './UserDataFields';
 import UserList from './UserList';
@@ -13,17 +15,33 @@ class Admin extends Component {
     this.handleUserUpdate = this.handleUserUpdate.bind(this);
     this.handleEditUser = this.handleEditUser.bind(this);
     this.handleDelete = this.handleDelete.bind(this);
+    this.hasBlankOrMissingFields = this.hasBlankOrMissingFields.bind(this);
+    this.compileAlerts = this.compileAlerts.bind(this);
+    this.produceAlerts = this.produceAlerts.bind(this);
     this.handleModalClose = this.handleModalClose.bind(this);
     this.filterFields = this.filterFields.bind(this);
+    this.clearFields = this.clearFields.bind(this);
     this.updateUserList = this.updateUserList.bind(this);
     this.initializePasswordField = this.initializePasswordField.bind(this);
     this.findRecord = this.findRecord.bind(this);
     this.state = {
       rows: [],
       userUpdate: {},
+      checkFields: {
+        first_name: "First name",
+        last_name: "Last name",
+        username: "Username",
+        password: "Password"
+      },
       modal: {
         show: false
-      }
+      },
+      alert: {
+        variant: "",
+        show: false,
+        text: "",
+        alertContent: []
+       }
     };
   }
 
@@ -42,9 +60,51 @@ class Admin extends Component {
       });
   }
 
+  hasBlankOrMissingFields = (data) => {
+    return Object.values(data).includes("") || Object.entries(data).length < 6;;
+  }
 
+  compileAlerts = (data) => {
+    const allKeys = Object.keys(this.state.checkFields);
+    const dataKeys = Object.keys(data);
+    let empties, blanks = [];
+    blanks = allKeys.filter( (key) => {
+      return !dataKeys.includes(key); 
+    });
+    empties = dataKeys.filter( (key) => {
+      return data[key] === "";
+    });
+    return blanks.concat(empties);
+  }
+
+  produceAlerts = (data) => {
+    let alertObj = {};
+    const alerts = this.compileAlerts(data);
+    let toArr = [];
+    alerts.map( (alert) => {
+      toArr.push(this.state.checkFields[alert]);
+    });
+    alertObj = {
+      alertContent: toArr,
+      show: true,
+      text: "Please enter the user's ",
+      variant: "danger"
+    }
+    this.setState({ alert: alertObj });
+  }
+
+  onClose = () => {
+    let alert = Object.assign({}, this.state.alert);
+    alert.show = false;
+    this.setState({ alert : alert });
+  }
 
   handleUserFormSubmit = (data) => {
+    animateScroll.scrollToTop({ duration: 100 });
+    if (this.hasBlankOrMissingFields(data)) {
+      this.produceAlerts(data);
+      return false;
+    }
     let updated_rows = this.state.rows;
     updated_rows.push(data);
     this.setState({ rows: updated_rows });
@@ -54,7 +114,14 @@ class Admin extends Component {
       data: data
     })
       .then( (result) => {
-        console.log(result);
+        let alertObj = {
+          variant: "success",
+          show: true,
+          text: "",
+          alertContent: ["User added successfully"]
+        }
+        this.setState({ alert: alertObj });
+        this.clearFields();
       })
       .catch( (error) => {
         console.log(error);
@@ -80,7 +147,6 @@ class Admin extends Component {
   handleUserUpdate = (data) => {
     const fieldsToUpdate = this.filterFields(data);
     if(Object.entries(fieldsToUpdate).length === 1) {
-      console.log("Nothing to update");
       this.handleModalClose();
       return;
     }
@@ -113,6 +179,14 @@ class Admin extends Component {
       }
     });
     return updatedUser;
+  }
+
+  clearFields = () => {
+    let cleared = this.state.checkFields;
+    Object.keys(cleared).map( (key) => {
+      cleared[key] = "";
+    });
+    this.setState({ userUpdate: cleared });
   }
 
   initializePasswordField = (submittedFields) => {
@@ -163,6 +237,17 @@ class Admin extends Component {
   render () {
     return (
       <div>
+        <Alert
+          variant={ this.state.alert.variant }
+          dismissible
+          show={ this.state.alert.show }
+          onClose={ this.onClose }
+        >
+          { this.state.alert.alertContent.map( (alert, i) => {
+            return <p key={i}>{ this.state.alert.text + alert }</p>
+          })} 
+        </Alert>
+
         <Modal show={ this.state.modal.show} onHide={ this.handleModalClose }>
           <Modal.Header closeButton>
             <Modal.Title>User update</Modal.Title>
