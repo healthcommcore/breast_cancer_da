@@ -117,7 +117,6 @@ class MultChoiceQuest extends Component {
                   value={i} 
                   onChange={ this.storeResult }
                   defaultChecked={ this.getDefaultChecked(i) }
-                  //defaultChecked={ toInt(this.state.storedResponse) === i }
                 />
                 <label className="form-check-label" htmlFor={i}>
                   { choice }

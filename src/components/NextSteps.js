@@ -36,6 +36,10 @@ class NextSteps extends Component {
     if ( toInt(data.what_treatment) < 3 && exists(data.what_treatment_other_text) ) {
       data.what_treatment_other_text = "";
     }
+    else if ( exists(data.what_would) && !data.what_would.includes("6") && exists(data.what_would_other_text) ) {
+      data.what_would_other_text = "";
+    }
+    else {}
   }
 
 

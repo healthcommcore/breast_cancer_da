@@ -71,7 +71,11 @@ const Summary = (props) => {
                   <p>What would help you to make a decision:</p>
                   <ul>
                   { next_resp.what_would.map( (resp, i) => {
-                    return <li key={i}><strong>{ next_steps_content.followup.choices[toInt(resp)] }</strong></li>;
+                    return (
+                      <li key={i}><strong>
+                        { resp === "6" ? next_resp.what_would_other_text : next_steps_content.followup.choices[toInt(resp)] }
+                      </strong></li>
+                    );
                   })}
                   { 
                     exists(next_resp.what_would_other) ? <li><strong>{ next_resp.what_would_other } </strong></li> : "" 
