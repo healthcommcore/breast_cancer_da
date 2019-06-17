@@ -7,13 +7,19 @@ class MultChoiceQuest extends Component {
   constructor(props) {
     super(props);
     let storedResponse = props.storedResponse;
+    let hasOtherCheck = false;
+    if (exists(props.storedResponse)) {
+      hasOtherCheck = props.storedResponse === "6" || props.storedResponse.includes("6");
+    }
     this.storeResult = this.storeResult.bind(this);
     this.getStoredCheckboxOptions = this.getStoredCheckboxOptions.bind(this);
+    this.isCheckbox = this.isCheckbox.bind(this);
+    this.otherWasSelected = this.otherWasSelected.bind(this);
     this.getDefaultRadio = this.getDefaultRadio.bind(this);
     this.getDefaultChecked = this.getDefaultChecked.bind(this);
     this.getDefaultText = this.getDefaultText.bind(this);
     this.state = { 
-      showOther: isNaN(toInt(storedResponse)) && exists(storedResponse),
+      showOther: exists(storedResponse) && (storedResponse === "3" || hasOtherCheck),
       storedResponse: storedResponse
     }
   }
@@ -30,19 +36,30 @@ class MultChoiceQuest extends Component {
     return what_would;
   }
 
+  otherWasSelected = (e) => {
+    return e.target.id.split("_").pop() === "other"
+  }
+
+  isCheckbox = (e) => {
+    return e.target.type === "checkbox"
+  }
 
   storeResult = (e) => {
     let toStore = { ...this.state };
-    if (e.target.id.split("_").pop() === "other") {
+    if (this.otherWasSelected(e) && !this.isCheckbox(e) ) {
       toStore.showOther = !toStore.showOther;
       toStore[e.target.name] = e.target.value;
     }
     else if (e.target.type === "text") {
       toStore[e.target.name] = e.target.value;
     }
-    else if (e.target.type === "checkbox") {
+    else if (this.isCheckbox(e)) {
+      if (this.otherWasSelected(e)) {
+        toStore.showOther = !toStore.showOther;
+      }
       const val = e.target.value;
-      let what_would = this.getStoredCheckboxOptions();
+      const stored = this.getStoredCheckboxOptions();
+      let what_would = typeof(stored) === "object" ? stored : [stored];
       if (what_would.includes(val)) {
         what_would = what_would.filter(i => i !== val);
       }
@@ -52,7 +69,10 @@ class MultChoiceQuest extends Component {
       toStore.what_would = what_would;
     }
     else {
-      toStore.showOther = false;
+      toStore = {
+        showOther: false,
+        what_treatment_other_text: ""
+      }
       toStore[e.target.name] = e.target.id;
     }
     this.setState({ ...toStore });
@@ -97,7 +117,6 @@ class MultChoiceQuest extends Component {
                   value={i} 
                   onChange={ this.storeResult }
                   defaultChecked={ this.getDefaultChecked(i) }
-                  //defaultChecked={ toInt(this.state.storedResponse) === i }
                 />
                 <label className="form-check-label" htmlFor={i}>
                   { choice }
@@ -111,7 +130,7 @@ class MultChoiceQuest extends Component {
          name={ this.props.name + "_other_text" }
          id={ this.props.name + "_other_text" }
          onChange={ this.storeResult }
-         storedValue={ this.getDefaultText() }
+         storedValue={ this.props.storedOther }
         />
       </div>
     );
