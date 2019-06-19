@@ -6,7 +6,7 @@ import dfci from "../../images/dfci.png";
 const Banner = (props) => {
   return (
     <div className="banner">
-      <div className="container">
+      <div className="container full-width-print full-max-width-print">
         <div className="row">
           <div className="col-md-3">
             <a href="/">

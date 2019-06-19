@@ -13,12 +13,15 @@ class NextSteps extends Component {
     this.storeResult = this.storeResult.bind(this);
     this.isNotReady = this.isNotReady.bind(this);
     this.whatWouldHelp = this.whatWouldHelp.bind(this);
+    this.resetOther = this.resetOther.bind(this);
     this.state = { ...saved } || {};
   }
 
   storeResult = (data, choicesLength) => {
     delete data.storedResponse;
+    this.resetOther(data);
     this.setState({ ...data });
+
   }
 
   componentDidMount = () => {
@@ -28,6 +31,17 @@ class NextSteps extends Component {
   componentWillUnmount = () => {
     this.props.onSaveProgress({ next: this.state });
   }
+
+  resetOther = (data) => {
+    if ( toInt(data.what_treatment) < 3 && exists(data.what_treatment_other_text) ) {
+      data.what_treatment_other_text = "";
+    }
+    else if ( exists(data.what_would) && !data.what_would.includes("6") && exists(data.what_would_other_text) ) {
+      data.what_would_other_text = "";
+    }
+    else {}
+  }
+
 
   isNotReady = (how_ready) => {
     return ( 
@@ -45,6 +59,7 @@ class NextSteps extends Component {
         storeResult={ this.storeResult }
         type="checkbox"
         storedResponse={ this.state[propify(question.question)] }
+        storedOther={ this.state.what_would_other_text }
       />
     );
   }
@@ -64,6 +79,7 @@ class NextSteps extends Component {
               name={ propify(question.question) }
               type="radio"
               storedResponse={ this.state[propify(question.question)] }
+              storedOther={ this.state.what_treatment_other_text }
             />
           );
         })}

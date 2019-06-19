@@ -119,7 +119,7 @@ h2 {
 	font-size: 1.4rem;
 }
 
-strong {
+strong, .bold {
 	font-weight: 600;
 }
 
@@ -161,8 +161,12 @@ h1.home-title {
   line-height: 1.1em;
 }
 
+h1.home-title .large {
+  font-size: 105%;
+}
+
 h1.home-title .larger {
-  font-size: 125%;
+  font-size: 135%;
 }
 
 h1.home-title .lead {
@@ -344,3 +348,51 @@ th {
 	text-decoration: underline;
 }
 
+/** PRINT **/
+@media print {
+	body {
+		font-size: 20pt;
+		background: none;
+	}
+	.main h1 {
+		font-size: 40pt;
+		margin-bottom: 50pt;
+	}
+	h2 {
+		font-size: 30pt;
+		margin-bottom: 20pt;
+	}
+	#sidenav {
+		display: none;
+	}
+	.col-md-9.full-max-width-print {
+		flex: 0 0 100%;
+	}
+	.summary-spacer {
+		margin: 60pt 0;
+	}
+	.summary-spacer ol li {
+		margin-top: 30pt;
+	}
+	.summary-spacer ol li:first-child {
+		margin-top: 20pt;
+	}
+	.value-response .response {
+		margin-bottom: 30pt;
+	}
+	.table th,
+	.table td {
+		border: #999 1px solid;
+	}
+
+	.full-max-width-print {
+		max-width: 100%;
+	}
+	.full-width-print {
+		width: 100%;
+	}
+	.hide-from-print {
+		position: absolute;
+		left: 20000000000px;
+	}
+}

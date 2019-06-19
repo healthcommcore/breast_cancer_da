@@ -87,12 +87,12 @@ class App extends Component {
         { isLoggedIn() ? <TopNav timeoutid={ this.state.timeoutid } /> : "" }
         <Banner />
         <section className="main">
-          <div className="container">
+          <div className="container full-width-print full-max-width-print">
             <div className="row">
-              <div className="col-md-3">
+              <div id="sidenav" className="col-md-3">
               { isLoggedIn() ? <SideNav /> : "" }
               </div>
-              <div className="col-md-9">
+              <div className="col-md-9 full-max-width-print">
                 <Route path="/login" 
                        render={ (props)=> 
                           <Login 
@@ -115,7 +115,7 @@ class App extends Component {
                 <PrivateRoute 
                   path="/treatment-comparison" 
                   title="Treatment comparison"
-                  nextButton
+                  showNext
                   component={ TreatmentComparison } 
                 />
                 <PrivateRoute 
