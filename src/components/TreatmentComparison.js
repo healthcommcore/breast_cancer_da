@@ -8,6 +8,7 @@ const TreatmentComparison = (props) => {
   const user = store.get("user");
   const [show_bilateral, toggleBilateral] = useState(false);
   const [isVisible, setVisible] = useState(user.lump ? "visible" : "remove-from-view");
+  const [isNextVisible, setNext] = useState(props.showNext ? "visible" : "remove-from-view");
 
   useEffect(() => {
     animateScroll.scrollToTop({ duration: 100 });
@@ -129,7 +130,7 @@ const TreatmentComparison = (props) => {
                   </tr>
               </tbody>
           </table>
-          <NextButton dest="values-clarification" />
+          <NextButton dest="values-clarification" className={ isNextVisible }/>
       </div>
     </div>
   );
