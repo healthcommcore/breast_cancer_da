@@ -2,7 +2,7 @@ import React from "react";
 
 const Footer = (props) => {
   return (
-    <footer className="footer">
+    <footer className="footer hide-from-print">
       <p className="copyright-and-hcc">
         Copyright 2019 | 
           <a target="_blank" rel="noopener noreferrer" href="http://www.dana-farber.org/Privacy-Policy.aspx">Privacy policy</a> |
