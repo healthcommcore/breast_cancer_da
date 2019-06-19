@@ -1,6 +1,7 @@
 <?php
 
 require_once('db.php');
+define('ADMIN_EMAIL', 'hannah_freeman@dfci.harvard.edu');
 
 class SiteUsers {
   private function __construct() {
@@ -30,12 +31,13 @@ class SiteUsers {
   }
 
   public static function sendAnxietyEmail($email) {
-    $to = 'dave_rothfarb@dfci.harvard.edu';
+    $to = ADMIN_EMAIL;
     $subject = "Decision aid user requested contact";
     $mssg = "A breast cancer decision aid user has requested that someone ";
     $mssg .= "contact her about support options. Her email address is:\r\n\r\n";
     $mssg .= $email;
-    $header = "From: user@bcda.com";
+    $header = "From: consyderuser@consyderdecisiontool.org\r\n";
+    $header .= "Bcc: dave_rothfarb@dfci.harvard.edu";
     mail($to, $subject, $mssg, $header);
     return "Email has been sent";
   }
