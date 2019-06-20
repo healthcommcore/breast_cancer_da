@@ -89,7 +89,7 @@ const Summary = (props) => {
         {/*
         */}
       </div>
-      <button className="btn btn-lg btn-primary" onClick={ window.print }>Print your summary</button>
+      <button className="btn btn-lg btn-primary hide-from-print" onClick={ window.print }>Print your summary</button>
     </div>
   )
 }
