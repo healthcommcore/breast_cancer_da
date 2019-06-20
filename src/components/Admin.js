@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { animateScroll } from "react-scroll";
+import store from "store";
 import Alert from "react-bootstrap/Alert";
+import { Redirect } from "react-router-dom";
 import UserDataForm from './UserDataForm';
 import UserDataFields from './UserDataFields';
 import UserList from './UserList';
@@ -132,7 +134,7 @@ class Admin extends Component {
 
   handleDelete = (id) => {
     axios({
-      method: 'post',
+      method: 'delete',
       url: this.props.api + '?req=delete_user',
       data: id
     })
@@ -235,6 +237,10 @@ class Admin extends Component {
   }
 
   render () {
+    const user = store.get("user");
+    if (!user.admin) {
+      return <Redirect to="/" />;
+    }
     return (
       <div>
         <Alert

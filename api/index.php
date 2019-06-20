@@ -9,6 +9,7 @@
 
   $req = strtolower($_SERVER['REQUEST_METHOD']);
   $path = strtolower($_GET['req']);
+  $result = "";
 
   if ($path == 'users' && $req == 'get') {
     $userList = SiteUsers::getUserList();
@@ -46,13 +47,13 @@
     $mssg = SiteUsers::updateUser($data);
     print_r($mssg);
   }
-  else if($path == 'delete_user' && $req == 'post') {
+  else if($path == 'delete_user' && $req == 'delete') {
     $id = file_get_contents("php://input");
     //error_log("User id: " . $id);
     $result = SiteUsers::removeUser($id);
   }
   else {
-    echo $path;
+    echo $result;
   }
        
 /**
