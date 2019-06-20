@@ -29,6 +29,9 @@ const Summary = (props) => {
         <h2>What is important to you?</h2>
         <ol>
           { values_content.map( (entry, i) => {
+            if (entry.lumpOnly && !user.lump) {
+              return false;
+            }
             return (
               <li key={i}>
                 <p>{ entry.content }</p>
@@ -65,7 +68,7 @@ const Summary = (props) => {
         <strong>{ next_steps_content.primary[1].choices[toInt(next_resp.how_ready)] }</strong></p>
         { 
           ( () => {
-            if ( exists(next_resp.what_would) && next_resp.what_would.length > 0) { 
+            if ( exists(next_resp.what_would) && next_resp.what_would.length > 0 && next_resp.how_ready !== "0") { 
               return (
                 <div>
                   <p>What would help you to make a decision:</p>

@@ -31,7 +31,7 @@ import isLoggedIn from "./helpers/is_logged_in";
 import getApi from "./helpers/api_urls";
 import store from "store";
 
-const api = getApi("hccupdate");
+const api = getApi("local");
 const LIMIT = 1000 * 60 * 60;
 const history = createBrowserHistory();
 
@@ -76,7 +76,6 @@ class App extends Component {
   }
 
   render() {
-    console.log("Is this damn thing working?");
     if( this.state.sessionExpired) {
       withRouter( ({history}) => {
         history.push("/login");
