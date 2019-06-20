@@ -134,7 +134,7 @@ class Admin extends Component {
 
   handleDelete = (id) => {
     axios({
-      method: 'post',
+      method: 'delete',
       url: this.props.api + '?req=delete_user',
       data: id
     })
