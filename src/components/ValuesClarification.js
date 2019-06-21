@@ -38,7 +38,7 @@ class ValuesClarification extends Component {
         
         <p><strong>Please indicate on the scale below how important each statement is to you:</strong></p>
 				{ content.map( (entry, idx) => {
-					if (entry.value ==="additional_surgery" && !user.lump) {
+					if (entry.lumpOnly && !user.lump) {
 						return false;
 					}
 					return (

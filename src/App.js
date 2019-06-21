@@ -76,7 +76,6 @@ class App extends Component {
   }
 
   render() {
-    console.log("Is this damn thing working?");
     if( this.state.sessionExpired) {
       withRouter( ({history}) => {
         history.push("/login");
