@@ -127,7 +127,7 @@ class MultChoiceQuest extends Component {
           })}
         </div>
         <OtherTextField
-         displayClass={ this.state.showOther ? "block" : "none" }
+         display={ this.state.showOther }
          name={ this.props.name + "_other_text" }
          id={ this.props.name + "_other_text" }
          onChange={ this.storeResult }
