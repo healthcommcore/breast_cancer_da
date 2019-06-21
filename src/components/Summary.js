@@ -69,6 +69,7 @@ const Summary = (props) => {
         { 
           ( () => {
             if ( exists(next_resp.what_would) && next_resp.what_would.length > 0 && next_resp.how_ready !== "0") { 
+              const what_would_other = (next_resp.what_would_other_text === "" ? "Other" : next_resp.what_would_other_text);
               return (
                 <div>
                   <p>What would help you to make a decision:</p>
@@ -76,7 +77,7 @@ const Summary = (props) => {
                   { next_resp.what_would.map( (resp, i) => {
                     return (
                       <li key={i}><strong>
-                        { resp === "6" ? next_resp.what_would_other_text : next_steps_content.followup.choices[toInt(resp)] }
+                        { resp === "6" ? what_would_other : next_steps_content.followup.choices[toInt(resp)] }
                       </strong></li>
                     );
                   })}
