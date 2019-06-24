@@ -70,10 +70,10 @@ class MultChoiceQuest extends Component {
       toStore.what_would = what_would;
     }
     else {
-      toStore = {
-        showOther: false,
-        what_treatment_other_text: ""
+      if (e.target.name === "what_treatment") {
+        toStore.what_treatment_other_text = "";
       }
+      toStore.showOther = false;
       toStore[e.target.name] = e.target.id;
     }
     this.setState({ ...toStore });
