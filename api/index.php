@@ -1,4 +1,5 @@
 <?php
+  //header("Access-Control-Allow-Origin: http://bcda.hccupdate.org");
   header("Access-Control-Allow-Origin: http://localhost:3000");
   header("Access-Control-Allow-Credentials: true");
   header("Access-Control-Allow-Methods: GET, PUT, POST, DELETE");
@@ -9,6 +10,7 @@
 
   $req = strtolower($_SERVER['REQUEST_METHOD']);
   $path = strtolower($_GET['req']);
+  $result = "";
 
   if ($path == 'users' && $req == 'get') {
     $userList = SiteUsers::getUserList();
@@ -46,13 +48,13 @@
     $mssg = SiteUsers::updateUser($data);
     print_r($mssg);
   }
-  else if($path == 'delete_user' && $req == 'post') {
+  else if($path == 'delete_user' && $req == 'delete') {
     $id = file_get_contents("php://input");
     //error_log("User id: " . $id);
     $result = SiteUsers::removeUser($id);
   }
   else {
-    echo $path;
+    echo $result;
   }
        
 /**

@@ -107,12 +107,12 @@ class SiteUsers {
 
   public static function removeUser($id) {
     $db = DB::getInstance();
-    $mssg = "";
+    $mssg = "No message";
 
   // Insert form data into database
     try {
       $db->beginTransaction();
-      $db->exec("DELETE FROM USERS WHERE ID=$id");
+      $db->exec("DELETE FROM `users` WHERE ID=$id");
       $db->commit();
       $mssg = "Transaction successful, user deleted";
     }

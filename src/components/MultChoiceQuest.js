@@ -56,6 +56,7 @@ class MultChoiceQuest extends Component {
     else if (this.isCheckbox(e)) {
       if (this.otherWasSelected(e)) {
         toStore.showOther = !toStore.showOther;
+        toStore.what_would_other_text = "";
       }
       const val = e.target.value;
       const stored = this.getStoredCheckboxOptions();
@@ -69,10 +70,10 @@ class MultChoiceQuest extends Component {
       toStore.what_would = what_would;
     }
     else {
-      toStore = {
-        showOther: false,
-        what_treatment_other_text: ""
+      if (e.target.name === "what_treatment") {
+        toStore.what_treatment_other_text = "";
       }
+      toStore.showOther = false;
       toStore[e.target.name] = e.target.id;
     }
     this.setState({ ...toStore });
@@ -126,7 +127,7 @@ class MultChoiceQuest extends Component {
           })}
         </div>
         <OtherTextField
-         displayClass={ this.state.showOther ? "block" : "none" }
+         display={ this.state.showOther }
          name={ this.props.name + "_other_text" }
          id={ this.props.name + "_other_text" }
          onChange={ this.storeResult }
