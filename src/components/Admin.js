@@ -120,7 +120,7 @@ class Admin extends Component {
           text: "",
           alertContent: ["User added successfully"]
         }
-        data.id = result.data;
+        data.id = result.data.toString();
         updated_rows.push(data);
         this.setState({ 
           alert: alertObj,
