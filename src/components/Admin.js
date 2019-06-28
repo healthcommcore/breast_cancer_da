@@ -107,22 +107,25 @@ class Admin extends Component {
       this.produceAlerts(data);
       return false;
     }
-    let updated_rows = this.state.rows;
-    updated_rows.push(data);
-    this.setState({ rows: updated_rows });
     axios({
       method: 'post',
       url: this.props.api + '?req=add_user',
       data: data
     })
       .then( (result) => {
+        let updated_rows = this.state.rows;
         let alertObj = {
           variant: "success",
           show: true,
           text: "",
           alertContent: ["User added successfully"]
         }
-        this.setState({ alert: alertObj });
+        data.id = result.data.toString();
+        updated_rows.push(data);
+        this.setState({ 
+          alert: alertObj,
+          rows: updated_rows
+        });
         this.clearFields();
       })
       .catch( (error) => {

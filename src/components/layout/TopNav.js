@@ -23,7 +23,7 @@ const TopNav= (props) => {
               <NavLink className="nav-item nav-link" to="/admin">Admin</NavLink>
               : ""
             }
-            <Logout timeoutid={ props.timeoutid } />
+            <Logout timeoutid={ props.timeoutid } reset={ props.reset }/>
           </div>
         </div>
       </div>
