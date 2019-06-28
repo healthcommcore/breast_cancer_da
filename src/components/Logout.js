@@ -8,6 +8,7 @@ const Logout = (props) => {
         className="nav-item nav-link" 
         to="#" 
         onClick={ (e) => {
+          props.reset()
           props.history.push("/login");
           store.remove('user');
           store.set('loggedIn', false);

@@ -8,6 +8,7 @@ class UserList extends Component {
     this.onDelete = this.onDelete.bind(this);
     this.onChange = this.onChange.bind(this);
     this.onEdit = this.onEdit.bind(this);
+    this.state = { rows:  [] };
   }
 
   onChange = (data) => {

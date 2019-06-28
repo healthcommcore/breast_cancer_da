@@ -46,13 +46,20 @@ class App extends Component {
     super(props);
     this.saveProgress = this.saveProgress.bind(this);
     this.startSessionTimer = this.startSessionTimer.bind(this);
+    this.startSessionTimer = this.startSessionTimer.bind(this);
+    this.reset = this.reset.bind(this);
+    this.clearState = this.clearState.bind(this);
     this.state = {
+      reset: false,
       sessionExpired: false,
       timeoutid: ""
     }
   }
 
   componentDidUpdate() {
+    if (this.state.reset) {
+      this.clearState();
+    }
     ReactGA.pageview(window.location.pathname);
     const user = store.get("user");
     if (isLoggedIn && user) {
@@ -61,8 +68,25 @@ class App extends Component {
   }
 
   saveProgress = (data) => {
-    const key = Object.keys(data).shift();
-    this.setState({[key] : data[key]});
+    if (!this.state.reset) {
+      const key = Object.keys(data).shift();
+      this.setState({[key] : data[key]});
+    }
+  }
+
+  reset = () => {
+    this.setState({ reset: !this.state.reset });
+  }
+
+  clearState = () => {
+    if (Object.keys(this.state).length > 3) {
+      let newState = {...this.state};
+      Object.keys(newState).map( (key) => {
+        newState[key] = undefined;
+      });
+      this.setState({ ...newState })
+    }
+    this.reset();
   }
 
   startSessionTimer = () => {
@@ -84,7 +108,7 @@ class App extends Component {
     }
     return (
       <div className="app">
-        { isLoggedIn() ? <TopNav timeoutid={ this.state.timeoutid } /> : "" }
+        { isLoggedIn() ? <TopNav reset ={ this.reset } timeoutid={ this.state.timeoutid } /> : "" }
         <Banner />
         <section className="main">
           <div className="container full-width-print full-max-width-print">

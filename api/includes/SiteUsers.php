@@ -72,8 +72,8 @@ class SiteUsers {
     try {
       $db->beginTransaction();
       $db->exec("INSERT INTO `users` ($columns) VALUES ($vals)") or die(print_r($db->errorInfo(), true));
+      $mssg = $db->lastInsertId();
       $db->commit();
-      $mssg = "Transaction successful, data entered";
     }
     catch (Exception $e) {
       $db->rollBack();
@@ -107,7 +107,7 @@ class SiteUsers {
 
   public static function removeUser($id) {
     $db = DB::getInstance();
-    $mssg = "No message";
+    $mssg = "";
 
   // Insert form data into database
     try {
