@@ -1,7 +1,7 @@
 <?php
 
 require_once('db.php');
-define('ADMIN_EMAIL', 'hannah_freeman@dfci.harvard.edu');
+define('ADMIN_EMAIL', 'consyder@dfci.harvard.edu');
 
 class SiteUsers {
   private function __construct() {
