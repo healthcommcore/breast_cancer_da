@@ -27,7 +27,7 @@ const UserDataFields = (props) => {
             type="radio" 
             name="lump" 
             value="1"  
-            checked={ props.lump === '1' } 
+            defaultChecked={ props.lump === '1' } 
             onChange={ props.onChange }/>
           <label className="form-check-label" htmlFor="canHaveLumpectomyYes">
             Yes
@@ -39,7 +39,7 @@ const UserDataFields = (props) => {
             type="radio" 
             name="lump"
             value="0" 
-            checked={ props.lump === '0' }
+            defaultChecked={ props.lump === '0' }
             onChange={ props.onChange }
           />
           <label className="form-check-label" htmlFor="canHaveLumpectomy">
@@ -55,7 +55,7 @@ const UserDataFields = (props) => {
             type="radio" 
             name="admin"
             value="1"  
-            checked = { props.admin === '1' }
+            defaultChecked = { props.admin === '1' }
             onChange={ props.onChange }
           />
           <label className="form-check-label" htmlFor="admin">
@@ -68,7 +68,7 @@ const UserDataFields = (props) => {
             type="radio" 
             name="admin"
             value="0"
-            checked = { props.admin === '0' } 
+            defaultChecked = { props.admin === '0' } 
             onChange={ props.onChange }
           />
           <label className="form-check-label" htmlFor="admin">
