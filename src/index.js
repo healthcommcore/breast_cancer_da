@@ -1,7 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import ReactGA from "react-ga";
+import "babel-polyfill";
 import "react-app-polyfill/ie11";
+import ReactGA from "react-ga";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.min.js";
 import "./index.css";
