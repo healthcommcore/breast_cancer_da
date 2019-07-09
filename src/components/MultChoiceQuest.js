@@ -74,7 +74,7 @@ class MultChoiceQuest extends Component {
         toStore.what_treatment_other_text = "";
       }
       toStore.showOther = false;
-      toStore[e.target.name] = e.target.id;
+      toStore[e.target.name] = e.target.value;
     }
     this.setState({ ...toStore });
     this.props.storeResult(toStore, this.props.choices.length);
@@ -114,7 +114,7 @@ class MultChoiceQuest extends Component {
                   className="form-check-input" 
                   type={ this.props.type }
                   name={ this.props.name } 
-                  id={ choice === "Other" ? this.props.name + "_other" : i }
+                  id={ choice === "Other" ? this.props.name + "_other" : this.props.name + "_" + i }
                   value={i} 
                   onChange={ this.storeResult }
                   defaultChecked={ this.getDefaultChecked(i) }
