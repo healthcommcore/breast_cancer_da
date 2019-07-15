@@ -32,6 +32,7 @@ class UserList extends Component {
       <table className="table table-striped table-bordered">
         <thead>
           <tr>
+            <th scope="col">ID</th>
             <th scope="col">Last name</th>
             <th scope="col">First name</th>
             <th scope="col">Username</th>
@@ -43,6 +44,7 @@ class UserList extends Component {
           { this.props.rows.length > 0 ? ( this.props.rows.map( (row, i) => {
             return (
               <tr key={ i } id={ row.id }>
+                <td>{ row.id }</td>
                 <td>{ row.last_name }</td>
                 <td>{ row.first_name }</td>
                 <td>{ row.username }</td>
