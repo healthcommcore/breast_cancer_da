@@ -113,7 +113,7 @@ class Admin extends Component {
       data: data
     })
       .then( (result) => {
-        const id = result.data;
+        const id = result.data.toString();
         const newdata = {...data, id };
         let updated_rows = this.state.rows;
         let alertObj = {
