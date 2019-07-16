@@ -24,7 +24,7 @@ const Home = (props) => {
       
       <p className="inline-buttons">
         <Link className="btn btn-secondary btn-sm" to="/about">Learn more about this study</Link>
-        <a className="btn btn-secondary btn-sm" href="mailto:consyder@dfci.harvard.edu">Contact the study team</a>
+        <a className="btn btn-secondary btn-sm" href="mailto:consyder@partners.org">Contact the study team</a>
       </p>
     </div>
   );

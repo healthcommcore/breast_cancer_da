@@ -36,7 +36,7 @@ class SiteUsers {
     $mssg = "A breast cancer decision aid user has requested that someone ";
     $mssg .= "contact her about support options. Her email address is:\r\n\r\n";
     $mssg .= $email;
-    $header = "From: consyderuser@consyderdecisiontool.org\r\n";
+    $header = "From: " . ADMIN_EMAIL . "\r\n";
     $header .= "Bcc: dave_rothfarb@dfci.harvard.edu";
     mail($to, $subject, $mssg, $header);
     return "Email has been sent";
@@ -80,6 +80,8 @@ class SiteUsers {
       $mssg = $e->getMessage();
     }
     return $mssg;
+  /*
+  */
   }
 
   public static function updateUser($userData) {
