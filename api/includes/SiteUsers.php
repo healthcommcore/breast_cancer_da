@@ -80,6 +80,8 @@ class SiteUsers {
       $mssg = $e->getMessage();
     }
     return $mssg;
+  /*
+  */
   }
 
   public static function updateUser($userData) {

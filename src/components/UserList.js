@@ -19,7 +19,7 @@ class UserList extends Component {
     const row = e.target.closest("tr");
     row.closest("tr").remove();
     this.props.onDelete(row.id);
-    window.location.reload();
+    //window.location.reload();
   }
 
   onEdit = (e) => {

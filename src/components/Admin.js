@@ -113,6 +113,8 @@ class Admin extends Component {
       data: data
     })
       .then( (result) => {
+        const id = result.data;
+        const newdata = {...data, id };
         let updated_rows = this.state.rows;
         let alertObj = {
           variant: "success",
@@ -120,8 +122,7 @@ class Admin extends Component {
           text: "",
           alertContent: ["User added successfully"]
         }
-        data.id = result.data.toString();
-        updated_rows.push(data);
+        updated_rows.push(newdata);
         this.setState({ 
           alert: alertObj,
           rows: updated_rows
