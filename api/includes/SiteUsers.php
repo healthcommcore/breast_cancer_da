@@ -11,16 +11,15 @@ class SiteUsers {
     $db = DB::getInstance();
     $resp = "";
     try {
-      $query = $db->query("SELECT * FROM `users` WHERE username='" . $user['username'] . "'", PDO::FETCH_ASSOC);
-      if ($query) {
-        $rows = $query->fetchAll();
-        if (!isset($rows[0])) { return false; }
-        $password = $rows[0]['password'];
+      $query = $db->prepare("SELECT * FROM `users` WHERE username=?");
+      $query->execute([$user['username']]);
+      if ($row = $query->fetch(PDO::FETCH_ASSOC)) {
+        $password = $row['password'];
         $ver = self::verifyPassword($user['password'], $password);
-        $resp = ( $ver == TRUE ? json_encode($rows[0]) : json_encode($ver) );
+        $resp = ( $ver == TRUE ? json_encode($row) : json_encode($ver) );
       }
       else {
-        //error_log("Problem with query");
+        error_log("Problem with query");
       }
     }
     catch (Exception $e) {
@@ -42,10 +41,6 @@ class SiteUsers {
     return "Email has been sent";
   }
 
-  private static function verifyPassword($submittedPassword, $dbPassword) {
-    return password_verify($submittedPassword, $dbPassword);
-  }
-
   public static function getUserList() {
     $db = DB::getInstance();
     $resp = "";
@@ -64,7 +59,6 @@ class SiteUsers {
 
   public static function addUser($userData) {
     $db = DB::getInstance();
-    //$columns = "lump, admin, first_name, last_name, username, password, date_created";
     $columns = "admin, date_created, first_name, last_name, lump, password, username";
     $placeholders = ":admin, :date_created, :first_name, :last_name, :lump, :password, :username";
     $sorted = $userData;
@@ -78,12 +72,6 @@ class SiteUsers {
       $statement = $db->prepare("INSERT INTO `users` ($columns) VALUES ($placeholders)");
       $statement->execute($sorted);
       $mssg = $db->lastInsertId();
-    /*
-      $db->beginTransaction();
-      $db->exec("INSERT INTO `users` ($columns) VALUES ($vals)") or die(print_r($db->errorInfo(), true));
-      $mssg = $db->lastInsertId();
-      $db->commit();
-    */
     }
     catch (Exception $e) {
       $db->rollBack();
@@ -109,11 +97,6 @@ class SiteUsers {
       $statement = $db->prepare("UPDATE `users` SET $updates");
       $statement->execute(array_values($sorted));
       $mssg = "Transaction successful, user updated";
-    /*
-      $db->beginTransaction();
-      $db->exec("UPDATE `users` SET $updates WHERE id=$id") or die(print_r($db->errorInfo(), true));
-      $db->commit();
-    */
     }
     catch (Exception $e) {
       $db->rollBack();
@@ -143,29 +126,8 @@ class SiteUsers {
     return $mssg;
   }
 
-/**
- * Takes data from form submission in key value format, reformats
- * into one large string as required for insertion into MySQL. String
- * values are given extra quotes except admin/lump numerical values.
- *
- * @param array $data Key value pairs from user registration form
- *
- * @return string Formatted string for MySQL insertion
- */
-  private static function prepareInsert($data) {
-    $keys = array_keys($data);
-    $vals = array_values($data);
-    $str = "";
-    for($i = 0; $i < count($vals); $i++) {
-      if ($keys[$i] == 'admin' || $keys[$i] == 'lump') {
-        $str .= $vals[$i] . ", ";
-      }
-      else {
-        $str .= "'";
-        $str .= ( isset($vals[$i + 1]) ) ? $vals[$i] . "', " : $vals[$i] . "'";
-      }
-    }
-    return $str;
+  private static function verifyPassword($submittedPassword, $dbPassword) {
+    return password_verify($submittedPassword, $dbPassword);
   }
 
   private static function prepareUpdate($toupdate) {
@@ -178,20 +140,7 @@ class SiteUsers {
     $updates .= "WHERE id=?";
     return $updates;
   }
-/*
-  private static function prepareUpdate($updates) {
-    $updateStr = "";
-    $iter = 0;
-    foreach($updates as $key => $val) {
-      $updateStr .= $key . "='" . $val . "'";
-      if($iter < count($updates) -1) {
-        $updateStr .= ",";
-      }
-      $iter++;
-    }
-    return $updateStr;
-  }
-*/
+
 }
 
 

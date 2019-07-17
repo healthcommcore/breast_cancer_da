@@ -67,6 +67,7 @@ class Login extends Component {
       url: this.props.api + "?req=authenticate"
     })
       .then( (result) => {
+        console.log(result);
         this.evaluateLogin(result.data);
       })
       .catch( (error) => {
