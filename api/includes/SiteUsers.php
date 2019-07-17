@@ -97,15 +97,24 @@ class SiteUsers {
   public static function updateUser($userData) {
     $db = DB::getInstance();
     $id = $userData['id'];
-    unset($userData['id']);
-    $updates = self::prepareUpdate($userData);
-    $mssg = "";
+    $sorted = $userData;
+    unset($sorted['id']);
+    uksort($sorted, function ($val1, $val2) {
+      return strncmp($val1, $val2, 2);
+    });
+    $updates = self::prepareUpdate($sorted);
+    $mssg = $updates;
 
     try {
+    /*
+      $statement = $db->prepare("UPDATE `users` SET $updates");
+      array_push($sorted, $id);
+      $statement->execute(array_values($sorted));
       $db->beginTransaction();
       $db->exec("UPDATE `users` SET $updates WHERE id=$id") or die(print_r($db->errorInfo(), true));
       $db->commit();
       $mssg = "Transaction successful, user updated";
+    */
     }
     catch (Exception $e) {
       $db->rollBack();
@@ -159,6 +168,18 @@ class SiteUsers {
     }
     return $str;
   }
+/*
+  private static function prepareUpdate($toupdate) {
+    $updates = "";
+    $keys = array_keys($toupdate);
+    for($i = 0; $i < count($keys); $i++) {
+      $updates .= $keys[$i] . "=?";
+      $updates .= ($i < count($keys) ? ", " : " ";
+    }
+    $updates .= "WHERE id=?";
+    return $updates;
+  }
+*/
   private static function prepareUpdate($updates) {
     $updateStr = "";
     $iter = 0;
