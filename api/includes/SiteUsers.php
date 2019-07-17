@@ -64,8 +64,13 @@ class SiteUsers {
 
   public static function addUser($userData) {
     $db = DB::getInstance();
-    $vals = self::prepareInsert($userData);
-    $columns = "lump, admin, first_name, last_name, username, password, date_created";
+    //$columns = "lump, admin, first_name, last_name, username, password, date_created";
+    $columns = "admin, date_created, first_name, last_name, lump, password, username";
+    $sorted = $userData;
+    uksort($sorted, function ($val1, $val2) {
+      return strncmp($val1, $val2, 2);
+    });
+    $vals = self::prepareInsert($sorted);
     $mssg = "";
 
   // Insert form data into database
@@ -79,9 +84,9 @@ class SiteUsers {
       $db->rollBack();
       $mssg = $e->getMessage();
     }
-    return $mssg;
   /*
   */
+    return $mssg;
   }
 
   public static function updateUser($userData) {
