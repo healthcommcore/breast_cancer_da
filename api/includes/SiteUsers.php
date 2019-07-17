@@ -66,19 +66,24 @@ class SiteUsers {
     $db = DB::getInstance();
     //$columns = "lump, admin, first_name, last_name, username, password, date_created";
     $columns = "admin, date_created, first_name, last_name, lump, password, username";
+    $placeholders = ":admin, :date_created, :first_name, :last_name, :lump, :password, :username";
     $sorted = $userData;
     uksort($sorted, function ($val1, $val2) {
       return strncmp($val1, $val2, 2);
     });
-    $vals = self::prepareInsert($sorted);
     $mssg = "";
 
   // Insert form data into database
     try {
+      $statement = $db->prepare("INSERT INTO `users` ($columns) VALUES ($placeholders)");
+      $statement->execute($sorted);
+      $mssg = $db->lastInsertId();
+    /*
       $db->beginTransaction();
       $db->exec("INSERT INTO `users` ($columns) VALUES ($vals)") or die(print_r($db->errorInfo(), true));
       $mssg = $db->lastInsertId();
       $db->commit();
+    */
     }
     catch (Exception $e) {
       $db->rollBack();
