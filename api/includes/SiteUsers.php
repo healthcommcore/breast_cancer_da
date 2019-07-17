@@ -103,17 +103,16 @@ class SiteUsers {
       return strncmp($val1, $val2, 2);
     });
     $updates = self::prepareUpdate($sorted);
-    $mssg = $updates;
+    array_push($sorted, $id);
 
     try {
-    /*
       $statement = $db->prepare("UPDATE `users` SET $updates");
-      array_push($sorted, $id);
       $statement->execute(array_values($sorted));
+      $mssg = "Transaction successful, user updated";
+    /*
       $db->beginTransaction();
       $db->exec("UPDATE `users` SET $updates WHERE id=$id") or die(print_r($db->errorInfo(), true));
       $db->commit();
-      $mssg = "Transaction successful, user updated";
     */
     }
     catch (Exception $e) {
@@ -168,18 +167,18 @@ class SiteUsers {
     }
     return $str;
   }
-/*
+
   private static function prepareUpdate($toupdate) {
     $updates = "";
     $keys = array_keys($toupdate);
     for($i = 0; $i < count($keys); $i++) {
       $updates .= $keys[$i] . "=?";
-      $updates .= ($i < count($keys) ? ", " : " ";
+      $updates .= ($i < count($keys) - 1 ? ", " : " ");
     }
     $updates .= "WHERE id=?";
     return $updates;
   }
-*/
+/*
   private static function prepareUpdate($updates) {
     $updateStr = "";
     $iter = 0;
@@ -192,6 +191,7 @@ class SiteUsers {
     }
     return $updateStr;
   }
+*/
 }
 
 
