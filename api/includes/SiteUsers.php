@@ -66,19 +66,24 @@ class SiteUsers {
     $db = DB::getInstance();
     //$columns = "lump, admin, first_name, last_name, username, password, date_created";
     $columns = "admin, date_created, first_name, last_name, lump, password, username";
+    $placeholders = ":admin, :date_created, :first_name, :last_name, :lump, :password, :username";
     $sorted = $userData;
     uksort($sorted, function ($val1, $val2) {
       return strncmp($val1, $val2, 2);
     });
-    $vals = self::prepareInsert($sorted);
     $mssg = "";
 
   // Insert form data into database
     try {
+      $statement = $db->prepare("INSERT INTO `users` ($columns) VALUES ($placeholders)");
+      $statement->execute($sorted);
+      $mssg = $db->lastInsertId();
+    /*
       $db->beginTransaction();
       $db->exec("INSERT INTO `users` ($columns) VALUES ($vals)") or die(print_r($db->errorInfo(), true));
       $mssg = $db->lastInsertId();
       $db->commit();
+    */
     }
     catch (Exception $e) {
       $db->rollBack();
@@ -92,15 +97,23 @@ class SiteUsers {
   public static function updateUser($userData) {
     $db = DB::getInstance();
     $id = $userData['id'];
-    unset($userData['id']);
-    $updates = self::prepareUpdate($userData);
-    $mssg = "";
+    $sorted = $userData;
+    unset($sorted['id']);
+    uksort($sorted, function ($val1, $val2) {
+      return strncmp($val1, $val2, 2);
+    });
+    $updates = self::prepareUpdate($sorted);
+    array_push($sorted, $id);
 
     try {
+      $statement = $db->prepare("UPDATE `users` SET $updates");
+      $statement->execute(array_values($sorted));
+      $mssg = "Transaction successful, user updated";
+    /*
       $db->beginTransaction();
       $db->exec("UPDATE `users` SET $updates WHERE id=$id") or die(print_r($db->errorInfo(), true));
       $db->commit();
-      $mssg = "Transaction successful, user updated";
+    */
     }
     catch (Exception $e) {
       $db->rollBack();
@@ -154,6 +167,18 @@ class SiteUsers {
     }
     return $str;
   }
+
+  private static function prepareUpdate($toupdate) {
+    $updates = "";
+    $keys = array_keys($toupdate);
+    for($i = 0; $i < count($keys); $i++) {
+      $updates .= $keys[$i] . "=?";
+      $updates .= ($i < count($keys) - 1 ? ", " : " ");
+    }
+    $updates .= "WHERE id=?";
+    return $updates;
+  }
+/*
   private static function prepareUpdate($updates) {
     $updateStr = "";
     $iter = 0;
@@ -166,6 +191,7 @@ class SiteUsers {
     }
     return $updateStr;
   }
+*/
 }
 
 
