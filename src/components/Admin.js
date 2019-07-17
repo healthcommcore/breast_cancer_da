@@ -128,12 +128,12 @@ class Admin extends Component {
           rows: updated_rows
         });
         this.clearFields();
+    {/*
+    */}
       })
       .catch( (error) => {
         console.log(error);
       });
-    {/*
-    */}
   }
 
   handleDelete = (id) => {
