@@ -1,4 +1,17 @@
 <?php
+/**
+ * API Entry point
+ *
+ * Author: Dave Rothfarb
+ * Project: Consyder breast cancer decision aid
+ * Health Communication Core 2019
+ *
+ * This is the entry point to all API calls. It's a very basic setup that
+ * parses server requests from the client and works in conjunction with the
+ * SiteUsers class to act upon the request. The only 2 components are a large
+ * control structure that takes action based on query strings and a small password
+ * encryption function.
+ */
   //header("Access-Control-Allow-Origin: http://bcda.hccupdate.org");
   header("Access-Control-Allow-Origin: http://localhost:3000");
   header("Access-Control-Allow-Credentials: true");
@@ -60,10 +73,6 @@
 /**
  * Encrypts user submitted password from registration form
  * and uses bcrypt hash/salting for encryption.
- *
- * @param string The user's unencrypted password
- *
- * @return string The encrypted/salted password for storage
  */
   function password_encrypt($password) {
     return password_hash($password, PASSWORD_BCRYPT);
