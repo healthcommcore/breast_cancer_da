@@ -1,5 +1,19 @@
 <?php
-
+/**
+ * SiteUsers static class
+ *
+ * Author: Dave Rothfarb
+ * Project: Consyder breast cancer decision aid
+ * Health Communication Core 2019
+ *
+ * The SiteUsers class contains all logic and code for
+ * the decision aid's Admin area. It is responsible for all
+ * create/read/update/delete (CRUD) database operations
+ * on all decision aid users, including site admins. All data
+ * is passed back to the React client in JSON format. There is 
+ * also code to handle sending email to the study's
+ * administrator if a user chooses the option.
+ */
 require_once('db.php');
 define('ADMIN_EMAIL', 'consyder@dfci.harvard.edu');
 
@@ -7,6 +21,8 @@ class SiteUsers {
   private function __construct() {
   }
 
+// Handles user login form. Uses PDO class to securely query
+// database verifying if username and password exists.
   public static function authenticate($user) {
     $db = DB::getInstance();
     $resp = "";
@@ -29,6 +45,8 @@ class SiteUsers {
     return $resp;
   }
 
+// Simple email script that's triggered if a decision aid user
+// wants to send an email to the study administrator
   public static function sendAnxietyEmail($email) {
     $to = ADMIN_EMAIL;
     $subject = "Decision aid user requested contact";
@@ -41,6 +59,7 @@ class SiteUsers {
     return "Email has been sent";
   }
 
+// Obtains list of all decision aid users in database
   public static function getUserList() {
     $db = DB::getInstance();
     $resp = "";
@@ -48,7 +67,6 @@ class SiteUsers {
       $query = $db->query("SELECT id, first_name, last_name, username, lump, admin FROM `users` ORDER BY last_name ASC", PDO::FETCH_ASSOC);
       $rows = $query->fetchAll();
       $resp = json_encode($rows);
-      //echo "Transaction successful, data entered";
     }
     catch (Exception $e) {
       $db->rollBack();
@@ -57,6 +75,9 @@ class SiteUsers {
     return $resp;
   }
 
+// Captures data from client user registration form, alphabetically
+// sorts data to match table columns, securely inserts data into 
+// database using PDO.
   public static function addUser($userData) {
     $db = DB::getInstance();
     $columns = "admin, date_created, first_name, last_name, lump, password, username";
@@ -71,26 +92,30 @@ class SiteUsers {
     try {
       $statement = $db->prepare("INSERT INTO `users` ($columns) VALUES ($placeholders)");
       $statement->execute($sorted);
+  // Grab the id of the newly inserted record and pass it back to client
       $mssg = $db->lastInsertId();
     }
     catch (Exception $e) {
       $db->rollBack();
       $mssg = $e->getMessage();
     }
-  /*
-  */
     return $mssg;
   }
 
+// Update a user's record using data from client update form. Sort
+// data entries as done in addUser method
   public static function updateUser($userData) {
     $db = DB::getInstance();
     $id = $userData['id'];
     $sorted = $userData;
+  // Remove user id before sorting so it can be added to the end
+  // of the soon to be sorted array
     unset($sorted['id']);
     uksort($sorted, function ($val1, $val2) {
       return strncmp($val1, $val2, 2);
     });
     $updates = self::prepareUpdate($sorted);
+  // Add user id back in
     array_push($sorted, $id);
 
     try {
@@ -103,16 +128,14 @@ class SiteUsers {
       $mssg = $e->getMessage();
     }
     return $mssg;
-    /*
-     */
   }
 
 
+// Delete user from database
   public static function removeUser($id) {
     $db = DB::getInstance();
     $mssg = "";
 
-  // Insert form data into database
     try {
       $db->beginTransaction();
       $db->exec("DELETE FROM `users` WHERE ID=$id");
@@ -126,10 +149,13 @@ class SiteUsers {
     return $mssg;
   }
 
+// Simple password verification function
   private static function verifyPassword($submittedPassword, $dbPassword) {
     return password_verify($submittedPassword, $dbPassword);
   }
 
+// Format array into SQL statement in prep for inserting into 
+// database
   private static function prepareUpdate($toupdate) {
     $updates = "";
     $keys = array_keys($toupdate);
@@ -140,7 +166,6 @@ class SiteUsers {
     $updates .= "WHERE id=?";
     return $updates;
   }
-
 }
 
 
