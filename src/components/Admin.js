@@ -5,7 +5,6 @@ import store from "store";
 import Alert from "react-bootstrap/Alert";
 import { Redirect } from "react-router-dom";
 import UserDataForm from './UserDataForm';
-import UserDataFields from './UserDataFields';
 import UserList from './UserList';
 import Modal from 'react-bootstrap/Modal';
 
@@ -128,8 +127,6 @@ class Admin extends Component {
           rows: updated_rows
         });
         this.clearFields();
-    {/*
-    */}
       })
       .catch( (error) => {
         console.log(error);
@@ -168,8 +165,6 @@ class Admin extends Component {
       .catch( (error) => {
         console.log(error);
       });
-    {/*
-    */}
 
     this.handleModalClose();
   }
@@ -184,7 +179,6 @@ class Admin extends Component {
         updatedUser[key] = submittedFields[key];
       }
     });
-    return updatedUser;
   }
 
   clearFields = () => {

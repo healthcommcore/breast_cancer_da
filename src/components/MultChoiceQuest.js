@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import store from "store";
 import OtherTextField from "./OtherTextField";
-import { exists, propify, toInt } from "../helpers/utilities";
+import { exists, toInt } from "../helpers/utilities";
 
 class MultChoiceQuest extends Component {
   constructor(props) {

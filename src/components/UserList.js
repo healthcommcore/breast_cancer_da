@@ -1,17 +1,11 @@
 import React, { Component } from 'react';
-import TextInput from './TextInput';
-import { exists } from '../helpers/utilities';
 
 class UserList extends Component {
   constructor(props) {
     super(props);
     this.onDelete = this.onDelete.bind(this);
-    this.onChange = this.onChange.bind(this);
     this.onEdit = this.onEdit.bind(this);
     this.state = { rows:  [] };
-  }
-
-  onChange = (data) => {
   }
 
   onDelete = (e) => {
