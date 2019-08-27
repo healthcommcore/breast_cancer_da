@@ -30,7 +30,7 @@ const TreatmentComparison = (props) => {
                   <tr>
                       <th>Procedure</th>
                       <td className={ isVisible }>Removal of the tumor, keeping as much of the breast as possible</td>
-                      <td>Removal of the breast with the tumor (with or without reconstruction). <a href="#" onClick={ () => toggleBilateral(!show_bilateral) }>Bilateral mastectomy</a> is the removal of both breasts</td>
+                      <td>Removal of the breast with the tumor (with or without reconstruction). <a href="#/" onClick={ () => toggleBilateral(!show_bilateral) }>Bilateral mastectomy</a> is the removal of both breasts</td>
                       <td className={ show_bilateral ? "d-block" : "d-none" }>Removal of the breast with the tumor and the other breast (with or without reconstruction)</td>
                   </tr>
                   <tr>
