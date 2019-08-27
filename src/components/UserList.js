@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import TextInput from './TextInput';
-import { exists } from '../helpers/utilities';
 
 class UserList extends Component {
   constructor(props) {

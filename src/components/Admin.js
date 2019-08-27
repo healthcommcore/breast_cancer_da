@@ -5,7 +5,6 @@ import store from "store";
 import Alert from "react-bootstrap/Alert";
 import { Redirect } from "react-router-dom";
 import UserDataForm from './UserDataForm';
-import UserDataFields from './UserDataFields';
 import UserList from './UserList';
 import Modal from 'react-bootstrap/Modal';
 

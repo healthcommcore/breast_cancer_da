@@ -16,7 +16,7 @@
 // React, React-router, CSS
 import React, { Component } from "react";
 import "./App.css";
-import { Router, Route, Redirect, withRouter } from "react-router-dom";
+import { Route, Redirect, withRouter } from "react-router-dom";
 import { createBrowserHistory } from "history";
 import ReactGA from "react-ga";
 

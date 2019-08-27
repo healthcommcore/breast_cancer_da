@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import store from "store";
 import NextButton from "./NextButton";
 import { animateScroll } from "react-scroll";
-import { exists } from "../helpers/utilities";
 
 const TreatmentComparison = (props) => {
   const user = store.get("user");
