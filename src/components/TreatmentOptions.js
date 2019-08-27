@@ -10,7 +10,7 @@ import "react-accessible-accordion/dist/fancy-example.css";
 
 const TreatmentOptions = (props) => {
   const user = store.get("user");
-  const [isVisible, setVisible] = useState(user.lump ? "visible" : "remove-from-view");
+  const [isVisible] = useState(user.lump ? "visible" : "remove-from-view");
 
   useEffect(() => {
     animateScroll.scrollToTop({ duration: 100 });

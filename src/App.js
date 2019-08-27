@@ -1,3 +1,18 @@
+/**
+ * Main applicaiton entry point
+ *
+ * Author: Dave Rothfarb
+ * Project: Consuder breast cancer decision aid
+ * Health Communication Core 2019
+ *
+ * This is the App component that gets loaded in the
+ * React index.js file. It contains all the routes to each
+ * section of the decision aid as well as the master state
+ * which keeps track of all user input from each section. 
+ * There is also code to pass the user ID for Google Analytics
+ * user tracking and code for session timeout that isn't actually
+ * used. I kept it in just in case.
+ */
 // React, React-router, CSS
 import React, { Component } from "react";
 import "./App.css";

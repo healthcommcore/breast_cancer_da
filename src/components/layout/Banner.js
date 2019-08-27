@@ -10,7 +10,7 @@ const Banner = (props) => {
         <div className="row">
           <div className="col-md-3">
             <a href="/">
-              <img className="img-fluid" src={ logo } srcSet={ logo2x } retina_logo_url={ logo2x } />
+              <img className="img-fluid" alt="Young and Strong logo" src={ logo } srcSet={ logo2x } retina_logo_url={ logo2x } />
             </a>
           </div>
           <div className="col-md-3 offset-md-6">
