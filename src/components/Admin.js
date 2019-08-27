@@ -127,8 +127,6 @@ class Admin extends Component {
           rows: updated_rows
         });
         this.clearFields();
-    {/*
-    */}
       })
       .catch( (error) => {
         console.log(error);
@@ -167,9 +165,6 @@ class Admin extends Component {
       .catch( (error) => {
         console.log(error);
       });
-    {/*
-    */}
-
     this.handleModalClose();
   }
 
