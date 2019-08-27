@@ -10,7 +10,7 @@ AccordionItemBody
 
 const OtherProceduresAccordion = (props) => {
   const user = store.get("user");
-  const [isVisible, setVisible] = useState(user.lump ? "visible" : "remove-from-view");
+  const [isVisible] = useState(user.lump ? "visible" : "remove-from-view");
     return (
         <Accordion>
             <AccordionItem>

@@ -7,8 +7,8 @@ import { exists } from "../helpers/utilities";
 const TreatmentComparison = (props) => {
   const user = store.get("user");
   const [show_bilateral, toggleBilateral] = useState(false);
-  const [isVisible, setVisible] = useState(user.lump ? "visible" : "remove-from-view");
-  const [isNextVisible, setNext] = useState(props.showNext ? "visible" : "remove-from-view");
+  const [isVisible] = useState(user.lump ? "visible" : "remove-from-view");
+  const [isNextVisible] = useState(props.showNext ? "visible" : "remove-from-view");
 
   useEffect(() => {
     animateScroll.scrollToTop({ duration: 100 });
