@@ -15,7 +15,7 @@ const Banner = (props) => {
           </div>
           <div className="col-md-3 offset-md-6">
             <a target="_blank" rel="noopener noreferrer" href="https://www.dana-farber.org">
-              <img className="img-fluid" src={ dfci } />
+              <img className="img-fluid" alt="Dana-Farber Cancer Institute logo" src={ dfci } />
             </a>
           </div>
         </div>
