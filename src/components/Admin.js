@@ -79,14 +79,12 @@ class Admin extends Component {
   }
 
   produceAlerts = (data) => {
-    let alertObj = {};
     const alerts = this.compileAlerts(data);
-    let toArr = [];
-    alerts.map( (alert) => {
-      toArr.push(this.state.checkFields[alert]);
+    const allAlerts = alerts.map( (alert) => {
+      return this.state.checkFields[alert];
     });
-    alertObj = {
-      alertContent: toArr,
+    const alertObj = {
+      alertContent: allAlerts,
       show: true,
       text: "Please enter the user's ",
       variant: "danger"
@@ -165,20 +163,21 @@ class Admin extends Component {
       .catch( (error) => {
         console.log(error);
       });
-
     this.handleModalClose();
   }
 
   filterFields = (submittedFields) => {
+  {/*
+  */}
     const updatedUser = this.initializePasswordField(submittedFields);
     const originalUser = this.state.userUpdate;
     updatedUser.id = submittedFields.id;
-    const keys = Object.keys(originalUser);
-    keys.map( (key) => {
+    for (const key in originalUser) {
       if( submittedFields[key] !== originalUser[key]) {
         updatedUser[key] = submittedFields[key];
       }
-    });
+    }
+    return updatedUser;
   }
 
   clearFields = () => {
