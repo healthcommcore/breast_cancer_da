@@ -182,9 +182,9 @@ class Admin extends Component {
 
   clearFields = () => {
     let cleared = this.state.checkFields;
-    Object.keys(cleared).map( (key) => {
+    for (let key in cleared) {
       cleared[key] = "";
-    });
+    }
     this.setState({ userUpdate: cleared });
   }
 
