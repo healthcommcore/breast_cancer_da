@@ -2,13 +2,12 @@ import React, { useState, useEffect } from "react";
 import store from "store";
 import NextButton from "./NextButton";
 import { animateScroll } from "react-scroll";
-import { exists } from "../helpers/utilities";
 
 const TreatmentComparison = (props) => {
   const user = store.get("user");
   const [show_bilateral, toggleBilateral] = useState(false);
-  const [isVisible, setVisible] = useState(user.lump ? "visible" : "remove-from-view");
-  const [isNextVisible, setNext] = useState(props.showNext ? "visible" : "remove-from-view");
+  const [isVisible] = useState(user.lump ? "visible" : "remove-from-view");
+  const [isNextVisible] = useState(props.showNext ? "visible" : "remove-from-view");
 
   useEffect(() => {
     animateScroll.scrollToTop({ duration: 100 });
@@ -31,7 +30,7 @@ const TreatmentComparison = (props) => {
                   <tr>
                       <th>Procedure</th>
                       <td className={ isVisible }>Removal of the tumor, keeping as much of the breast as possible</td>
-                      <td>Removal of the breast with the tumor (with or without reconstruction). <a href="#" onClick={ () => toggleBilateral(!show_bilateral) }>Bilateral mastectomy</a> is the removal of both breasts</td>
+                      <td>Removal of the breast with the tumor (with or without reconstruction). <a href="#/" onClick={ () => toggleBilateral(!show_bilateral) }>Bilateral mastectomy</a> is the removal of both breasts</td>
                       <td className={ show_bilateral ? "d-block" : "d-none" }>Removal of the breast with the tumor and the other breast (with or without reconstruction)</td>
                   </tr>
                   <tr>

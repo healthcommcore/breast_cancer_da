@@ -13,7 +13,7 @@ import {
 
 const MastectomyAccordion = (props) => {
 	const user = store.get("user");
-	const [isVisible, setVisible] = useState(user.lump ? "visible" : "remove-from-view");
+	const [isVisible] = useState(user.lump ? "visible" : "remove-from-view");
     return (
       <Accordion>
           
@@ -63,11 +63,12 @@ const MastectomyAccordion = (props) => {
               </AccordionItemTitle>
               <AccordionItemBody>
                   <p>After a mastectomy, the risk of the breast cancer returning in the <strong>treated</strong> breast and chest wall area over the next 5 years is about <strong>2 to 4%.</strong> This means that, on average, about <strong>2 to 4 of every 100 women</strong> who choose this treatment for their breast cancer will have their breast cancer come back in their treated breast and chest wall area. </p>
-									<p className="accordion-container"><img className="content-img" src={ mastTreated } srcSet={ mastTreated2x } /></p>
+									<p className="accordion-container"><img className="content-img" alt="Illustration showing 100 women with 4 of them highlighted" src={ mastTreated } srcSet={ mastTreated2x } /></p>
                  
     
                   <p>After a mastectomy, the risk of breast cancer developing in the <strong>unaffected (other)</strong> breast in the next 5 years is about <strong>2 to 3%.</strong> This means that, on average, about <strong>2 to 3 of every 100 women</strong> who choose this treatment for their breast cancer will develop cancer in their other breast.</p> 
-									<p className="accordion-container"><img className="content-img" src={ mastUnaffected } srcSet={ mastUnaffected2x } /></p>
+    
+									<p className="accordion-container"><img className="content-img" alt="Illustration showing 100 women, 3 of which are highlighted" src={ mastUnaffected } srcSet={ mastUnaffected2x } /></p>
 									<p className={ isVisible }><strong>This 2 to 3% risk of breast cancer developing in the other breast is the same whether a woman has a lumpectomy or mastectomy.</strong></p>
                  
 									<p className={ isVisible }>The risk of cancer coming back in another part of the body is the same whether you have a lumpectomy or a mastectomy.</p>
@@ -105,7 +106,7 @@ There are genetic changes (mutations) that may increase your risk of developing 
     <p>The surgery will leave scars on the breast skin that will fade over time. </p>
 		<p>With a bilateral mastectomy, the appearance of your breasts/breast area will be symmetrical (both sides will look the same).</p> 
     <p>Some women choose to have breast reconstruction to help restore the look and feel of their removed breasts. Reconstruction may be done at the same time as the mastectomy (immediate) or later (delayed). Learn more about breast reconstruction in the section below (under "Other procedures").</p>
-    <p>Women who do not have breast reconstruction may choose to be fitted for breast prostheses (or breast forms made of silicone gel, foam, or other materials) that can be placed in a bra and worn under clothes. <a href="https://www.dana-farber.org/for-patients-and-families/care-and-treatment/support-services-and-amenities/friends-place/services-and-programs/breast-prostheses-and-bras/" target="_blank"> Learn more about prostheses. </a></p>
+    <p>Women who do not have breast reconstruction may choose to be fitted for breast prostheses (or breast forms made of silicone gel, foam, or other materials) that can be placed in a bra and worn under clothes. <a href="https://www.dana-farber.org/for-patients-and-families/care-and-treatment/support-services-and-amenities/friends-place/services-and-programs/breast-prostheses-and-bras/" rel="noopener noreferrer" target="_blank"> Learn more about prostheses. </a></p>
     <p>Some women don’t want additional surgery or to deal with special bras, magnets, or adhesive patches that hold prostheses in place. They choose no reconstruction and don’t wear breast forms. </p>
     <p>The decision to reconstruct or not is very personal. There is no "right way" to approach mastectomy and reconstruction (or lack of it). There is only the way that is best for you, your preferences, and your healing. </p>
                           </AccordionItemBody>

@@ -4,13 +4,11 @@ import TreatmentComparison from "./TreatmentComparison";
 import { animateScroll } from "react-scroll";
 import ValuesResponse from "./ValuesResponse";
 import values_content from "../helpers/values_content.json";
-import worry_content from "../helpers/worry_content.json";
 import next_steps_content from "../helpers/next_steps_content.json";
 import { exists, toInt } from "../helpers/utilities";
 
 const Summary = (props) => {
   const values_resp = props.data.values || "";
-  const worry_resp = props.data.worry || "";
   const next_resp = props.data.next || "";
   const user = store.get("user");
 

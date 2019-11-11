@@ -32,13 +32,10 @@ class Login extends Component {
   }
 
   fieldsAreEmpty = (...fields) => {
-    let result = false;
-    fields[0].map( (field) => {
-      if (field === "") {
-        return result = true;
-      }
+    const areFieldsEmpty = fields[0].some( (field) => {
+      return field === "";
     });
-    return result;
+    return areFieldsEmpty;
   }
 
   showFieldEmptyError = (values) => {
