@@ -1,8 +1,8 @@
-const url = "https://api.";
+const url = "http://api.";
 const hosts = {
-  local: "bcda.dr809.test",
-  dev: "bcda.hccdev.org",
-  hccupdate: "bcda.hccupdate.org",
+  local: "consyderdecisiontool.dr809.test",
+  dev: "consyderdecisiontool.hccdev.org",
+  hccupdate: "consyderdecisiontool.hccupdate.org",
   prod: "consyderdecisiontool.org"
 }
 

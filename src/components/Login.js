@@ -70,7 +70,7 @@ class Login extends Component {
       .catch( (error) => {
         this.setState({
           show: true,
-          alertContent: "Error! " + error
+          alertContent: error
         });
         console.log(error);
       });
@@ -114,7 +114,7 @@ class Login extends Component {
           show={ this.state.show }
           onClose={ this.onClose }
         >
-          { this.state.alertContent.map( (alert, i) => {
+          { this.state.alertContent.length > 0 && this.state.alertContent.map( (alert, i) => {
             return <p key={i}>{ alert }</p>
           })} 
         </Alert>
