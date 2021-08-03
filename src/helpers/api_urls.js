@@ -1,4 +1,4 @@
-const url = "http://api.";
+const url = "https://api.";
 const hosts = {
   local: "consyderdecisiontool.dr809.test",
   dev: "consyderdecisiontool.hccdev.org",
